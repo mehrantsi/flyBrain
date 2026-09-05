@@ -1,0 +1,1700 @@
+{
+  "schema": "flybrain-world-v2",
+  "model": "NeuroMechFly",
+  "physics": "MuJoCo",
+  "timestep_seconds": 0.0001,
+  "counts": {
+    "qpos": 133,
+    "dofs": 132,
+    "bodies": 71,
+    "joints": 127,
+    "actuators": 56,
+    "sensors": 6,
+    "cameras": 4
+  },
+  "neutral_qpos": [
+    0.496,
+    0.0,
+    2.1,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.296706,
+    0.331613,
+    0.575959,
+    -2.42601,
+    -0.261799,
+    1.36136,
+    -0.174533,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.174533,
+    0.139626,
+    1.51844,
+    -2.42601,
+    0.261799,
+    1.79769,
+    -0.349066,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    0.0523599,
+    0.418879,
+    2.33874,
+    -1.93732,
+    0.0698132,
+    1.76278,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.296706,
+    0.331613,
+    0.575959,
+    -2.42601,
+    -0.261799,
+    1.36136,
+    -0.174533,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.174533,
+    0.139626,
+    1.51844,
+    -2.42601,
+    0.261799,
+    1.79769,
+    -0.349066,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    0.0523599,
+    0.418879,
+    2.33874,
+    -1.93732,
+    0.0698132,
+    1.76278,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665,
+    -0.0872665
+  ],
+  "neutral_control": [
+    -0.296706,
+    0.331613,
+    0.575959,
+    -2.42601,
+    -0.261799,
+    1.36136,
+    -0.174533,
+    -0.174533,
+    0.139626,
+    1.51844,
+    -2.42601,
+    0.261799,
+    1.79769,
+    -0.349066,
+    0.0523599,
+    0.418879,
+    2.33874,
+    -1.93732,
+    0.0698132,
+    1.76278,
+    -0.0872665,
+    -0.296706,
+    0.331613,
+    0.575959,
+    -2.42601,
+    -0.261799,
+    1.36136,
+    -0.174533,
+    -0.174533,
+    0.139626,
+    1.51844,
+    -2.42601,
+    0.261799,
+    1.79769,
+    -0.349066,
+    0.0523599,
+    0.418879,
+    2.33874,
+    -1.93732,
+    0.0698132,
+    1.76278,
+    -0.0872665,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actuators": [
+    {
+      "index": 0,
+      "name": "fly/c_thorax-lf_coxa-yaw-position",
+      "joint_index": 61,
+      "joint_name": "fly/c_thorax-lf_coxa-yaw",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.296706
+    },
+    {
+      "index": 1,
+      "name": "fly/c_thorax-lf_coxa-pitch-position",
+      "joint_index": 62,
+      "joint_name": "fly/c_thorax-lf_coxa-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.331613
+    },
+    {
+      "index": 2,
+      "name": "fly/c_thorax-lf_coxa-roll-position",
+      "joint_index": 63,
+      "joint_name": "fly/c_thorax-lf_coxa-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.575959
+    },
+    {
+      "index": 3,
+      "name": "fly/lf_coxa-lf_trochanterfemur-pitch-position",
+      "joint_index": 64,
+      "joint_name": "fly/lf_coxa-lf_trochanterfemur-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -2.42601
+    },
+    {
+      "index": 4,
+      "name": "fly/lf_coxa-lf_trochanterfemur-roll-position",
+      "joint_index": 65,
+      "joint_name": "fly/lf_coxa-lf_trochanterfemur-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.261799
+    },
+    {
+      "index": 5,
+      "name": "fly/lf_trochanterfemur-lf_tibia-pitch-position",
+      "joint_index": 66,
+      "joint_name": "fly/lf_trochanterfemur-lf_tibia-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.36136
+    },
+    {
+      "index": 6,
+      "name": "fly/lf_tibia-lf_tarsus1-pitch-position",
+      "joint_index": 67,
+      "joint_name": "fly/lf_tibia-lf_tarsus1-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.174533
+    },
+    {
+      "index": 7,
+      "name": "fly/c_thorax-lm_coxa-yaw-position",
+      "joint_index": 72,
+      "joint_name": "fly/c_thorax-lm_coxa-yaw",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.174533
+    },
+    {
+      "index": 8,
+      "name": "fly/c_thorax-lm_coxa-pitch-position",
+      "joint_index": 73,
+      "joint_name": "fly/c_thorax-lm_coxa-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.139626
+    },
+    {
+      "index": 9,
+      "name": "fly/c_thorax-lm_coxa-roll-position",
+      "joint_index": 74,
+      "joint_name": "fly/c_thorax-lm_coxa-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.51844
+    },
+    {
+      "index": 10,
+      "name": "fly/lm_coxa-lm_trochanterfemur-pitch-position",
+      "joint_index": 75,
+      "joint_name": "fly/lm_coxa-lm_trochanterfemur-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -2.42601
+    },
+    {
+      "index": 11,
+      "name": "fly/lm_coxa-lm_trochanterfemur-roll-position",
+      "joint_index": 76,
+      "joint_name": "fly/lm_coxa-lm_trochanterfemur-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.261799
+    },
+    {
+      "index": 12,
+      "name": "fly/lm_trochanterfemur-lm_tibia-pitch-position",
+      "joint_index": 77,
+      "joint_name": "fly/lm_trochanterfemur-lm_tibia-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.79769
+    },
+    {
+      "index": 13,
+      "name": "fly/lm_tibia-lm_tarsus1-pitch-position",
+      "joint_index": 78,
+      "joint_name": "fly/lm_tibia-lm_tarsus1-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.349066
+    },
+    {
+      "index": 14,
+      "name": "fly/c_thorax-lh_coxa-yaw-position",
+      "joint_index": 83,
+      "joint_name": "fly/c_thorax-lh_coxa-yaw",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.0523599
+    },
+    {
+      "index": 15,
+      "name": "fly/c_thorax-lh_coxa-pitch-position",
+      "joint_index": 84,
+      "joint_name": "fly/c_thorax-lh_coxa-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.418879
+    },
+    {
+      "index": 16,
+      "name": "fly/c_thorax-lh_coxa-roll-position",
+      "joint_index": 85,
+      "joint_name": "fly/c_thorax-lh_coxa-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 2.33874
+    },
+    {
+      "index": 17,
+      "name": "fly/lh_coxa-lh_trochanterfemur-pitch-position",
+      "joint_index": 86,
+      "joint_name": "fly/lh_coxa-lh_trochanterfemur-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -1.93732
+    },
+    {
+      "index": 18,
+      "name": "fly/lh_coxa-lh_trochanterfemur-roll-position",
+      "joint_index": 87,
+      "joint_name": "fly/lh_coxa-lh_trochanterfemur-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.0698132
+    },
+    {
+      "index": 19,
+      "name": "fly/lh_trochanterfemur-lh_tibia-pitch-position",
+      "joint_index": 88,
+      "joint_name": "fly/lh_trochanterfemur-lh_tibia-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.76278
+    },
+    {
+      "index": 20,
+      "name": "fly/lh_tibia-lh_tarsus1-pitch-position",
+      "joint_index": 89,
+      "joint_name": "fly/lh_tibia-lh_tarsus1-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.0872665
+    },
+    {
+      "index": 21,
+      "name": "fly/c_thorax-rf_coxa-yaw-position",
+      "joint_index": 94,
+      "joint_name": "fly/c_thorax-rf_coxa-yaw",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.296706
+    },
+    {
+      "index": 22,
+      "name": "fly/c_thorax-rf_coxa-pitch-position",
+      "joint_index": 95,
+      "joint_name": "fly/c_thorax-rf_coxa-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.331613
+    },
+    {
+      "index": 23,
+      "name": "fly/c_thorax-rf_coxa-roll-position",
+      "joint_index": 96,
+      "joint_name": "fly/c_thorax-rf_coxa-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.575959
+    },
+    {
+      "index": 24,
+      "name": "fly/rf_coxa-rf_trochanterfemur-pitch-position",
+      "joint_index": 97,
+      "joint_name": "fly/rf_coxa-rf_trochanterfemur-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -2.42601
+    },
+    {
+      "index": 25,
+      "name": "fly/rf_coxa-rf_trochanterfemur-roll-position",
+      "joint_index": 98,
+      "joint_name": "fly/rf_coxa-rf_trochanterfemur-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.261799
+    },
+    {
+      "index": 26,
+      "name": "fly/rf_trochanterfemur-rf_tibia-pitch-position",
+      "joint_index": 99,
+      "joint_name": "fly/rf_trochanterfemur-rf_tibia-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.36136
+    },
+    {
+      "index": 27,
+      "name": "fly/rf_tibia-rf_tarsus1-pitch-position",
+      "joint_index": 100,
+      "joint_name": "fly/rf_tibia-rf_tarsus1-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.174533
+    },
+    {
+      "index": 28,
+      "name": "fly/c_thorax-rm_coxa-yaw-position",
+      "joint_index": 105,
+      "joint_name": "fly/c_thorax-rm_coxa-yaw",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.174533
+    },
+    {
+      "index": 29,
+      "name": "fly/c_thorax-rm_coxa-pitch-position",
+      "joint_index": 106,
+      "joint_name": "fly/c_thorax-rm_coxa-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.139626
+    },
+    {
+      "index": 30,
+      "name": "fly/c_thorax-rm_coxa-roll-position",
+      "joint_index": 107,
+      "joint_name": "fly/c_thorax-rm_coxa-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.51844
+    },
+    {
+      "index": 31,
+      "name": "fly/rm_coxa-rm_trochanterfemur-pitch-position",
+      "joint_index": 108,
+      "joint_name": "fly/rm_coxa-rm_trochanterfemur-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -2.42601
+    },
+    {
+      "index": 32,
+      "name": "fly/rm_coxa-rm_trochanterfemur-roll-position",
+      "joint_index": 109,
+      "joint_name": "fly/rm_coxa-rm_trochanterfemur-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.261799
+    },
+    {
+      "index": 33,
+      "name": "fly/rm_trochanterfemur-rm_tibia-pitch-position",
+      "joint_index": 110,
+      "joint_name": "fly/rm_trochanterfemur-rm_tibia-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.79769
+    },
+    {
+      "index": 34,
+      "name": "fly/rm_tibia-rm_tarsus1-pitch-position",
+      "joint_index": 111,
+      "joint_name": "fly/rm_tibia-rm_tarsus1-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.349066
+    },
+    {
+      "index": 35,
+      "name": "fly/c_thorax-rh_coxa-yaw-position",
+      "joint_index": 116,
+      "joint_name": "fly/c_thorax-rh_coxa-yaw",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.0523599
+    },
+    {
+      "index": 36,
+      "name": "fly/c_thorax-rh_coxa-pitch-position",
+      "joint_index": 117,
+      "joint_name": "fly/c_thorax-rh_coxa-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.418879
+    },
+    {
+      "index": 37,
+      "name": "fly/c_thorax-rh_coxa-roll-position",
+      "joint_index": 118,
+      "joint_name": "fly/c_thorax-rh_coxa-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 2.33874
+    },
+    {
+      "index": 38,
+      "name": "fly/rh_coxa-rh_trochanterfemur-pitch-position",
+      "joint_index": 119,
+      "joint_name": "fly/rh_coxa-rh_trochanterfemur-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -1.93732
+    },
+    {
+      "index": 39,
+      "name": "fly/rh_coxa-rh_trochanterfemur-roll-position",
+      "joint_index": 120,
+      "joint_name": "fly/rh_coxa-rh_trochanterfemur-roll",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 0.0698132
+    },
+    {
+      "index": 40,
+      "name": "fly/rh_trochanterfemur-rh_tibia-pitch-position",
+      "joint_index": 121,
+      "joint_name": "fly/rh_trochanterfemur-rh_tibia-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": 1.76278
+    },
+    {
+      "index": 41,
+      "name": "fly/rh_tibia-rh_tarsus1-pitch-position",
+      "joint_index": 122,
+      "joint_name": "fly/rh_tibia-rh_tarsus1-pitch",
+      "control_range": [
+        -3.14,
+        3.14
+      ],
+      "neutral_control": -0.0872665
+    },
+    {
+      "index": 42,
+      "name": "fly/lf_tarsus5-adhesion",
+      "joint_index": 30,
+      "joint_name": "fly/r_pedicel-r_funiculus-roll",
+      "control_range": [
+        0.0,
+        1.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 43,
+      "name": "fly/lm_tarsus5-adhesion",
+      "joint_index": 38,
+      "joint_name": "fly/c_abdomen12-c_abdomen3-pitch",
+      "control_range": [
+        0.0,
+        1.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 44,
+      "name": "fly/lh_tarsus5-adhesion",
+      "joint_index": 46,
+      "joint_name": "fly/c_abdomen5-c_abdomen6-yaw",
+      "control_range": [
+        0.0,
+        1.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 45,
+      "name": "fly/rf_tarsus5-adhesion",
+      "joint_index": 54,
+      "joint_name": "fly/c_thorax-r_wing-pitch",
+      "control_range": [
+        0.0,
+        1.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 46,
+      "name": "fly/rm_tarsus5-adhesion",
+      "joint_index": 62,
+      "joint_name": "fly/c_thorax-lf_coxa-pitch",
+      "control_range": [
+        0.0,
+        1.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 47,
+      "name": "fly/rh_tarsus5-adhesion",
+      "joint_index": 70,
+      "joint_name": "fly/lf_tarsus3-lf_tarsus4-pitch",
+      "control_range": [
+        0.0,
+        1.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 48,
+      "name": "fly/c_head-c_rostrum-pitch-feeding-position",
+      "joint_index": 5,
+      "joint_name": "fly/c_head-c_rostrum-pitch",
+      "control_range": [
+        -1.0,
+        0.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 49,
+      "name": "fly/c_rostrum-c_haustellum-pitch-feeding-position",
+      "joint_index": 8,
+      "joint_name": "fly/c_rostrum-c_haustellum-pitch",
+      "control_range": [
+        -1.0,
+        0.0
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 50,
+      "name": "fly/c_thorax-l_wing-yaw-flight-position",
+      "joint_index": 49,
+      "joint_name": "fly/c_thorax-l_wing-yaw",
+      "control_range": [
+        -1.5,
+        1.5
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 51,
+      "name": "fly/c_thorax-l_wing-pitch-flight-position",
+      "joint_index": 51,
+      "joint_name": "fly/c_thorax-l_wing-pitch",
+      "control_range": [
+        -1.27,
+        2.92
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 52,
+      "name": "fly/c_thorax-l_wing-roll-flight-position",
+      "joint_index": 50,
+      "joint_name": "fly/c_thorax-l_wing-roll",
+      "control_range": [
+        -1.0,
+        1.5
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 53,
+      "name": "fly/c_thorax-r_wing-yaw-flight-position",
+      "joint_index": 52,
+      "joint_name": "fly/c_thorax-r_wing-yaw",
+      "control_range": [
+        -1.5,
+        1.5
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 54,
+      "name": "fly/c_thorax-r_wing-pitch-flight-position",
+      "joint_index": 54,
+      "joint_name": "fly/c_thorax-r_wing-pitch",
+      "control_range": [
+        -1.27,
+        2.92
+      ],
+      "neutral_control": 0.0
+    },
+    {
+      "index": 55,
+      "name": "fly/c_thorax-r_wing-roll-flight-position",
+      "joint_index": 53,
+      "joint_name": "fly/c_thorax-r_wing-roll",
+      "control_range": [
+        -1.0,
+        1.5
+      ],
+      "neutral_control": 0.0
+    }
+  ],
+  "sensors": [
+    {
+      "index": 0,
+      "name": "ground_contact_lf_leg",
+      "address": 0,
+      "dimension": 16,
+      "type": 42
+    },
+    {
+      "index": 1,
+      "name": "ground_contact_lm_leg",
+      "address": 16,
+      "dimension": 16,
+      "type": 42
+    },
+    {
+      "index": 2,
+      "name": "ground_contact_lh_leg",
+      "address": 32,
+      "dimension": 16,
+      "type": 42
+    },
+    {
+      "index": 3,
+      "name": "ground_contact_rf_leg",
+      "address": 48,
+      "dimension": 16,
+      "type": 42
+    },
+    {
+      "index": 4,
+      "name": "ground_contact_rm_leg",
+      "address": 64,
+      "dimension": 16,
+      "type": 42
+    },
+    {
+      "index": 5,
+      "name": "ground_contact_rh_leg",
+      "address": 80,
+      "dimension": 16,
+      "type": 42
+    }
+  ],
+  "cameras": [
+    "room_camera",
+    "fly/trackingcam",
+    "fly/l_eye_cam_camera",
+    "fly/r_eye_cam_camera"
+  ],
+  "environment": {
+    "food_center": [
+      1.1,
+      0.0,
+      0.25
+    ],
+    "taste_radius": 0.75,
+    "taste_source_body": "fly/c_haustellum"
+  },
+  "brain_body_interface": {
+    "feeding_actuator": "fly/c_head-c_rostrum-pitch-feeding-position",
+    "feeding_joint": "fly/c_head-c_rostrum-pitch",
+    "feeding_actuators": [
+      "fly/c_head-c_rostrum-pitch-feeding-position",
+      "fly/c_rostrum-c_haustellum-pitch-feeding-position"
+    ],
+    "feeding_joints": [
+      "fly/c_head-c_rostrum-pitch",
+      "fly/c_rostrum-c_haustellum-pitch"
+    ],
+    "control_range": [
+      -1.0,
+      0.0
+    ],
+    "full_extension_control": -1.0,
+    "full_extension_pose": {
+      "fly/c_head-c_rostrum-pitch": -0.9,
+      "fly/c_rostrum-c_haustellum-pitch": 0.65
+    },
+    "neural_readout": "contralateral MN9 spikes"
+  },
+  "retina": {
+    "schema": "flygym-retina-v1",
+    "height": 512,
+    "width": 450,
+    "ommatidia_per_eye": 721,
+    "fovy_degrees": 157.0,
+    "fisheye_distortion_coefficient": 3.8,
+    "fisheye_zoom": 2.72,
+    "covered_pixels": 170288,
+    "pale_ommatidia": 216,
+    "yellow_ommatidia": 505,
+    "files": {
+      "ommatidia_id_map_u16le.bin": "82fd3e818cec4c7b83694f9134a427fde843ec70312202f6ef056deadbf20898",
+      "pale_mask_u8.bin": "794a24cfa43e518e18ad5e723f7e5fe1f0bc2de91029dd0a095c989545a8f7aa"
+    },
+    "source": {
+      "repository": "https://github.com/NeLy-EPFL/flygym",
+      "tag": "v2.1.0",
+      "commit": "ca65a510c2afe6ac61c51df4f274c8d190c2f95f",
+      "license": "Apache-2.0",
+      "fisheye_lineage": "Gil-Mor/iFish (MIT), via FlyGym Retina"
+    }
+  },
+  "habitat": {
+    "schema": "flybrain-habitat-v2",
+    "units": {
+      "length": "millimeter",
+      "time": "second",
+      "mass": "gram",
+      "odor_concentration": "isobutylene-equivalent ppm"
+    },
+    "room": {
+      "half_extents_mm": [
+        300.0,
+        220.0,
+        110.0
+      ],
+      "open_ceiling": false,
+      "front_doorway_width_mm": 0.0,
+      "flight_altitude_bounds_mm": [
+        5.0,
+        208.0
+      ]
+    },
+    "airflow_mm_s": [
+      35.0,
+      8.0,
+      0.0
+    ],
+    "resources": [
+      {
+        "id": "sugar_drop",
+        "kind": "sugar",
+        "geom": "food_patch",
+        "position": [
+          1.1,
+          0.0,
+          0.25
+        ],
+        "movable": true,
+        "taste_radius_mm": 0.75,
+        "odor_source_ppm": 0.0,
+        "odor_length_mm": 22.0,
+        "taste_valence": 1.0,
+        "nutrition": 1.0,
+        "hydration": 0.15
+      },
+      {
+        "id": "banana",
+        "kind": "ripe_fruit",
+        "geom": "resource_banana",
+        "position": [
+          32.0,
+          18.0,
+          1.6
+        ],
+        "movable": false,
+        "taste_radius_mm": 2.6,
+        "odor_source_ppm": 12.0,
+        "odor_length_mm": 95.0,
+        "taste_valence": 0.9,
+        "nutrition": 0.8,
+        "hydration": 0.3
+      },
+      {
+        "id": "orange_half",
+        "kind": "citrus",
+        "geom": "resource_orange",
+        "position": [
+          -48.0,
+          38.0,
+          6.5
+        ],
+        "movable": false,
+        "taste_radius_mm": 7.5,
+        "odor_source_ppm": 3.0,
+        "odor_length_mm": 85.0,
+        "taste_valence": 0.65,
+        "nutrition": 0.55,
+        "hydration": 0.7
+      },
+      {
+        "id": "apple",
+        "kind": "fruit",
+        "geom": "resource_apple",
+        "position": [
+          105.0,
+          70.0,
+          58.0
+        ],
+        "movable": false,
+        "taste_radius_mm": 9.5,
+        "odor_source_ppm": 3.0,
+        "odor_length_mm": 105.0,
+        "taste_valence": 0.75,
+        "nutrition": 0.7,
+        "hydration": 0.5
+      },
+      {
+        "id": "fermenting_juice",
+        "kind": "ferment",
+        "geom": "resource_ferment",
+        "position": [
+          151.0,
+          62.0,
+          55.2
+        ],
+        "movable": false,
+        "taste_radius_mm": 8.0,
+        "odor_source_ppm": 32.0,
+        "odor_length_mm": 165.0,
+        "taste_valence": 0.72,
+        "nutrition": 0.45,
+        "hydration": 0.55
+      },
+      {
+        "id": "water_dish",
+        "kind": "water",
+        "geom": "resource_water",
+        "position": [
+          -58.0,
+          -34.0,
+          0.7
+        ],
+        "movable": false,
+        "taste_radius_mm": 7.0,
+        "odor_source_ppm": 0.0,
+        "odor_length_mm": 22.0,
+        "taste_valence": 0.25,
+        "nutrition": 0.0,
+        "hydration": 1.0
+      },
+      {
+        "id": "yeast_culture",
+        "kind": "yeast",
+        "geom": "resource_yeast",
+        "position": [
+          -178.0,
+          145.0,
+          73.2
+        ],
+        "movable": false,
+        "taste_radius_mm": 6.5,
+        "odor_source_ppm": 12.0,
+        "odor_length_mm": 145.0,
+        "taste_valence": 0.85,
+        "nutrition": 0.9,
+        "hydration": 0.35
+      }
+    ],
+    "sensory_model": {
+      "odor": "bilateral antenna food-volatile concentration from deterministic advected Gaussian plumes",
+      "taste": "haustellum distance to resource taste radius",
+      "vision": "FlyGym v2.1.0 721-ommatidium retina"
+    }
+  },
+  "aerodynamics": {
+    "schema": "flybrain-aerodynamics-v1",
+    "model": {
+      "name": "mujoco_ellipsoid",
+      "backend": "mujoco_ellipsoid",
+      "version": 1,
+      "strips_per_wing": 12,
+      "wings": [
+        "left",
+        "right"
+      ],
+      "force_frame": "world",
+      "input_frame": "wing_body_local_then_world",
+      "relative_velocity": "wing_strip_velocity_minus_air_velocity",
+      "dynamic_pressure": "MuJoCo passive ellipsoid fluid model",
+      "strip_force": "legacy translational_quasi_steady backend only",
+      "strip_moment": "legacy translational_quasi_steady backend only",
+      "air_velocity_mm_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "force_application": "MuJoCo qfrc_fluid from massless wing ellipsoid geoms; no xfrc_applied wing forces",
+      "fluid_geom_names": [
+        "fly/l_wing-fluid",
+        "fly/r_wing-fluid"
+      ],
+      "fluidcoef": [
+        1.0,
+        0.5,
+        1.5,
+        1.7,
+        1.0
+      ],
+      "flight_pose": {
+        "body_pitch_deg": 47.5,
+        "stroke_plane_deg": 0.0,
+        "physics_timestep_seconds": 0.0001,
+        "source_physics_timestep_seconds": 5e-05,
+        "timestep_note": "Project retains 0.1 ms physics steps for brain coupling; FlyBody flight used 0.05 ms.",
+        "frame_construction": "inverse(stroke_plane_quat) * side_seed * inverse(hover_up_dir_quat)",
+        "left_seed_quat_wxyz": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "right_seed_quat_wxyz": [
+          0.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "child_geometry_compensation": "child_pos_new=R(frame_delta)*child_pos_old; child_quat_new=frame_delta*child_quat_old",
+        "child_world_pose_preserved_at_zero_qpos": true,
+        "wing_inertial": {
+          "shape": "box",
+          "size_mm": [
+            0.005,
+            0.551,
+            1.14
+          ],
+          "mass_g": 8e-06,
+          "visual_mesh_mass_g": 0.0
+        }
+      },
+      "wing_axis_convention": {
+        "source_joint_order": [
+          "yaw",
+          "roll",
+          "pitch"
+        ],
+        "project_control_order": [
+          "yaw",
+          "pitch",
+          "roll"
+        ],
+        "physical_joint_order": [
+          "yaw",
+          "roll",
+          "pitch"
+        ],
+        "physical_local_axes": {
+          "yaw": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "pitch": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "roll": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "wingbeat": {
+      "frequency_hz": 218.0,
+      "waveform": {
+        "type": "flybody_fourier",
+        "fourier": {
+          "harmonics": 12,
+          "sample_count": 500,
+          "source_columns": [
+            "yaw",
+            "roll",
+            "pitch"
+          ],
+          "project_axes": [
+            "yaw",
+            "pitch",
+            "roll"
+          ],
+          "coefficient_convention": "angle(axis, phase) = offset + sum(cos[n]*cos(n*phase) + sin[n]*sin(n*phase)); phase is cycles at the published beat frequency",
+          "offset_rad_by_axis": {
+            "yaw": 0.2667408625651733,
+            "pitch": 0.7098054524403997,
+            "roll": -0.07969168443104718
+          },
+          "cos_rad_by_axis": {
+            "yaw": [
+              -1.110020234723597,
+              0.00041351606752853344,
+              0.00017743778405809253,
+              0.007245806765362904,
+              0.0013568851737310616,
+              -0.0005504137324180327,
+              -7.06994032319681e-05,
+              -8.929527130068494e-05,
+              -5.813975891718926e-05,
+              -4.402487810158817e-05,
+              -3.659562613246514e-05,
+              -3.0759794888155055e-05
+            ],
+            "pitch": [
+              0.24498525175426708,
+              0.012495116788635102,
+              -0.03852153249498288,
+              -0.05328898489831781,
+              -0.07273301505642894,
+              -0.0028682440534176477,
+              -0.0107665273708411,
+              0.0025011578049027143,
+              0.0025727397727394194,
+              -0.0005284672357956239,
+              0.0003176298473175159,
+              -0.00011234803263023174
+            ],
+            "roll": [
+              0.12678766851779583,
+              -0.12043349544497547,
+              -0.026506326281778136,
+              -0.010561858544534227,
+              0.006664703133313017,
+              0.0019616684922447118,
+              0.0007648173484449128,
+              0.000159207141519369,
+              -9.047821619195595e-06,
+              9.742664067321271e-06,
+              -2.5049025683210326e-06,
+              -1.729728013103271e-05
+            ]
+          },
+          "sin_rad_by_axis": {
+            "yaw": [
+              0.17248159611057973,
+              -0.05280469604831586,
+              -0.011223862843380545,
+              -0.007304691885879464,
+              9.279358985743613e-05,
+              0.0008044024647975334,
+              5.1808329669334796e-05,
+              -7.95694401527669e-06,
+              -2.7456042324587316e-06,
+              -8.526402713329162e-07,
+              5.420787593628518e-07,
+              1.0973980674222617e-06
+            ],
+            "pitch": [
+              1.2698841955107578,
+              0.023185366991070936,
+              0.31201821880036873,
+              0.009938095651727622,
+              0.046574038243800533,
+              -0.004618361800226735,
+              -0.008256323557472803,
+              0.0024791343317761053,
+              -0.0009066339507721963,
+              0.0018914530766202873,
+              0.0010230227423384264,
+              0.0008622154846170567
+            ],
+            "roll": [
+              0.04346522868137503,
+              -0.002156244389678868,
+              -0.019049664727013152,
+              -0.021276289909613975,
+              -0.004675550547731955,
+              -0.0015796370457946622,
+              0.00044761602794944725,
+              -0.00018362833328255414,
+              -6.194703845350702e-06,
+              -8.77681243296573e-05,
+              -4.6546550268043775e-05,
+              -5.713771944223023e-05
+            ]
+          },
+          "provenance": {
+            "source_file": "datasets_flight-imitation/wing_pattern_fmech.npy",
+            "source_sha256": "f97b975ef1b5adbe42c208ea9665f3c37fa432914f56f3943f1697cdb090d1ce",
+            "doi": "10.1038/s41586-025-09029-4",
+            "figshare_doi": "10.25378/janelia.25309105.v4",
+            "data_license": "GPL-3.0-or-later",
+            "license_url": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "flybody_commit": "d015e9bfe441bd90ae431bac24c55cb74bdbce26",
+            "fit_error": {
+              "max_abs_error_rad": 0.017364532933537014,
+              "rmse_rad": 0.0012589461548715177,
+              "per_axis": {
+                "yaw": {
+                  "max_abs_error_rad": 0.00038481736264128763,
+                  "rmse_rad": 4.791640661808275e-05,
+                  "source_min_rad": -0.8353915810585022,
+                  "source_max_rad": 1.412380337715149,
+                  "fit_min_rad": -0.8350067636958609,
+                  "fit_max_rad": 1.4123453512121855
+                },
+                "pitch": {
+                  "max_abs_error_rad": 0.017364532933537014,
+                  "rmse_rad": 0.0021761489749785104,
+                  "source_min_rad": -0.5607882738113403,
+                  "source_max_rad": 2.150608539581299,
+                  "fit_min_rad": -0.5603163981405955,
+                  "fit_max_rad": 2.1516626125953184
+                },
+                "roll": {
+                  "max_abs_error_rad": 0.0011070461882772137,
+                  "rmse_rad": 0.00013006121356549873,
+                  "source_min_rad": -0.3195450007915497,
+                  "source_max_rad": 0.15412189066410065,
+                  "fit_min_rad": -0.31955556940948476,
+                  "fit_max_rad": 0.1540700773966092
+                }
+              }
+            }
+          }
+        }
+      },
+      "joint_order": [
+        "yaw",
+        "pitch",
+        "roll"
+      ],
+      "phase_rad_by_side": {
+        "left": 0.0,
+        "right": 0.0
+      },
+      "center_rad_by_axis": {
+        "yaw": 0.2667408625651733,
+        "pitch": 0.7098054524403997,
+        "roll": -0.07969168443104718
+      },
+      "amplitude_rad_by_axis": {
+        "yaw": 1.1456275200033488,
+        "pitch": 1.4419302633770026,
+        "roll": 0.23987129870905105
+      },
+      "mirror_roll_for_right": false,
+      "joint_ranges_rad": {
+        "yaw": [
+          -1.5,
+          1.5
+        ],
+        "pitch": [
+          -1.27,
+          2.92
+        ],
+        "roll": [
+          -1.0,
+          1.5
+        ]
+      },
+      "joint_dynamics": {
+        "yaw": {
+          "stiffness": 1.0,
+          "damping": 0.776923,
+          "armature": 0.0001
+        },
+        "pitch": {
+          "stiffness": 1.0,
+          "damping": 0.776923,
+          "armature": 0.0001
+        },
+        "roll": {
+          "stiffness": 1.0,
+          "damping": 0.776923,
+          "armature": 0.0001
+        }
+      },
+      "engineering_conversion": {
+        "source": "FlyBody wing_pattern_fmech.npy compact Fourier fit",
+        "length_scale_source_to_nmf": 10.0,
+        "position_gain_scale": 100.0,
+        "task_gainprm_source": [
+          18.0,
+          18.0,
+          18.0
+        ],
+        "task_stiffness_source": 0.01,
+        "task_damping_source": 0.00776923,
+        "task_armature_source": 1e-06,
+        "task_gainprm_nmf": [
+          1800.0,
+          1800.0,
+          1800.0
+        ],
+        "task_stiffness_nmf": 1.0,
+        "task_damping_nmf": 0.776923,
+        "task_armature_nmf": 0.0001,
+        "joint_axis_convention": "FlyBody wing yaw=z, pitch=y, roll=x; project actuator API remains yaw,pitch,roll.",
+        "note": "Published source columns yaw,roll,pitch are projected to the project API order yaw,pitch,roll; physical hinge axes follow FlyBody while XML actuator names/order remain project order."
+      },
+      "smoke_fixture": {
+        "frequency_hz": 20.0,
+        "amplitude_rad_by_axis": {
+          "yaw": 0.15,
+          "pitch": 0.1,
+          "roll": 0.05
+        },
+        "purpose": "actuator and rendering smoke test only; not a flight command"
+      },
+      "status": "published FlyBody waveform compressed to twelve harmonics; not a free-flight validation"
+    },
+    "actuators": [
+      {
+        "index": 50,
+        "name": "fly/c_thorax-l_wing-yaw-flight-position",
+        "joint": "fly/c_thorax-l_wing-yaw",
+        "side": "left",
+        "axis": "yaw",
+        "axis_local": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "control_semantics": "desired_joint_angle_rad",
+        "ctrlrange_rad": [
+          -1.5,
+          1.5
+        ],
+        "joint_range_rad": [
+          -1.5,
+          1.5
+        ],
+        "springref_rad": 1.5,
+        "position_gain": 1800.0,
+        "flybody_gain": 18.0,
+        "gain_conversion_factor": 100.0,
+        "joint_stiffness": 1.0,
+        "joint_damping": 0.776923,
+        "joint_armature": 0.0001,
+        "source": "FlyBody flight-task wing defaults, converted for NMF mm-g-s dynamics"
+      },
+      {
+        "index": 51,
+        "name": "fly/c_thorax-l_wing-pitch-flight-position",
+        "joint": "fly/c_thorax-l_wing-pitch",
+        "side": "left",
+        "axis": "pitch",
+        "axis_local": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "control_semantics": "desired_joint_angle_rad",
+        "ctrlrange_rad": [
+          -1.27,
+          2.92
+        ],
+        "joint_range_rad": [
+          -1.27,
+          2.92
+        ],
+        "springref_rad": -1.0,
+        "position_gain": 1800.0,
+        "flybody_gain": 18.0,
+        "gain_conversion_factor": 100.0,
+        "joint_stiffness": 1.0,
+        "joint_damping": 0.776923,
+        "joint_armature": 0.0001,
+        "source": "FlyBody flight-task wing defaults, converted for NMF mm-g-s dynamics"
+      },
+      {
+        "index": 52,
+        "name": "fly/c_thorax-l_wing-roll-flight-position",
+        "joint": "fly/c_thorax-l_wing-roll",
+        "side": "left",
+        "axis": "roll",
+        "axis_local": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "control_semantics": "desired_joint_angle_rad",
+        "ctrlrange_rad": [
+          -1.0,
+          1.5
+        ],
+        "joint_range_rad": [
+          -1.0,
+          1.5
+        ],
+        "springref_rad": 0.7,
+        "position_gain": 1800.0,
+        "flybody_gain": 18.0,
+        "gain_conversion_factor": 100.0,
+        "joint_stiffness": 1.0,
+        "joint_damping": 0.776923,
+        "joint_armature": 0.0001,
+        "source": "FlyBody flight-task wing defaults, converted for NMF mm-g-s dynamics"
+      },
+      {
+        "index": 53,
+        "name": "fly/c_thorax-r_wing-yaw-flight-position",
+        "joint": "fly/c_thorax-r_wing-yaw",
+        "side": "right",
+        "axis": "yaw",
+        "axis_local": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "control_semantics": "desired_joint_angle_rad",
+        "ctrlrange_rad": [
+          -1.5,
+          1.5
+        ],
+        "joint_range_rad": [
+          -1.5,
+          1.5
+        ],
+        "springref_rad": 1.5,
+        "position_gain": 1800.0,
+        "flybody_gain": 18.0,
+        "gain_conversion_factor": 100.0,
+        "joint_stiffness": 1.0,
+        "joint_damping": 0.776923,
+        "joint_armature": 0.0001,
+        "source": "FlyBody flight-task wing defaults, converted for NMF mm-g-s dynamics"
+      },
+      {
+        "index": 54,
+        "name": "fly/c_thorax-r_wing-pitch-flight-position",
+        "joint": "fly/c_thorax-r_wing-pitch",
+        "side": "right",
+        "axis": "pitch",
+        "axis_local": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "control_semantics": "desired_joint_angle_rad",
+        "ctrlrange_rad": [
+          -1.27,
+          2.92
+        ],
+        "joint_range_rad": [
+          -1.27,
+          2.92
+        ],
+        "springref_rad": -1.0,
+        "position_gain": 1800.0,
+        "flybody_gain": 18.0,
+        "gain_conversion_factor": 100.0,
+        "joint_stiffness": 1.0,
+        "joint_damping": 0.776923,
+        "joint_armature": 0.0001,
+        "source": "FlyBody flight-task wing defaults, converted for NMF mm-g-s dynamics"
+      },
+      {
+        "index": 55,
+        "name": "fly/c_thorax-r_wing-roll-flight-position",
+        "joint": "fly/c_thorax-r_wing-roll",
+        "side": "right",
+        "axis": "roll",
+        "axis_local": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "control_semantics": "desired_joint_angle_rad",
+        "ctrlrange_rad": [
+          -1.0,
+          1.5
+        ],
+        "joint_range_rad": [
+          -1.0,
+          1.5
+        ],
+        "springref_rad": 0.7,
+        "position_gain": 1800.0,
+        "flybody_gain": 18.0,
+        "gain_conversion_factor": 100.0,
+        "joint_stiffness": 1.0,
+        "joint_damping": 0.776923,
+        "joint_armature": 0.0001,
+        "source": "FlyBody flight-task wing defaults, converted for NMF mm-g-s dynamics"
+      }
+    ],
+    "limitations": [
+      "Wing controls are an engineered six-DOF position interface; they are not recovered motor-neuron outputs.",
+      "FlyBody ranges and gains are transferred engineering parameters, not a measurement of the NMF animal.",
+      "The active backend is MuJoCo's published ellipsoid fluid model using the official thin FlyBody wing-fluid ellipsoids after unit and frame conversion.",
+      "The NMF visual wing mesh is retained massless around FlyBody's invisible 8 microgram box inertia, so appearance and flight collision geometry are still not the original FlyBody mesh.",
+      "The project keeps a 0.1 ms physics step for brain coupling; FlyBody flight used 0.05 ms, so this is not timestep-identical.",
+      "MuJoCo's ellipsoid model includes added mass, viscous drag, Magnus, Kutta, and viscous resistance terms; wake interaction is not modeled.",
+      "The coefficient fit is literature-derived and has not been identified or validated against this exported NMF mesh.",
+      "The twelve-strip discretization is a runtime approximation of the exported mesh, not a new biomechanical reconstruction.",
+      "No flight performance, stability, hover, takeoff, or landing claim follows from this asset alone.",
+      "The legacy translational_quasi_steady backend remains available for explicit comparison but is not selected by this artifact.",
+      "The published wing pattern is a twelve-harmonic fit with documented residual error, not a recovered motor-neuron waveform."
+    ]
+  },
+  "neural_io": {
+    "schema_version": 1,
+    "materialization": "783",
+    "annotation_release": "v2.1.0",
+    "annotation_commit": "ebd66db2596fcc39c6950fb54ea3efa00f7fe8a0",
+    "annotation_sha256": "30be6c73975a70c56d930e27911f36455d3886e15abf383b78edd2a5d679e0b6",
+    "artifact_sha256": "52ee0495374c121448b7736d8168ea6ac4dcc438582c0e76b68a62b7bb913faa",
+    "selection_provenance": "Selections are generated from exact TSV fields and are not inferred from morphology, connectivity, or engineered body mappings."
+  },
+  "policy_artifacts": {
+    "source_directory": "/Users/mehran/dev/flyBrain/assets/neuromechfly",
+    "files": {
+      "flybody_flight_policy_v1.json": {
+        "bytes": 4406,
+        "sha256": "77a863cb7bed090f87de3e771e4811fd442aad2e1bf76c9f5ecbed361396ecd4"
+      },
+      "flybody_flight_policy_v1.f32le": {
+        "bytes": 648240,
+        "sha256": "be45518017681e1233f872f497abaeef5de23f1dea97e73f5a77a0f05fabd44d"
+      },
+      "flybody_flight_policy_fixture_v1.json": {
+        "bytes": 8317,
+        "sha256": "afadd162c9e1ba8a83808c7fd9e8748463ae2aa7e572ef6b085f60c1cc92b2ae"
+      }
+    }
+  },
+  "source": {
+    "repository": "https://github.com/NeLy-EPFL/flygym",
+    "tag": "v2.1.0",
+    "commit": "ca65a510c2afe6ac61c51df4f274c8d190c2f95f",
+    "license": "Apache-2.0"
+  },
+  "files": {
+    "LICENSE-FLYGYM": "02afa15750a169f0815ff1525dacf28d010f1dfd4cb119fc9e96bfca4f426eb4",
+    "aerodynamics.json": "834f5dbda6b41c1fa8baba87c02e9c03e77d68f886d8470e460c88ea20e39434",
+    "c_abdomen12.stl": "656b60100c06b0a8eb2dfbd201b12cac5eb31ffec6bf9c6c4ff3f97d14376371",
+    "c_abdomen3.stl": "264af5ede95bfcb11720219b31c76141a0921394f7c46e7fb7fb6b7066880f3b",
+    "c_abdomen4.stl": "662bbc3af32a987511af04e437d02c40e99840960809f5020abe9ec91b226ca4",
+    "c_abdomen5.stl": "87d1de98ad39ba52c096e0fd3b4860ae3a0aadeb4be46cac824e9b2501be6c48",
+    "c_abdomen6.stl": "748dda76a46554fd1743113eaafdf0dc2d10546095f5420406745e0eb47f87fb",
+    "c_haustellum.stl": "babceb7a6adf0c88e8de6ce9810c32b397d3d1cdd073c0b1bea1df9d8c6ac4e9",
+    "c_head.stl": "39c51acbdf5957af95e294fa485cd7602103ca83bf451e95e29d251bd43765b6",
+    "c_rostrum.stl": "4ed0fa33c5867013482011e2ff656b71189f2b29dfb0bda2b0797961d95d12e4",
+    "c_thorax.stl": "b7fac1a3bcbad2100d063bae2ae6e81217e808f3c32564763ee7e43ec3904969",
+    "fly.xml": "dc4b13e3cad341c8c06276d164e940503e4ed9954a0a2bf15720ea44a2835ecb",
+    "flight_system_id_targets_v1.json": "ddfadfed3b696c4e418bc71a47540a3584da93a10f048f487dd96669b971e34a",
+    "flybody_flight_policy_fixture_v1.json": "afadd162c9e1ba8a83808c7fd9e8748463ae2aa7e572ef6b085f60c1cc92b2ae",
+    "flybody_flight_policy_v1.f32le": "be45518017681e1233f872f497abaeef5de23f1dea97e73f5a77a0f05fabd44d",
+    "flybody_flight_policy_v1.json": "77a863cb7bed090f87de3e771e4811fd442aad2e1bf76c9f5ecbed361396ecd4",
+    "flywire_v783_neural_io.json": "52ee0495374c121448b7736d8168ea6ac4dcc438582c0e76b68a62b7bb913faa",
+    "habitat.json": "b6525a321f3f971185f0e5481d3221e3b3d69fe8a0214a4190cf90bc338b92a3",
+    "simulation_parameters_baseline_v1.json": "b7f748e5616a61078986989c9212c7ce4ee6b319aa4c2439659108a7649f1cb0",
+    "l_arista.stl": "6201af1cbe213ee6e259a6d89df65080f9cb9d806e6526cbcc7c5f1ae793f97c",
+    "l_eye.stl": "08ce40c3264c9ab87703b6c013eae39d1bc48fa3e4cf02aec06d529c94e70daf",
+    "l_funiculus.stl": "d2a6d35751922fb8b1ce07b269bc432f33d7f8f6d243b2dd1801e021b91d8156",
+    "l_haltere.stl": "13d77fcca66fca90db5cf00b33a7369ae80366fe39974df3667e709882e64ed6",
+    "l_pedicel.stl": "6de0f06e57c78f8738f67c0c52b85e74cb105789497a4183944e90211d3a4bf4",
+    "l_wing.stl": "142f77f15008fd75e1490b546bb859cf98c056121f1abd65acea2052c4e7764c",
+    "lf_coxa.stl": "bff053bfee772796dae2b396aa0e3be12919b7fb1ee33b5fde369bec00944b64",
+    "lf_tarsus1.stl": "29085dda732699c4a3110458303adf2eec667f7db6e42166d408c260ae6acf5e",
+    "lf_tarsus2.stl": "996735c15a7e8e0c022babf5500224fa6e23de0e277305279d4b6787d56335d8",
+    "lf_tarsus3.stl": "166044083a5a4a0e8b7db91cdd71ef0ea0e3feb18f1630955156de14931d9495",
+    "lf_tarsus4.stl": "c90d8c6ebd0e2384a45524944e4fb2e02ba413be26ee04bc5030b2afb5876943",
+    "lf_tarsus5.stl": "93b048052461fa756a767608418ec90e537435a1ff282f2a393faa45ba60ae73",
+    "lf_tibia.stl": "8138fe5f1fc52588dca6677bb338d39451813ac96159f78d6cf677eba73f3862",
+    "lf_trochanterfemur.stl": "50e4e7baf2852a369f0dda2a2c9708a68c45893b3019a79dd74799e8e2ea64c9",
+    "lh_coxa.stl": "ad3a10789b8bd5e0f3db2667a1fe373ffdb83cfc876b34d60508e9e34a51366d",
+    "lh_tarsus1.stl": "61af16259215525e092d61426b874c7855485a9c7cfa91eecfc2fe99281a2dc6",
+    "lh_tarsus2.stl": "da796bc3ad5d355b9e941aeeb6ad96c7fb00dee7421995605dcc81cd6fd7af12",
+    "lh_tarsus3.stl": "08280c942abf91279e86414d064f39cae2b46ba9f62845252a9763d0839fabe5",
+    "lh_tarsus4.stl": "623f9059236af1327770f6f8e5e4fb8dc87930c49f5559c36d3d4245f51f7678",
+    "lh_tarsus5.stl": "1b86c811928d0a6e04c693b9a213f06c0f7a037584252fc8f35d408be1bf87e8",
+    "lh_tibia.stl": "2853873ade9abeb35da5f1a6c822d223bbe19a50d8ed77921bb77743b4782a60",
+    "lh_trochanterfemur.stl": "8e6b7ee8c4f6c388b64250086acc952c10abd469ac7bf0fb7015c2837e53d423",
+    "lm_coxa.stl": "01a6f4f4147b7cd308f0a1db79786694632c9fe5a3425b5e3454a7fa7624897b",
+    "lm_tarsus1.stl": "b7f50bfe1e75dfa65110a4f80e0216858a7a75712115b04605f344c8e837b1ae",
+    "lm_tarsus2.stl": "2dbb000ae11ef58de0023ccbdbfc8f1c5ff7b7517824a58d3e204f3ee00770c4",
+    "lm_tarsus3.stl": "8f1814f0054382e037279f04d0bb998e36ccaabd57ec418d35dd6f7e47bd51bb",
+    "lm_tarsus4.stl": "3f2881bd6f1fdb445bf01c00cac53c9a1b30388cd3fdc1b327704c60f138bf03",
+    "lm_tarsus5.stl": "3e9a76e4c0c4e829705271846f93a3aa056a0e87bc99996519722eeb841c1b70",
+    "lm_tibia.stl": "dc1ad6da6db91ba703150e6150f59a498f9dbd311b1ec0678da3f896c421dab5",
+    "lm_trochanterfemur.stl": "9619105028e5006d891b12dfced77aafa3c41a599edbf49d14691907ce2eb502",
+    "tripod_gait.json": "95e0042dd726ec620f161d1f9cb9f773292cd50596fb41392ab0ec950a4859a3",
+    "vision/manifest.json": "3f905bec36f1c9a14feff3c70364da4148f771e44281f1a034c4bfc59bde20e3",
+    "vision/ommatidia_id_map_u16le.bin": "82fd3e818cec4c7b83694f9134a427fde843ec70312202f6ef056deadbf20898",
+    "vision/pale_mask_u8.bin": "794a24cfa43e518e18ad5e723f7e5fe1f0bc2de91029dd0a095c989545a8f7aa",
+    "textures/README.md": "4c21fa206eac2f68b73b3191f66cca027a96a7e250a718a3d08f4f7778d885ba",
+    "textures/oak-v1.png": "fc7a9ab0357c28f5dae9442399ae7eb8cc3a19360dbb131a190504423b11c69e"
+  }
+}

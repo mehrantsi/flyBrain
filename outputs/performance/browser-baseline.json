@@ -1,0 +1,16 @@
+{
+  "measurement_note": "Initial exploratory run: another paused app tab was still rendering. Do not use this as the matched baseline; use browser-rendered-baseline.json.",
+  "mode": "full-CNS, no observer, no supplied retinal frames",
+  "windows": 1000,
+  "simulation_seconds": 2,
+  "realtime": 0.12669843208011436,
+  "step_ms_mean": 15.688969985961915,
+  "step_ms_p95": 20.265000343322754,
+  "gpu_encode_ms_mean": 0.06958001518249511,
+  "gpu_wait_ms_mean": 12.707099996566772,
+  "brain_ms_mean": 13.16237999699998,
+  "final_spikes": 2071162,
+  "state_fnv32": 2772891067,
+  "state_checksum_definition": "FNV-1a of JSON.stringify([qpos,qvel,total_spikes]); diagnostic checksum, not a cryptographic proof",
+  "physics_warnings": [0,0,0,0,0,0,0]
+}

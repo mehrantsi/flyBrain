@@ -1,0 +1,42 @@
+{
+  "dt_ms": 0.1,
+  "duration_ms": 1000.0,
+  "elapsed_seconds": 4.005594584159553,
+  "materialization": "630",
+  "missing_stimulus_ids": [],
+  "model_parameters": {
+    "delay_ms": 1.8,
+    "dt_ms": 0.1,
+    "membrane_tau_ms": 20.0,
+    "poisson_rate_2_hz": 0.0,
+    "poisson_rate_hz": 150.0,
+    "poisson_weight_scale": 250,
+    "refractory_ms": 2.2,
+    "reset_mv": -52.0,
+    "resting_mv": -52.0,
+    "synapse_tau_ms": 5.0,
+    "synapse_weight_mv": 0.275,
+    "threshold_mv": -45.0
+  },
+  "output_array_sha256": {
+    "firing_rates_hz.npy": "72a30fb838983a4ddcc06ae82677c1e988d849e2c865d06b5c85c6df28bd2431",
+    "neuron_ids.npy": "28646f46c809ecb28fe2dd2df12dec1068ab0defd99ec9b2553ae304493f7461",
+    "spike_counts.npy": "cb22175032760812051f298e8971376cd534a2bef74a4626db4a51ec13adeb31"
+  },
+  "peak_memory_bytes": 102285408,
+  "propagation": "metal",
+  "realtime_factor": 4.005594584159553,
+  "schema_version": 1,
+  "seed": 20260816,
+  "source_array_sha256": {
+    "destinations.npy": "2e13acda02f4930cae50b13cf1f7c1ca7ba9c4e3408e52cd07759de4f4fe452b",
+    "neuron_ids.npy": "28646f46c809ecb28fe2dd2df12dec1068ab0defd99ec9b2553ae304493f7461",
+    "row_ptr.npy": "b1947fe7f4774a74d04df163925c7c8c5d6f50599683ee13c20a56bfb7a5849c",
+    "signed_counts.npy": "2ddc21fabb426227196d7cd45b5ec6a26f03f9d92b751745b75484637f942031"
+  },
+  "steps": 10000,
+  "stimulus": "right_sugar_grns",
+  "stimulus_rate_hz": 150.0,
+  "stimulus_target_count": 21,
+  "total_spikes": 16509
+}

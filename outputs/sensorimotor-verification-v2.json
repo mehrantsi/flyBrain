@@ -1,0 +1,18 @@
+{
+  "schema": "flybrain-sensorimotor-verification-v1",
+  "manifest": "outputs/world/flybrain-world-mn9-v2.json",
+  "mn9_response_latency_ms": 32.00000000000039,
+  "checks": {
+    "render_schema_v2": true,
+    "brain_enabled": true,
+    "mn9_id_exact_string": true,
+    "sensory_ids_are_exact_strings": true,
+    "external_events_present": true,
+    "mn9_spikes_present": true,
+    "taste_precedes_mn9": true,
+    "rostrum_command_engaged": true,
+    "fly_remains_at_food": true,
+    "feeding_actuator_present": true
+  },
+  "passed": true
+}

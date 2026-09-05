@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlyBrain WebGPU neural QA</title>
+  <style>
+    :root { color-scheme: dark; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: #10141c; color: #e8edf6; }
+    body { max-width: 980px; margin: 32px auto; padding: 0 20px; }
+    button { padding: 10px 14px; margin-right: 10px; background: #225b9a; border: 0; border-radius: 5px; color: white; font: inherit; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: wait; }
+    pre { min-height: 300px; padding: 16px; overflow: auto; border: 1px solid #344054; border-radius: 6px; background: #070a10; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>FlyBrain WebGPU neural QA</h1>
+  <p>Runs the real WebGPU neural engine against the checked-in tiny parity fixture and independent float64 reference schedules.</p>
+  <button id="run">Run WebGPU QA</button>
+  <pre id="results">Ready.</pre>
+  <script type="module" src="./neural-test.js"></script>
+</body>
+</html>

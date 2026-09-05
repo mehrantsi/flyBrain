@@ -1,0 +1,14 @@
+{
+  "name": "flybrain",
+  "account_id": "27f59462492dee86a0c2b9a8929f2e13",
+  "compatibility_date": "2026-04-08",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "flybrain.mehran.dk", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "../work/cloudflare/public",
+    "not_found_handling": "none"
+  }
+}

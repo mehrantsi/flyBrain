@@ -1,0 +1,9 @@
+{
+  "rust_library_tests":{"passed":255,"failed":0,"metal_access":true},
+  "webgpu_qa":{"passed":7,"failed":0,"large_burst_sources":65537,"uneven_fanout_edges":769,"signed_weight_extremes":[-32768,32767],"burst_synapse_weight_mv":0.25},
+  "retinal_readings":{"exact_reference_comparison":"all 721 ommatidia, four synthetic patterns","pinned_display_sha256":"1a8bd29f8c09b13f3e1e8808b01200c743eaa93026b52f305acb4ae0687abd7a"},
+  "wasm_smoke":{"frames":11,"physics_warnings":0,"maximum_qpos_delta_from_previous_smoke":0,"maximum_qvel_delta_from_previous_smoke":0},
+  "scene_tests":"PASS: normals, camera zoom, binocular row layout, asynchronous eye pairing, pending frames and in-flight disposal",
+  "builds":{"browser_wasm":"PASS","native_world_release":"PASS"},
+  "measurement_note":"GPU-timestamp profiling is optional because it affects throughput; it is disabled in the normal live viewer."
+}

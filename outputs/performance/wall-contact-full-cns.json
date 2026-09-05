@@ -1,0 +1,28 @@
+{
+  "runtime": "Rebuilt Rust/MuJoCo WASM, full MaleCNS WebGPU connectome, binocular sensory rendering",
+  "model_sha256": "dc4b13e3cad341c8c06276d164e940503e4ed9954a0a2bf15720ea44a2835ecb",
+  "simulated_seconds": 60.00000000086826,
+  "control_windows": 30000,
+  "realtime_factor": 0.3804380408031125,
+  "state_sha256": "d506063d9c61113286387adeee8cd8b58ea0096349e0b817aeee398c718a4f99",
+  "total_spikes": 64065397,
+  "final_position_mm": [
+    -175.85488671206235,
+    22.43697900061664,
+    186.38842675894531
+  ],
+  "physics_warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "sampled_wall_landing_frames": 0,
+  "sampled_wall_grounded_frames": 0,
+  "sampled_food_touchdown_seconds": 5.4,
+  "sampled_post_food_takeoff_seconds": 11,
+  "note": "This integration run checks model loading, food landing/departure and continued CNS flight, not wall touchdown: no wall landing was requested in this run. Wall touchdown/mesh clearance is verified separately in the six native real-MuJoCo regression cases. Runtime timing is not a matched performance comparison."
+}

@@ -1,0 +1,14 @@
+{
+  "runtime":"final optimized runtime, no observer or retinal frames",
+  "gpu_timestamps":false,
+  "control_windows":1000,
+  "simulated_seconds":1.9999999999997962,
+  "realtime_factor":0.5622336416975783,
+  "step_ms":{"mean":3.526914994239807,"p50":3.344999313354492,"p95":5.09999942779541},
+  "brain_ms_mean":1.882655020000003,
+  "gpu_wait_ms_mean":1.6766849851608276,
+  "encoding_ms_mean":0.03321500110626221,
+  "state_sha256":"cea2324cc5a5923854f279c41e07ea48487836f9531882132836d7133a6125da",
+  "total_spikes":2071162,
+  "physics_warnings":[0,0,0,0,0,0,0]
+}

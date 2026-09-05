@@ -1,0 +1,65 @@
+[package]
+name = "flybrain-engine"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Native Rust and Metal runtime for the FlyWire Drosophila connectome model"
+license = "MIT"
+
+[lib]
+path = "rust/src/lib.rs"
+
+[[bin]]
+name = "flybrain-rs"
+path = "rust/src/main.rs"
+
+[[bin]]
+name = "flybrain-world"
+path = "rust/src/world_main.rs"
+
+[[bin]]
+name = "cns-numerics"
+path = "rust/src/bin/cns_numerics.rs"
+
+[[bin]]
+name = "flybrain-browser"
+path = "rust/src/bin/flybrain_browser.rs"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+
+[target.'cfg(target_os = "emscripten")'.dependencies.mujoco-rs]
+path = "vendor/mujoco-rs"
+
+[target.'cfg(target_os = "macos")'.dependencies.mujoco-rs]
+path = "vendor/mujoco-rs"
+features = ["viewer-ui", "renderer-winit-fallback"]
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = { version = "=0.6.4", default-features = false, features = ["std"] }
+objc2-foundation = { version = "=0.3.2", default-features = false, features = ["std", "NSString"] }
+objc2-metal = { version = "=0.3.2", default-features = false, features = [
+  "std",
+  "MTLTypes",
+  "MTLAllocation",
+  "MTLResource",
+  "MTLBuffer",
+  "MTLDevice",
+  "MTLCommandQueue",
+  "MTLCommandBuffer",
+  "MTLCommandEncoder",
+  "MTLComputeCommandEncoder",
+  "MTLComputePipeline",
+  "MTLLibrary",
+] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+[patch.crates-io]
+glutin = { git = "https://github.com/davidhozic/glutin", rev = "e95fe97f1857c0498ed2236c0e8d60e5a30a2854" }

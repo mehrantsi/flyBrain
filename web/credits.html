@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlyBrain · Data and licenses</title>
+<style>
+  body { max-width: 760px; margin: 64px auto; padding: 0 24px; color: #e1e0d9; background: #101214; font: 16px/1.6 system-ui; }
+  a { color: #9cc5c4; } h1,h2 { line-height: 1.2; } h2 { margin-top: 36px; font-size: 21px; }
+</style>
+<a href="/">← FlyBrain</a>
+<h1>Data and licenses</h1>
+<p>FlyBrain combines a connectome-derived spiking model with an engineered body and sensorimotor interface. It is not a recovered individual fly or a biologically validated reconstruction of its behavior.</p>
+<h2>Original foundation</h2>
+<p>FlyBrain began with <a href="https://doi.org/10.1038/s41586-024-07763-9">Shiu et al.'s 2024 computational brain model</a> and the <a href="https://github.com/philshiu/Drosophila_brain_model">Drosophila_brain_model repository</a>: a Brian2 leaky integrate-and-fire model using female FAFB/FlyWire wiring, initially v630 and then v783. The original code is copyright Philip Shiu and Nico Spiller, 2023, under <a href="/licenses/Drosophila_brain_model.txt">MIT</a>. FlyGym/NeuroMechFly supplied the body and senses, with FlyBody flight components added later. MaleCNS is a subsequent, separate dataset integration.</p>
+<p>Rust/Metal/WebGPU execution, numerical verification, the room, and the neural/body interface are FlyBrain engineering. They are not upstream biological validation or a port of Eon's unpublished integration.</p>
+<h2>Connectome</h2>
+<p><a href="https://male-cns.janelia.org/">MaleCNS v1.0</a>, from the MaleCNS collaboration and Janelia Research Campus, is available under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. This model selects annotated neurons, converts known-transmitter directed edges to signed CSR arrays, and omits edges with unsupported transmitter labels. Attribution, source URLs, selection rules, omitted counts and hashes are retained in the <a href="/pack/manifest.json">pack provenance</a>. Download chunking does not alter the arrays.</p>
+<p>Bundled legacy FlyWire v783 neural-I/O annotations derive from the FlyWire community's public annotations, under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>, and were selected into candidate input/output groups. They are distinct from the MaleCNS simulation pack. Credit to the Princeton FlyWire team, Murthy and Seung labs, and community contributors; see the <a href="https://home.flywire.ai/guidelines">FlyWire citation and data-use guidelines</a>.</p>
+<h2>Body, physics and rendering</h2>
+<ul>
+  <li><a href="https://github.com/NeLy-EPFL/flygym">FlyGym / NeuroMechFly</a>: articulated body, gait and retina assets, modified here for the room, appearance and engineered embodiment. <a href="/licenses/FlyGym.txt">Apache 2.0 license</a>.</li>
+  <li><a href="https://github.com/google-deepmind/mujoco">MuJoCo 3.9.0</a>: physics, compiled to WebAssembly. <a href="/licenses/MuJoCo.txt">Apache 2.0 license</a>.</li>
+  <li><a href="https://github.com/TuragaLab/flybody">FlyBody</a>: code, wing geometry and fluid-model lineage under <a href="/licenses/FlyBody.txt">Apache 2.0</a>. Its separately released <a href="https://doi.org/10.25378/janelia.25309105.v4">flight datasets and trained policies</a> are <a href="/licenses/GPL-3.0.txt">GPL-3.0-or-later</a>, including the source of the fitted wing waveform used here. The standalone policy weights are not shipped in this browser bundle.</li>
+  <li><a href="https://github.com/Gil-Mor/iFish">Gil-Mor/iFish</a>: fisheye implementation lineage via FlyGym Retina, under <a href="/licenses/iFish.txt">MIT</a>.</li>
+  <li><a href="https://github.com/davidhozic/mujoco-rs">mujoco-rs</a>: patched Rust bindings. <a href="/licenses/mujoco-rs.txt">License</a>.</li>
+  <li>Three.js 0.180.0: browser rendering. <a href="/licenses/Three.js.txt">MIT license</a>.</li>
+</ul>
+<h2>Scientific references</h2>
+<ul>
+  <li>Shiu et al. (2024). <a href="https://doi.org/10.1038/s41586-024-07763-9">A Drosophila computational brain model reveals sensorimotor processing</a>.</li>
+  <li>Dorkenwald et al. (2024). <a href="https://doi.org/10.1038/s41586-024-07558-y">Neuronal wiring diagram of an adult brain</a>.</li>
+  <li>Schlegel et al. (2024). <a href="https://doi.org/10.1038/s41586-024-07686-5">Whole-brain annotation and multi-connectome cell typing of Drosophila</a>.</li>
+  <li>Lobato-Rios et al. (2022). <a href="https://doi.org/10.1038/s41592-022-01466-7">NeuroMechFly, a neuromechanical model of adult Drosophila melanogaster</a>.</li>
+  <li>Wang-Chen et al. (2024). <a href="https://doi.org/10.1038/s41592-024-02497-y">NeuroMechFly v2: simulating embodied sensorimotor control in adult Drosophila</a>.</li>
+  <li>Vaxenburg et al. (2025). <a href="https://doi.org/10.1038/s41586-025-09029-4">Whole-body physics simulation of fruit fly locomotion</a>.</li>
+  <li>MaleCNS collaboration (2026). <a href="https://www.cell.com/cell/fulltext/S0092-8674%2826%2900942-6">Sexual dimorphism in the complete connectome of the Drosophila male central nervous system</a>.</li>
+</ul>
+<h2>Additional notices</h2>
+<p>Original FlyBrain code is MIT; the combined code/data bundle is not uniformly MIT-licensed. FlyWire's noncommercial terms and the flight dataset's GPL terms remain separate from the code licenses. License notices alone do not establish compliance for every possible redistribution. <a href="/licenses/CC-BY-4.0.txt">CC BY 4.0 text</a> · <a href="/licenses/CC-BY-NC-4.0.txt">CC BY-NC 4.0 text</a>.</p>
+<p><a href="/licenses/FlyBrain.txt">FlyBrain license</a> · <a href="/licenses/Rust-dependencies.txt">Rust dependency notices</a> · <a href="/licenses/ccd.txt">libccd</a> · <a href="/licenses/lodepng.txt">LodePNG</a> · <a href="/licenses/miniz.txt">miniz</a> · <a href="/licenses/qhull.txt">Qhull</a> · <a href="/licenses/tinyobjloader.txt">tinyobjloader</a> · <a href="/licenses/tinyxml2.txt">TinyXML-2</a></p>
+</html>

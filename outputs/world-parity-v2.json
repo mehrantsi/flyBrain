@@ -1,0 +1,14 @@
+{
+  "schema": "flybrain-world-parity-v2",
+  "steps": 1000,
+  "time_seconds": 0.10000000000000184,
+  "rust_python_time_abs_error": 0.0,
+  "qpos_max_abs_error": 0.0,
+  "qvel_max_abs_error": 0.0,
+  "contact_max_abs_error": 0.0,
+  "python_qpos_sha256_f64le": "5c58ed55ef2f3fe3003ff6d55708f91b4d0a0abae5eae5c70f51e802ecb7e517",
+  "rust_qpos_sha256_f64le": "5c58ed55ef2f3fe3003ff6d55708f91b4d0a0abae5eae5c70f51e802ecb7e517",
+  "python_qvel_sha256_f64le": "4cb7b1ce06b18bc2ffaabb9a3b5a891072d429883537b554ec3e691e8143048a",
+  "rust_qvel_sha256_f64le": "4cb7b1ce06b18bc2ffaabb9a3b5a891072d429883537b554ec3e691e8143048a",
+  "exact": true
+}

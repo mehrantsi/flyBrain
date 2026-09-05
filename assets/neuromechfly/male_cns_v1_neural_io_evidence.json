@@ -1,0 +1,1112 @@
+{
+  "dataset": {
+    "annotation_commit": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+    "annotation_release": "MaleCNS v1.0",
+    "annotation_sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+    "annotation_source": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
+    "materialization": "male-cns-v1.0-superclass-non-null-known-nt",
+    "name": "MaleCNS v1.0 annotated sensorimotor I/O",
+    "pack_array_sha256": {
+      "destinations.npy": "3e61173a407dd01c23280782e13e9c619f2c33eac120585ab1ca4ad4a8286af9",
+      "neuron_ids.npy": "ddfa789213c8c5066400c026b65c112c267781c2e3ab380a39dd437866e704d6",
+      "row_ptr.npy": "b38878452b4871cdd8563f29463231dab67b61780a5ee540900811e3bbf41511",
+      "signed_counts.npy": "6b2b9918174273d67eaef951c2bfd72a25ae5a07d3c7861ab249c8ca7dd38421"
+    },
+    "pack_neuron_ids_sha256": "ddfa789213c8c5066400c026b65c112c267781c2e3ab380a39dd437866e704d6",
+    "pack_path": "outputs/packs/male_cns_v1",
+    "selection_provenance": "Selections are generated from exact MaleCNS v1.0 annotation fields and the published consensus_nt table; every source Feather hash is checked against the selected CSR pack. Unknown-side ORNs and unsupported histamine photoreceptors are retained as explicit exclusions in the supplemental evidence rather than assigned to a side or channel."
+  },
+  "evidence_references": [
+    {
+      "claim": "FlyWire/VFB classifies LB3 as an adult gustatory sugar/water receptor-neuron type.",
+      "source": "https://www.virtualflybrain.org/term/gng.2078-flywire720575940640649691-vfb_fw045435/"
+    },
+    {
+      "claim": "The apple-cider-vinegar food-odor profile is anchored to the published olfactory response study.",
+      "source": "https://doi.org/10.1038/nature07983"
+    },
+    {
+      "claim": "MaleCNS v1.0 download and licensing provenance.",
+      "source": "https://male-cns.janelia.org/download/"
+    }
+  ],
+  "excluded_inputs": [
+    {
+      "count": 406,
+      "name": "olfaction_unknown_root_side",
+      "reason": "No side assignment is present; these receptors are not silently grafted into left or right channels.",
+      "selector": "status == Traced and superclass == cb_sensory and class == olfactory and entryNerve == AN and type starts ORN_ and rootSide not in {L,R}"
+    },
+    {
+      "consensus_nt_counts": {
+        "histamine": 1394
+      },
+      "count": 1394,
+      "name": "compound_eye_R1-R6",
+      "reason": "Published consensus is histamine; MaleCNS CSR omits unknown/histamine outgoing edges, so no dead retinal input channel is exposed.",
+      "selector": "status == Traced and superclass == ol_sensory and type == R1-R6"
+    },
+    {
+      "count": 1,
+      "name": "feeding_mn9_right",
+      "reason": "The bridge's single feeding readout is bound to the left MN9 counterpart (10331); the right counterpart remains documented here rather than duplicated as a probe.",
+      "root_ids": [
+        16949
+      ],
+      "selector": "status == Traced and superclass == cb_motor and type == MN9 and somaSide == R and instance == MN9_R"
+    }
+  ],
+  "group_census": {
+    "feeding_mn9": {
+      "consensus_nt_counts": {
+        "acetylcholine": 1
+      },
+      "present_in_pack_count": 1,
+      "root_ids_sha256": "aa0e717e8f3acb9bf692f66bd85f2e57539fa32e61f2e8e8a8c3bfeebc82919a",
+      "selected_count": 1,
+      "selector": "status == Traced and superclass == cb_motor and type == MN9 and somaSide == L and instance == MN9_L",
+      "type_counts": {
+        "MN9": 1
+      }
+    },
+    "flight_dng02_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 15
+      },
+      "present_in_pack_count": 15,
+      "root_ids_sha256": "25a0beb7f24cc541a82d25a6d23fe7e1ce764bea6ccb1641a591725335da0fba",
+      "selected_count": 15,
+      "selector": "status == Traced and superclass == descending_neuron and type starts DNg02 and somaSide == {side}",
+      "type_counts": {
+        "DNg02_a": 5,
+        "DNg02_b": 3,
+        "DNg02_c": 2,
+        "DNg02_d": 1,
+        "DNg02_e": 1,
+        "DNg02_f": 1,
+        "DNg02_g": 2
+      }
+    },
+    "flight_dng02_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 14
+      },
+      "present_in_pack_count": 14,
+      "root_ids_sha256": "8ce706ae53a6c94e63af2cd76f12c23cf49d7972aa3cef9c47a3d618a918ce8a",
+      "selected_count": 14,
+      "selector": "status == Traced and superclass == descending_neuron and type starts DNg02 and somaSide == {side}",
+      "type_counts": {
+        "DNg02_a": 5,
+        "DNg02_b": 2,
+        "DNg02_c": 2,
+        "DNg02_d": 1,
+        "DNg02_e": 1,
+        "DNg02_f": 1,
+        "DNg02_g": 2
+      }
+    },
+    "flight_dng07_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 8
+      },
+      "present_in_pack_count": 8,
+      "root_ids_sha256": "026d9f10a607d84c81d0d25ace6c984e5fc984dd4762ee423c868e63368066ab",
+      "selected_count": 8,
+      "selector": "status == Traced and superclass == descending_neuron and type == DNg07 and somaSide == {side}",
+      "type_counts": {
+        "DNg07": 8
+      }
+    },
+    "flight_dng07_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 8
+      },
+      "present_in_pack_count": 8,
+      "root_ids_sha256": "e97f81117ad0acc8b2d7c269b2a0b926dbbb824952cd75a7775e50d52a4cbac4",
+      "selected_count": 8,
+      "selector": "status == Traced and superclass == descending_neuron and type == DNg07 and somaSide == {side}",
+      "type_counts": {
+        "DNg07": 8
+      }
+    },
+    "flight_state_sapp_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 75
+      },
+      "present_in_pack_count": 75,
+      "root_ids_sha256": "080d04c299e402fcbace6a9b78a832dffcc50d96f60d54f23700bc1cf6533454",
+      "selected_count": 75,
+      "selector": "status == Traced and superclass == sensory_ascending and subclass == haltere and type == SApp and rootSide == {side}",
+      "type_counts": {
+        "SApp": 75
+      }
+    },
+    "flight_state_sapp_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 73
+      },
+      "present_in_pack_count": 73,
+      "root_ids_sha256": "1e840f4e3ceb2e5f500da57553feaac45924ce58851fa2907848577dbb6509e6",
+      "selected_count": 73,
+      "selector": "status == Traced and superclass == sensory_ascending and subclass == haltere and type == SApp and rootSide == {side}",
+      "type_counts": {
+        "SApp": 73
+      }
+    },
+    "flight_steering_dn_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 5,
+        "glutamate": 1
+      },
+      "present_in_pack_count": 6,
+      "root_ids_sha256": "966bd69aa35f543d2062c0cdc28177ec63260609224b824a8b528fc44339f916",
+      "selected_count": 6,
+      "selector": "status == Traced and superclass == descending_neuron and type in {DNa03,DNa04,DNa15,DNb01,DNp03,DNp28} and somaSide == {side}",
+      "type_counts": {
+        "DNa03": 1,
+        "DNa04": 1,
+        "DNa15": 1,
+        "DNb01": 1,
+        "DNp03": 1,
+        "DNp28": 1
+      }
+    },
+    "flight_steering_dn_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 5,
+        "glutamate": 1
+      },
+      "present_in_pack_count": 6,
+      "root_ids_sha256": "f6e65d158b9f8a437b7982b91a0738d752fa418070732aba59a0e52851a98751",
+      "selected_count": 6,
+      "selector": "status == Traced and superclass == descending_neuron and type in {DNa03,DNa04,DNa15,DNb01,DNp03,DNp28} and somaSide == {side}",
+      "type_counts": {
+        "DNa03": 1,
+        "DNa04": 1,
+        "DNa15": 1,
+        "DNb01": 1,
+        "DNp03": 1,
+        "DNp28": 1
+      }
+    },
+    "landing_dn_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 2
+      },
+      "present_in_pack_count": 2,
+      "root_ids_sha256": "e75b2a8c6d2926628f27f0d5dda1ef8227a1a11cf5477d3bf8d46e10da183c0d",
+      "selected_count": 2,
+      "selector": "status == Traced and superclass == descending_neuron and type in {DNp07,DNp10} and somaSide == {side}",
+      "type_counts": {
+        "DNp07": 1,
+        "DNp10": 1
+      }
+    },
+    "landing_dn_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 2
+      },
+      "present_in_pack_count": 2,
+      "root_ids_sha256": "8b47bfcddda2a641b1e4c114eed0648f9c940b48e9d90376b5a7649971128e05",
+      "selected_count": 2,
+      "selector": "status == Traced and superclass == descending_neuron and type in {DNp07,DNp10} and somaSide == {side}",
+      "type_counts": {
+        "DNp07": 1,
+        "DNp10": 1
+      }
+    },
+    "motor_flight_power_left": {
+      "consensus_nt_counts": {
+        "glutamate": 3,
+        "unclear": 9
+      },
+      "present_in_pack_count": 12,
+      "root_ids_sha256": "7081e86f5fffc9e89c7af8642db7befb973a6132e7fdc743cfd5b8798825ea67",
+      "selected_count": 12,
+      "selector": "status == Traced and superclass == vnc_motor and subclass == wm and type in {DLMn a,b,DLMn c-f,DVMn 1a-c,DVMn 2a,b,DVMn 3a,b} and somaSide == {side}",
+      "type_counts": {
+        "DLMn a, b": 1,
+        "DLMn c-f": 4,
+        "DVMn 1a-c": 3,
+        "DVMn 2a, b": 2,
+        "DVMn 3a, b": 2
+      }
+    },
+    "motor_flight_power_right": {
+      "consensus_nt_counts": {
+        "glutamate": 3,
+        "unclear": 9
+      },
+      "present_in_pack_count": 12,
+      "root_ids_sha256": "f7b13cca0b00243a48fd52ead61fcfb10d6bf5512caf46d744bab164149aacd4",
+      "selected_count": 12,
+      "selector": "status == Traced and superclass == vnc_motor and subclass == wm and type in {DLMn a,b,DLMn c-f,DVMn 1a-c,DVMn 2a,b,DVMn 3a,b} and somaSide == {side}",
+      "type_counts": {
+        "DLMn a, b": 1,
+        "DLMn c-f": 4,
+        "DVMn 1a-c": 3,
+        "DVMn 2a, b": 2,
+        "DVMn 3a, b": 2
+      }
+    },
+    "motor_flight_steering_left": {
+      "consensus_nt_counts": {
+        "glutamate": 3
+      },
+      "present_in_pack_count": 3,
+      "root_ids_sha256": "b6bfa02095614fc55f0a0d7079fc23a260b0a151dc39806c481a656b13fb6e5d",
+      "selected_count": 3,
+      "selector": "status == Traced and superclass == vnc_motor and subclass == wm and type in {b1 MN,b2 MN,b3 MN} and somaSide == {side}",
+      "type_counts": {
+        "b1 MN": 1,
+        "b2 MN": 1,
+        "b3 MN": 1
+      }
+    },
+    "motor_flight_steering_right": {
+      "consensus_nt_counts": {
+        "glutamate": 3
+      },
+      "present_in_pack_count": 3,
+      "root_ids_sha256": "e93d8717c9d022e02a2f4eeec30f594f9704d6b6c12b7797ca7247fbecb1c791",
+      "selected_count": 3,
+      "selector": "status == Traced and superclass == vnc_motor and subclass == wm and type in {b1 MN,b2 MN,b3 MN} and somaSide == {side}",
+      "type_counts": {
+        "b1 MN": 1,
+        "b2 MN": 1,
+        "b3 MN": 1
+      }
+    },
+    "motor_landing_left": {
+      "consensus_nt_counts": {
+        "unclear": 6
+      },
+      "present_in_pack_count": 6,
+      "root_ids_sha256": "e0c12e611a44d722e2209ebff5d32b919d21881560ef4f10c084c8a08dcb0fef",
+      "selected_count": 6,
+      "selector": "status == Traced and superclass == vnc_motor and subclass in {fl,ml,hl} and type == Ti extensor MN and somaSide == {side}",
+      "type_counts": {
+        "Ti extensor MN": 6
+      }
+    },
+    "motor_landing_right": {
+      "consensus_nt_counts": {
+        "unclear": 6
+      },
+      "present_in_pack_count": 6,
+      "root_ids_sha256": "4f124e2b1868d55aee2f99be864fd49429915f31dc35d0b8e19ca9c063ae547f",
+      "selected_count": 6,
+      "selector": "status == Traced and superclass == vnc_motor and subclass in {fl,ml,hl} and type == Ti extensor MN and somaSide == {side}",
+      "type_counts": {
+        "Ti extensor MN": 6
+      }
+    },
+    "motor_walking_left": {
+      "consensus_nt_counts": {
+        "unclear": 11
+      },
+      "present_in_pack_count": 11,
+      "root_ids_sha256": "e34edac1aafb063781f1961b68f4f17d0e4242da55511edff7238a0c832ae1e5",
+      "selected_count": 11,
+      "selector": "status == Traced and superclass == vnc_motor and subclass in {fl,ml,hl} and type in {Ti extensor MN,Tr extensor MN} and somaSide == {side}",
+      "type_counts": {
+        "Ti extensor MN": 6,
+        "Tr extensor MN": 5
+      }
+    },
+    "motor_walking_right": {
+      "consensus_nt_counts": {
+        "unclear": 12
+      },
+      "present_in_pack_count": 12,
+      "root_ids_sha256": "660ffe5ad0cc5660bb9c212c7eb2a8ee4d0b3ecac77bfffa20849700a5804712",
+      "selected_count": 12,
+      "selector": "status == Traced and superclass == vnc_motor and subclass in {fl,ml,hl} and type in {Ti extensor MN,Tr extensor MN} and somaSide == {side}",
+      "type_counts": {
+        "Ti extensor MN": 6,
+        "Tr extensor MN": 6
+      }
+    },
+    "olfaction_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 798
+      },
+      "present_in_pack_count": 798,
+      "root_ids_sha256": "d08b898b32bebffabec098d2fd352b4575bed716d015415730e846ba4ced8e55",
+      "selected_count": 798,
+      "selector": "status == Traced and superclass == cb_sensory and class == olfactory and entryNerve == AN and type starts ORN_ and rootSide == {side}",
+      "type_counts": {
+        "ORN_D": 14,
+        "ORN_DA1": 51,
+        "ORN_DA2": 21,
+        "ORN_DA3": 9,
+        "ORN_DA4l": 11,
+        "ORN_DA4m": 15,
+        "ORN_DC1": 17,
+        "ORN_DC2": 11,
+        "ORN_DC3": 16,
+        "ORN_DC4": 11,
+        "ORN_DL1": 36,
+        "ORN_DL2d": 7,
+        "ORN_DL2v": 11,
+        "ORN_DL3": 17,
+        "ORN_DL4": 12,
+        "ORN_DL5": 23,
+        "ORN_DM1": 35,
+        "ORN_DM2": 24,
+        "ORN_DM3": 23,
+        "ORN_DM4": 16,
+        "ORN_DM5": 10,
+        "ORN_DM6": 22,
+        "ORN_DP1l": 14,
+        "ORN_DP1m": 17,
+        "ORN_V": 16,
+        "ORN_VA1d": 23,
+        "ORN_VA1v": 15,
+        "ORN_VA2": 33,
+        "ORN_VA3": 7,
+        "ORN_VA5": 3,
+        "ORN_VA6": 29,
+        "ORN_VA7l": 1,
+        "ORN_VA7m": 7,
+        "ORN_VC3": 14,
+        "ORN_VC4": 14,
+        "ORN_VC5": 14,
+        "ORN_VL1": 21,
+        "ORN_VL2a": 23,
+        "ORN_VL2p": 11,
+        "ORN_VM1": 14,
+        "ORN_VM2": 17,
+        "ORN_VM3": 15,
+        "ORN_VM4": 12,
+        "ORN_VM5d": 30,
+        "ORN_VM5v": 15,
+        "ORN_VM6l": 2,
+        "ORN_VM6m": 10,
+        "ORN_VM6v": 9
+      }
+    },
+    "olfaction_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 1247
+      },
+      "present_in_pack_count": 1247,
+      "root_ids_sha256": "539d512278041ba1f65381860a63bf3a1968e6891a5632b469eac1bf925512e3",
+      "selected_count": 1247,
+      "selector": "status == Traced and superclass == cb_sensory and class == olfactory and entryNerve == AN and type starts ORN_ and rootSide == {side}",
+      "type_counts": {
+        "ORN_D": 14,
+        "ORN_DA1": 105,
+        "ORN_DA2": 20,
+        "ORN_DA3": 15,
+        "ORN_DA4l": 15,
+        "ORN_DA4m": 16,
+        "ORN_DC1": 15,
+        "ORN_DC2": 11,
+        "ORN_DC3": 18,
+        "ORN_DC4": 12,
+        "ORN_DL1": 40,
+        "ORN_DL2d": 8,
+        "ORN_DL2v": 12,
+        "ORN_DL3": 31,
+        "ORN_DL4": 21,
+        "ORN_DL5": 19,
+        "ORN_DM1": 39,
+        "ORN_DM2": 29,
+        "ORN_DM3": 32,
+        "ORN_DM4": 15,
+        "ORN_DM5": 18,
+        "ORN_DM6": 29,
+        "ORN_DP1l": 18,
+        "ORN_DP1m": 14,
+        "ORN_V": 39,
+        "ORN_VA1d": 76,
+        "ORN_VA1v": 73,
+        "ORN_VA2": 41,
+        "ORN_VA3": 13,
+        "ORN_VA5": 7,
+        "ORN_VA6": 28,
+        "ORN_VA7m": 11,
+        "ORN_VC3": 18,
+        "ORN_VC4": 17,
+        "ORN_VC5": 17,
+        "ORN_VL1": 61,
+        "ORN_VL2a": 50,
+        "ORN_VL2p": 22,
+        "ORN_VM1": 18,
+        "ORN_VM2": 20,
+        "ORN_VM3": 22,
+        "ORN_VM4": 47,
+        "ORN_VM5d": 36,
+        "ORN_VM5v": 19,
+        "ORN_VM6l": 12,
+        "ORN_VM6m": 14,
+        "ORN_VM6v": 20
+      }
+    },
+    "taste_sugar": {
+      "consensus_nt_counts": {
+        "acetylcholine": 83,
+        "unclear": 2
+      },
+      "present_in_pack_count": 85,
+      "root_ids_sha256": "f1c3c70498cf59331c973e5317212d1f23573b0cb26f01ed5d558e38912a44a7",
+      "selected_count": 85,
+      "selector": "status == Traced and superclass == cb_sensory and class == gustatory and subclass == labellar bristle and entryNerve == MxLbN and flywireType == LB3",
+      "type_counts": {
+        "LB3": 1,
+        "LB3a": 17,
+        "LB3b": 11,
+        "LB3c": 22,
+        "LB3d": 26,
+        "LB4b": 7,
+        "None": 1
+      }
+    },
+    "visual_loom_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 1
+      },
+      "present_in_pack_count": 1,
+      "root_ids_sha256": "9c9e6e193f6ca6b46deae5b75cf86397f45df685ca20c7b32270c9193757aa4c",
+      "selected_count": 1,
+      "selector": "status == Traced and superclass == visual_projection and type == MeVP24 and somaSide == {side} and consensus_nt == acetylcholine",
+      "type_counts": {
+        "MeVP24": 1
+      }
+    },
+    "visual_loom_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 1
+      },
+      "present_in_pack_count": 1,
+      "root_ids_sha256": "d8eb6448fe74812fc2e7a3e85f0a9b62641033fc228aeaa416ff710fbc9cb754",
+      "selected_count": 1,
+      "selector": "status == Traced and superclass == visual_projection and type == MeVP24 and somaSide == {side} and consensus_nt == acetylcholine",
+      "type_counts": {
+        "MeVP24": 1
+      }
+    },
+    "visual_motion_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 21
+      },
+      "present_in_pack_count": 21,
+      "root_ids_sha256": "ef300a89c404b43fc46442e41da51608d210592a7e55efb3716a9e2989b85aaa",
+      "selected_count": 21,
+      "selector": "status == Traced and superclass == visual_projection and type in {H2,HSE,HSN,HSS,HST,VS,VST1,VST2,VSm} and somaSide == {side} and consensus_nt == acetylcholine",
+      "type_counts": {
+        "H2": 1,
+        "HSE": 1,
+        "HSN": 1,
+        "HSS": 1,
+        "HST": 1,
+        "VS": 9,
+        "VST1": 2,
+        "VST2": 3,
+        "VSm": 2
+      }
+    },
+    "visual_motion_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 23
+      },
+      "present_in_pack_count": 23,
+      "root_ids_sha256": "9c14a1236da49ae2cadcdb0b6a4caf2e2ccc8139982620e18efff1426817a1cd",
+      "selected_count": 23,
+      "selector": "status == Traced and superclass == visual_projection and type in {H2,HSE,HSN,HSS,HST,VS,VST1,VST2,VSm} and somaSide == {side} and consensus_nt == acetylcholine",
+      "type_counts": {
+        "H2": 1,
+        "HSE": 1,
+        "HSN": 1,
+        "HSS": 1,
+        "HST": 1,
+        "VS": 9,
+        "VST1": 3,
+        "VST2": 4,
+        "VSm": 2
+      }
+    },
+    "walking_dn_left": {
+      "consensus_nt_counts": {
+        "acetylcholine": 4
+      },
+      "present_in_pack_count": 4,
+      "root_ids_sha256": "60bd3577889ede4d1171ad276e27bf3cdd805aee789cd09e8caa8119ae767875",
+      "selected_count": 4,
+      "selector": "status == Traced and superclass == descending_neuron and type in {DNa01,DNa02,DNa11,DNg13} and somaSide == {side}",
+      "type_counts": {
+        "DNa01": 1,
+        "DNa02": 1,
+        "DNa11": 1,
+        "DNg13": 1
+      }
+    },
+    "walking_dn_right": {
+      "consensus_nt_counts": {
+        "acetylcholine": 4
+      },
+      "present_in_pack_count": 4,
+      "root_ids_sha256": "61d092c82467db289431f52c25ac3796a0165e1a16e00b67db674071430a7ba1",
+      "selected_count": 4,
+      "selector": "status == Traced and superclass == descending_neuron and type in {DNa01,DNa02,DNa11,DNg13} and somaSide == {side}",
+      "type_counts": {
+        "DNa01": 1,
+        "DNa02": 1,
+        "DNa11": 1,
+        "DNg13": 1
+      }
+    }
+  },
+  "route_policy": {
+    "direction": "packed CSR presynaptic body -> postsynaptic body",
+    "edge_weights": "edge_signed_counts are copied from signed_counts.npy; no inferred or grafted edges",
+    "maximum_hops": 4,
+    "selection": "one deterministic shortest directed route per named query; absent routes remain explicit unresolved queries"
+  },
+  "routes": [
+    {
+      "edge_signed_counts": [
+        5,
+        -3
+      ],
+      "name": "taste_to_feeding_mn9",
+      "node_annotations": [
+        {
+          "class": "gustatory",
+          "root_id": 33339,
+          "side": "R",
+          "subclass": "labellar bristle",
+          "superclass": "cb_sensory",
+          "type": "LB3d"
+        },
+        {
+          "class": null,
+          "root_id": 10313,
+          "side": "R",
+          "subclass": null,
+          "superclass": "descending_neuron",
+          "type": "DNge031"
+        },
+        {
+          "class": null,
+          "root_id": 10331,
+          "side": "L",
+          "subclass": "pm",
+          "superclass": "cb_motor",
+          "type": "MN9"
+        }
+      ],
+      "path_root_ids": [
+        33339,
+        10313,
+        10331
+      ],
+      "source_group": "taste_sugar",
+      "source_root_id": 33339,
+      "target_group": "feeding_mn9",
+      "target_root_id": 10331
+    },
+    {
+      "edge_signed_counts": [
+        93
+      ],
+      "name": "visual_loom_to_landing_left",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 10142,
+          "side": "L",
+          "subclass": null,
+          "superclass": "visual_projection",
+          "type": "MeVP24"
+        },
+        {
+          "class": null,
+          "root_id": 10425,
+          "side": "L",
+          "subclass": "xl",
+          "superclass": "descending_neuron",
+          "type": "DNp10"
+        }
+      ],
+      "path_root_ids": [
+        10142,
+        10425
+      ],
+      "source_group": "visual_loom_left",
+      "source_root_id": 10142,
+      "target_group": "landing_dn_left",
+      "target_root_id": 10425
+    },
+    {
+      "edge_signed_counts": [
+        90
+      ],
+      "name": "visual_loom_to_landing_right",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 10723,
+          "side": "R",
+          "subclass": null,
+          "superclass": "visual_projection",
+          "type": "MeVP24"
+        },
+        {
+          "class": null,
+          "root_id": 10433,
+          "side": "R",
+          "subclass": "xl",
+          "superclass": "descending_neuron",
+          "type": "DNp10"
+        }
+      ],
+      "path_root_ids": [
+        10723,
+        10433
+      ],
+      "source_group": "visual_loom_right",
+      "source_root_id": 10723,
+      "target_group": "landing_dn_right",
+      "target_root_id": 10433
+    },
+    {
+      "edge_signed_counts": [
+        6,
+        -1
+      ],
+      "name": "flight_feedback_to_flight_start_left",
+      "node_annotations": [
+        {
+          "class": "mechanosensory_proprioceptive",
+          "root_id": 56694,
+          "side": "L",
+          "subclass": "haltere",
+          "superclass": "sensory_ascending",
+          "type": "SApp"
+        },
+        {
+          "class": null,
+          "root_id": 800184,
+          "side": "L",
+          "subclass": "wm",
+          "superclass": "vnc_motor",
+          "type": "MNwm36"
+        },
+        {
+          "class": null,
+          "root_id": 35988,
+          "side": "L",
+          "subclass": "ut",
+          "superclass": "descending_neuron",
+          "type": "DNg02_a"
+        }
+      ],
+      "path_root_ids": [
+        56694,
+        800184,
+        35988
+      ],
+      "source_group": "flight_state_sapp_left",
+      "source_root_id": 56694,
+      "target_group": "flight_dng02_left",
+      "target_root_id": 35988
+    },
+    {
+      "edge_signed_counts": [
+        2,
+        -1
+      ],
+      "name": "flight_feedback_to_flight_start_right",
+      "node_annotations": [
+        {
+          "class": "mechanosensory_proprioceptive",
+          "root_id": 57589,
+          "side": "R",
+          "subclass": "haltere",
+          "superclass": "sensory_ascending",
+          "type": "SApp"
+        },
+        {
+          "class": null,
+          "root_id": 12813,
+          "side": "R",
+          "subclass": null,
+          "superclass": "cb_intrinsic",
+          "type": "GNG556"
+        },
+        {
+          "class": null,
+          "root_id": 225466,
+          "side": "R",
+          "subclass": "ut",
+          "superclass": "descending_neuron",
+          "type": "DNg02_c"
+        }
+      ],
+      "path_root_ids": [
+        57589,
+        12813,
+        225466
+      ],
+      "source_group": "flight_state_sapp_right",
+      "source_root_id": 57589,
+      "target_group": "flight_dng02_right",
+      "target_root_id": 225466
+    },
+    {
+      "edge_signed_counts": [
+        1
+      ],
+      "name": "flight_start_to_power_motor_left",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 19773,
+          "side": "L",
+          "subclass": "ut",
+          "superclass": "descending_neuron",
+          "type": "DNg02_g"
+        },
+        {
+          "class": null,
+          "root_id": 800412,
+          "side": "L",
+          "subclass": "wm",
+          "superclass": "vnc_motor",
+          "type": "DVMn 1a-c"
+        }
+      ],
+      "path_root_ids": [
+        19773,
+        800412
+      ],
+      "source_group": "flight_dng02_left",
+      "source_root_id": 19773,
+      "target_group": "motor_flight_power_left",
+      "target_root_id": 800412
+    },
+    {
+      "edge_signed_counts": [
+        6
+      ],
+      "name": "flight_start_to_power_motor_right",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 17331,
+          "side": "R",
+          "subclass": "ut",
+          "superclass": "descending_neuron",
+          "type": "DNg02_d"
+        },
+        {
+          "class": null,
+          "root_id": 800056,
+          "side": "R",
+          "subclass": "wm",
+          "superclass": "vnc_motor",
+          "type": "DVMn 1a-c"
+        }
+      ],
+      "path_root_ids": [
+        17331,
+        800056
+      ],
+      "source_group": "flight_dng02_right",
+      "source_root_id": 17331,
+      "target_group": "motor_flight_power_right",
+      "target_root_id": 800056
+    },
+    {
+      "edge_signed_counts": [
+        1,
+        10
+      ],
+      "name": "flight_start_to_steering_motor_left",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 19773,
+          "side": "L",
+          "subclass": "ut",
+          "superclass": "descending_neuron",
+          "type": "DNg02_g"
+        },
+        {
+          "class": null,
+          "root_id": 10249,
+          "side": "L",
+          "subclass": "ut",
+          "superclass": "descending_neuron",
+          "type": "DNp31"
+        },
+        {
+          "class": null,
+          "root_id": 801137,
+          "side": "L",
+          "subclass": "wm",
+          "superclass": "vnc_motor",
+          "type": "b2 MN"
+        }
+      ],
+      "path_root_ids": [
+        19773,
+        10249,
+        801137
+      ],
+      "source_group": "flight_dng02_left",
+      "source_root_id": 19773,
+      "target_group": "motor_flight_steering_left",
+      "target_root_id": 801137
+    },
+    {
+      "edge_signed_counts": [
+        1
+      ],
+      "name": "flight_start_to_steering_motor_right",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 17331,
+          "side": "R",
+          "subclass": "ut",
+          "superclass": "descending_neuron",
+          "type": "DNg02_d"
+        },
+        {
+          "class": null,
+          "root_id": 801350,
+          "side": "R",
+          "subclass": "wm",
+          "superclass": "vnc_motor",
+          "type": "b2 MN"
+        }
+      ],
+      "path_root_ids": [
+        17331,
+        801350
+      ],
+      "source_group": "flight_dng02_right",
+      "source_root_id": 17331,
+      "target_group": "motor_flight_steering_right",
+      "target_root_id": 801350
+    },
+    {
+      "edge_signed_counts": [
+        3,
+        4
+      ],
+      "name": "walking_command_to_walking_motor_left",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 10442,
+          "side": "L",
+          "subclass": "xl",
+          "superclass": "descending_neuron",
+          "type": "DNa01"
+        },
+        {
+          "class": null,
+          "root_id": 10048,
+          "side": "L",
+          "subclass": "xn",
+          "superclass": "descending_neuron",
+          "type": "DNp18"
+        },
+        {
+          "class": null,
+          "root_id": 800621,
+          "side": "L",
+          "subclass": "hl",
+          "superclass": "vnc_motor",
+          "type": "Ti extensor MN"
+        }
+      ],
+      "path_root_ids": [
+        10442,
+        10048,
+        800621
+      ],
+      "source_group": "walking_dn_left",
+      "source_root_id": 10442,
+      "target_group": "motor_walking_left",
+      "target_root_id": 800621
+    },
+    {
+      "edge_signed_counts": [
+        5
+      ],
+      "name": "walking_command_to_walking_motor_right",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 10360,
+          "side": "R",
+          "subclass": "xl",
+          "superclass": "descending_neuron",
+          "type": "DNa02"
+        },
+        {
+          "class": null,
+          "root_id": 800158,
+          "side": "R",
+          "subclass": "hl",
+          "superclass": "vnc_motor",
+          "type": "Ti extensor MN"
+        }
+      ],
+      "path_root_ids": [
+        10360,
+        800158
+      ],
+      "source_group": "walking_dn_right",
+      "source_root_id": 10360,
+      "target_group": "motor_walking_right",
+      "target_root_id": 800158
+    },
+    {
+      "edge_signed_counts": [
+        5
+      ],
+      "name": "landing_command_to_landing_motor_left",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 10425,
+          "side": "L",
+          "subclass": "xl",
+          "superclass": "descending_neuron",
+          "type": "DNp10"
+        },
+        {
+          "class": null,
+          "root_id": 800621,
+          "side": "L",
+          "subclass": "hl",
+          "superclass": "vnc_motor",
+          "type": "Ti extensor MN"
+        }
+      ],
+      "path_root_ids": [
+        10425,
+        800621
+      ],
+      "source_group": "landing_dn_left",
+      "source_root_id": 10425,
+      "target_group": "motor_landing_left",
+      "target_root_id": 800621
+    },
+    {
+      "edge_signed_counts": [
+        3
+      ],
+      "name": "landing_command_to_landing_motor_right",
+      "node_annotations": [
+        {
+          "class": null,
+          "root_id": 10433,
+          "side": "R",
+          "subclass": "xl",
+          "superclass": "descending_neuron",
+          "type": "DNp10"
+        },
+        {
+          "class": null,
+          "root_id": 809935,
+          "side": "R",
+          "subclass": "hl",
+          "superclass": "vnc_motor",
+          "type": "Ti extensor MN"
+        }
+      ],
+      "path_root_ids": [
+        10433,
+        809935
+      ],
+      "source_group": "landing_dn_right",
+      "source_root_id": 10433,
+      "target_group": "motor_landing_right",
+      "target_root_id": 809935
+    }
+  ],
+  "schema_version": 1,
+  "source_files": {
+    "annotations": {
+      "path": "work/upstream/male-cns/v1.0/body-annotations-male-cns-v1.0-minconf-0.5.feather",
+      "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather"
+    },
+    "connectivity": {
+      "path": "work/upstream/male-cns/v1.0/connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+      "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1",
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/connectome-weights-male-cns-v1.0-minconf-0.5.feather"
+    },
+    "neurotransmitters": {
+      "path": "work/upstream/male-cns/v1.0/body-neurotransmitters-male-cns-v1.0.feather",
+      "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621",
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-neurotransmitters-male-cns-v1.0.feather"
+    },
+    "pack_manifest": {
+      "path": "outputs/packs/male_cns_v1/manifest.json",
+      "sha256": "692cc3567695c0891c88b2019e98af3a31f46f18728d2a35060369b35b3a09bb",
+      "url": "https://male-cns.janelia.org/download/"
+    }
+  },
+  "unknowns": [
+    "SApp is an annotated haltere ascending feedback candidate; the bridge exposes it through an engineered scalar angular-speed proxy, not a measured full 3D haltere signal.",
+    "DNg02 is an annotated flight-power activation population and is not asserted to be a specific takeoff controller.",
+    "DNg07 is an unisolated flight-power-decrease candidate, not an isolated altitude controller; coactivation with other descending types remains possible.",
+    "DLM/DVM and extensor motor groups include published consensus_nt == unclear rows; their incoming synapses remain in the pack while unknown-NT outgoing edges are omitted by pack policy.",
+    "Visual motion and MeVP24 groups are acetylcholine projection proxies; MeVP24 is not claimed to be a verified loom neuron, and no R1-R6 histamine input path is exposed.",
+    "No muscle-to-body torque mapping is asserted by this artifact; motor groups are neural population readouts only."
+  ],
+  "unresolved_route_queries": [
+    {
+      "max_hops": 4,
+      "name": "visual_motion_to_flight_start_left",
+      "reason": "no directed CSR route found within the bounded search depth",
+      "source_group": "visual_motion_left",
+      "source_root_ids_examined": [
+        10006
+      ],
+      "target_group": "flight_dng02_left",
+      "target_root_count": 15
+    },
+    {
+      "max_hops": 4,
+      "name": "visual_motion_to_flight_start_right",
+      "reason": "no directed CSR route found within the bounded search depth",
+      "source_group": "visual_motion_right",
+      "source_root_ids_examined": [
+        10012
+      ],
+      "target_group": "flight_dng02_right",
+      "target_root_count": 14
+    },
+    {
+      "max_hops": 4,
+      "name": "visual_motion_to_flight_altitude_left",
+      "reason": "no directed CSR route found within the bounded search depth",
+      "source_group": "visual_motion_left",
+      "source_root_ids_examined": [
+        10006
+      ],
+      "target_group": "flight_dng07_left",
+      "target_root_count": 8
+    },
+    {
+      "max_hops": 4,
+      "name": "visual_motion_to_flight_altitude_right",
+      "reason": "no directed CSR route found within the bounded search depth",
+      "source_group": "visual_motion_right",
+      "source_root_ids_examined": [
+        10012
+      ],
+      "target_group": "flight_dng07_right",
+      "target_root_count": 8
+    }
+  ]
+}

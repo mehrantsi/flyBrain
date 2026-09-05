@@ -1,0 +1,118 @@
+{
+  "body": {
+    "actuators": 49,
+    "feeding_actuator": "fly/c_head-c_rostrum-pitch-feeding-position",
+    "model": "NeuroMechFly",
+    "physics": "MuJoCo",
+    "sensors": 6,
+    "source_manifest": "assets/neuromechfly/manifest.json"
+  },
+  "brain": {
+    "allocated_bytes": 97206574,
+    "device": "Apple M3 Max",
+    "elapsed_seconds": 2.470756415,
+    "enabled": true,
+    "external_event_count": 8940,
+    "feeding_active_windows": 1476,
+    "final_feeding_extension": 0.9380049995307297,
+    "final_filtered_mn9_rate_hz": 50.85015134250933,
+    "first_feeding_window_ms": 48.00000000000035,
+    "first_mn9_spike_window_ms": 48.00000000000035,
+    "mapping_status": "sugar-to-MN9 is the published model readout; rostrum actuation and gait arbitration are explicit embodiment mappings",
+    "materialization": "783",
+    "mn9_spike_count": 291,
+    "motor_mapping": "published contralateral MN9 spikes -> bounded leaky rostrum command; feeding state slows and freezes baseline gait phase",
+    "motor_neuron_id": "720575940660219265",
+    "peak_feeding_extension": 1.0,
+    "peak_filtered_mn9_rate_hz": 168.3399749389031,
+    "sensory_mapping": "geometric food contact -> 150 Hz deterministic rate encoder -> published right sugar GRNs",
+    "sensory_neuron_ids": [
+      "720575940624963786",
+      "720575940630233916",
+      "720575940637568838",
+      "720575940638202345",
+      "720575940617000768",
+      "720575940630797113",
+      "720575940632889389",
+      "720575940621754367",
+      "720575940621502051",
+      "720575940640649691",
+      "720575940639332736",
+      "720575940616885538",
+      "720575940639198653",
+      "720575940617937543",
+      "720575940632425919",
+      "720575940633143833",
+      "720575940612670570",
+      "720575940628853239",
+      "720575940629176663",
+      "720575940611875570"
+    ]
+  },
+  "controller": {
+    "cycle_frequency_hz": 7.4074074074074066,
+    "gait_samples": 360,
+    "runtime_interpolation": "cyclic-linear",
+    "settle_seconds": 0.5,
+    "source": "FlyGym PreprogrammedSteps single_steps_untethered.pkl"
+  },
+  "environment": {
+    "contact_windows": 1493,
+    "final_food_distance": 0.5159731133232589,
+    "first_taste_window_ms": 15.99999999999996,
+    "food_center": [
+      1.1,
+      0.0,
+      0.25
+    ],
+    "taste_radius": 0.75,
+    "taste_source_body": "fly/c_haustellum",
+    "taste_windows": 1492
+  },
+  "preview": {
+    "path": "outputs/world/flybrain-world-mn9-v2.png",
+    "sha256": "71cd58045061e829c9c3afa2cd29202344e999d0721199a13b9d2e02be686fed"
+  },
+  "schema": "flybrain-render-v2",
+  "simulation": {
+    "actual_duration_seconds": 3.0000000000019065,
+    "control_hz": 500.0,
+    "control_window_steps": 20,
+    "final_root_position": [
+      1.2667968097823878,
+      -0.012574211974043173,
+      1.1616608646259827
+    ],
+    "final_root_quaternion": [
+      0.9987310661729412,
+      -0.03167043914992538,
+      -0.007513397398617591,
+      -0.038429020344536644
+    ],
+    "initial_root_position": [
+      0.496,
+      0.0,
+      2.1
+    ],
+    "initial_root_quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "physics_steps": 30000,
+    "physics_timestep_seconds": 0.0001,
+    "requested_duration_seconds": 3.0,
+    "wall_seconds": 5.665566083
+  },
+  "video": {
+    "bytes": 389324,
+    "camera": "fly/trackingcam",
+    "fps": 30,
+    "frames": 90,
+    "height": 720,
+    "path": "outputs/world/flybrain-world-mn9-v2.mp4",
+    "sha256": "6328de539587a3d3f7aef288ea2b4437810a595ceb05c6783ae0ed8b9cef481b",
+    "width": 960
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "runtime":"rebuilt Rust/MuJoCo WASM with full MaleCNS WebGPU connectome and binocular sensory rendering",
+  "simulated_seconds":60.00000000086826,
+  "control_windows":30000,
+  "realtime_factor":0.37804636852770845,
+  "state_sha256":"523cb71ceed7b29e5d20526335b2ac097ba8b3c3b84c76deb386bddc4a0c4ff2",
+  "total_spikes":64311023,
+  "final_position_mm":[-201.8633791492854,-188.94401308900174,185.0193041871669],
+  "physics_warnings":[0,0,0,0,0,0,0],
+  "sample_interval_seconds":0.1,
+  "wall_touchdowns":[
+    {
+      "wall_inward_xy":[0,1],
+      "first_sampled_landing_seconds":29.3,
+      "first_sampled_grounded_seconds":29.6,
+      "grounded_position_mm":[-207.0663466794024,-218.04681608248288,189.36194358344832],
+      "body_wall_alignment":0.9849314742764976,
+      "supported_legs":6,
+      "wing_amplitude":0,
+      "maximum_sampled_grounded_wing_speed_rad_s":0.0027253919048994607,
+      "grounded_samples":3,
+      "first_sampled_departure_seconds":29.9,
+      "departure_position_mm":[-207.082129813828,-210.8883527919329,187.2722884609381],
+      "departure_contacts":0
+    },
+    {
+      "wall_inward_xy":[0,-1],
+      "first_sampled_landing_seconds":38.7,
+      "first_sampled_grounded_seconds":39.0,
+      "grounded_position_mm":[-119.91187399636615,218.0038752463614,189.3302913720643],
+      "body_wall_alignment":0.9856178510730108,
+      "supported_legs":6,
+      "wing_amplitude":0,
+      "maximum_sampled_grounded_wing_speed_rad_s":0.0033295272916842736,
+      "grounded_samples":3,
+      "first_sampled_departure_seconds":39.3,
+      "departure_position_mm":[-119.89407695027782,210.73237281744008,187.38721689406185],
+      "departure_contacts":0
+    }
+  ],
+  "note":"No forced perch dwell added. The existing controller resumed flight after brief supported pauses. Times are sampled at 100 ms, not exact transition timestamps."
+}

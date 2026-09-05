@@ -1,0 +1,119 @@
+{
+  "body": {
+    "actuators": 48,
+    "model": "NeuroMechFly",
+    "physics": "MuJoCo",
+    "sensors": 6,
+    "source_manifest": "assets/neuromechfly/manifest.json"
+  },
+  "brain": {
+    "allocated_bytes": 97206574,
+    "device": "Apple M3 Max",
+    "elapsed_seconds": 0.195041756,
+    "enabled": true,
+    "external_event_count": 600,
+    "final_filtered_probe_rates_hz": [
+      0.0,
+      0.0
+    ],
+    "mapping_status": "explicit engineering bridge; not a validated biological VNC decoder",
+    "materialization": "783",
+    "motor_mapping": "DNa02R minus DNa02L filtered spike rate -> differential gait amplitude",
+    "probe_neuron_ids": [
+      720575940604737708,
+      720575940629327659
+    ],
+    "probe_spike_counts": [
+      0,
+      0
+    ],
+    "sensory_mapping": "geometric food contact -> 150 Hz deterministic rate encoder -> published right sugar GRNs",
+    "sensory_neuron_ids": [
+      720575940624963786,
+      720575940630233916,
+      720575940637568838,
+      720575940638202345,
+      720575940617000768,
+      720575940630797113,
+      720575940632889389,
+      720575940621754367,
+      720575940621502051,
+      720575940640649691,
+      720575940639332736,
+      720575940616885538,
+      720575940639198653,
+      720575940617937543,
+      720575940632425919,
+      720575940633143833,
+      720575940612670570,
+      720575940628853239,
+      720575940629176663,
+      720575940611875570
+    ]
+  },
+  "controller": {
+    "cycle_frequency_hz": 7.4074074074074066,
+    "gait_samples": 360,
+    "runtime_interpolation": "cyclic-linear",
+    "settle_seconds": 0.2,
+    "source": "FlyGym PreprogrammedSteps single_steps_untethered.pkl"
+  },
+  "environment": {
+    "contact_windows": 93,
+    "final_food_distance": 0.5641676155877007,
+    "food_center": [
+      1.1,
+      0.0,
+      1.35
+    ],
+    "taste_radius": 0.75,
+    "taste_source_body": "fly/c_haustellum",
+    "taste_windows": 100
+  },
+  "preview": {
+    "path": "outputs/world/brain-smoke.png",
+    "sha256": "1acd6e2271e7611afa8dbc347899b3a0df0924e927866aa1d5cdfd3ca2bff005"
+  },
+  "schema": "flybrain-render-v1",
+  "simulation": {
+    "actual_duration_seconds": 0.1999999999999943,
+    "control_hz": 500.0,
+    "control_window_steps": 20,
+    "final_root_position": [
+      1.203602553216793,
+      0.022738041923656617,
+      1.112686510991911
+    ],
+    "final_root_quaternion": [
+      0.999409124449924,
+      -0.017896659621508854,
+      -0.020101713462596694,
+      -0.02137832211598603
+    ],
+    "initial_root_position": [
+      0.496,
+      0.0,
+      2.1
+    ],
+    "initial_root_quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "physics_steps": 2000,
+    "physics_timestep_seconds": 0.0001,
+    "requested_duration_seconds": 0.2,
+    "wall_seconds": 0.810748333
+  },
+  "video": {
+    "bytes": 10374,
+    "camera": "fly/trackingcam",
+    "fps": 10,
+    "frames": 2,
+    "height": 240,
+    "path": "outputs/world/brain-smoke.mp4",
+    "sha256": "e233f507ed276a133fe1cccda336e64f2168a04274a970a87fab41ab0c312928",
+    "width": 320
+  }
+}

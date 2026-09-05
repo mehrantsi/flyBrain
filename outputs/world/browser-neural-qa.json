@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "execution": "Codex in-app browser, WebGPU on development M3 Max; observed from neural-test.html DOM",
+  "checks": [
+    {"name": "fixture phase, delay, refractory, and float32 state parity", "status": "PASS"},
+    {"name": "zero-delay recurrent propagation", "status": "PASS"},
+    {"name": "signed inhibitory propagation", "status": "PASS"},
+    {"name": "silenced source blocks propagation", "status": "PASS"},
+    {"name": "sparse events and combined-window continuity", "status": "PASS"}
+  ],
+  "errors": [],
+  "device": {"maxBufferSize": 268435456, "maxStorageBufferBindingSize": 134217728}
+}

@@ -1,0 +1,18 @@
+{
+  "runtime":"optimized runtime with workgroup-shared source metadata",
+  "rendered":true,
+  "vision":true,
+  "gpu_timestamps":true,
+  "control_windows":1000,
+  "simulated_seconds":1.9999999999997962,
+  "realtime_factor":0.4070670917266288,
+  "step_ms":{"mean":4.794909978866577,"p50":4.6100006103515625,"p95":7.380000114440918},
+  "brain_ms_mean":3.0245199829999976,
+  "gpu_ms_mean":0.6560808959999958,
+  "gpu_wait_ms_mean":2.776254997253418,
+  "encoding_ms_mean":0.051560016632080076,
+  "vision_ms_amortized_mean":0.06649500179290771,
+  "state_sha256":"cea2324cc5a5923854f279c41e07ea48487836f9531882132836d7133a6125da",
+  "total_spikes":2071162,
+  "physics_warnings":[0,0,0,0,0,0,0]
+}

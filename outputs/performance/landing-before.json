@@ -1,0 +1,16 @@
+{
+  "runtime": "optimized performance build, original landing handoff",
+  "simulated_seconds": 19.99999999996673,
+  "realtime_factor": 0.30771607284297325,
+  "state_sha256": "a6050c230e00efe25183de6c392efcf2a5a5b0975b75f3fccd682f57e97ef148",
+  "trace_sampling_seconds": 0.1,
+  "events": [
+    {"time":5.0,"mode":"Landing","contacts":0,"height_mm":4.565073222021573,"wing_amplitude":0.9933140553051016},
+    {"time":6.1,"mode":"Landing","contacts":0,"height_mm":1.9610728589356563,"wing_amplitude":0.9921151892479422,"vertical_velocity_mm_s":30.91913689032183},
+    {"time":7.1,"mode":"Landing","contacts":2,"height_mm":1.9061218212899629,"wing_amplitude":0.9739425635160334,"vertical_velocity_mm_s":36.26659758213833},
+    {"time":8.1,"mode":"Landing","contacts":6,"height_mm":1.7810258975959827,"wing_amplitude":0.4964909474476434},
+    {"time":8.2,"mode":"Grounded","contacts":5,"wing_amplitude":0,"wing_controls":[1.5,-1,0.7,1.5,-1,0.7]},
+    {"time":9.4,"mode":"Grounded","behavior":"Feed","contacts":3,"wing_amplitude":0,"wing_controls":[1.5,-1,0.7,1.5,-1,0.7]}
+  ],
+  "physics_warnings": [0,0,0,0,0,0,0]
+}

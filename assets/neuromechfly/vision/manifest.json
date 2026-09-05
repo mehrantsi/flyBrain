@@ -1,0 +1,23 @@
+{
+  "schema": "flygym-retina-v1",
+  "height": 512,
+  "width": 450,
+  "ommatidia_per_eye": 721,
+  "fovy_degrees": 157.0,
+  "fisheye_distortion_coefficient": 3.8,
+  "fisheye_zoom": 2.72,
+  "covered_pixels": 170288,
+  "pale_ommatidia": 216,
+  "yellow_ommatidia": 505,
+  "files": {
+    "ommatidia_id_map_u16le.bin": "82fd3e818cec4c7b83694f9134a427fde843ec70312202f6ef056deadbf20898",
+    "pale_mask_u8.bin": "794a24cfa43e518e18ad5e723f7e5fe1f0bc2de91029dd0a095c989545a8f7aa"
+  },
+  "source": {
+    "repository": "https://github.com/NeLy-EPFL/flygym",
+    "tag": "v2.1.0",
+    "commit": "ca65a510c2afe6ac61c51df4f274c8d190c2f95f",
+    "license": "Apache-2.0",
+    "fisheye_lineage": "Gil-Mor/iFish (MIT), via FlyGym Retina"
+  }
+}

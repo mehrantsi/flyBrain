@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "flybrain-engine"
+version = "0.1.0"
+description = "A reproducible Apple-silicon engine for the FlyWire Drosophila connectome model"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=2.0",
+  "pyarrow>=18",
+]
+
+[project.optional-dependencies]
+apple = ["mlx>=0.32.0"]
+reference = ["brian2>=2.9.0"]
+dev = [
+  "pytest>=8.3",
+  "ruff>=0.9",
+]
+
+[project.scripts]
+flybrain = "flybrain.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/flybrain"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["work", "outputs"]

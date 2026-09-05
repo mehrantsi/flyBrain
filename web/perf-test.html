@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>FlyBrain performance checks</title>
+<style>
+body { margin: 24px; background: #111; color: #ddd; font: 14px system-ui; }
+button,input,label { margin: 6px; padding: 8px; }
+canvas { width: 640px; height: 420px; display: block; }
+pre { white-space: pre-wrap; }
+</style>
+<h1>FlyBrain performance checks</h1>
+<p>Same 500 Hz controller and full model. Pause other simulations before running.</p>
+<label>Control windows <input id="windows" type="number" min="100" max="50000" value="1000"></label>
+<label><input id="baseline" type="checkbox">Preserved baseline runtime</label>
+<label><input id="vision" type="checkbox" checked>Retinal rendering</label>
+<label><input id="timestamps" type="checkbox">GPU timestamps (profiling overhead)</label>
+<button id="cns">Full CNS, no observer</button>
+<button id="rendered">Full CNS, rendered</button>
+<button id="world">World only</button>
+<button id="stop">Stop</button>
+<p id="status">Ready</p>
+<p id="capabilities"></p>
+<canvas id="scene"></canvas>
+<pre id="results"></pre>
+<details><summary>Full report</summary><pre id="report"></pre></details>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module" src="./perf-test.js"></script>

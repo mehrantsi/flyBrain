@@ -1,0 +1,96 @@
+{
+  "date": "2026-08-16",
+  "project_path": "/Users/mehran/dev/flyBrain",
+  "engine": {
+    "host_language": "Rust",
+    "metal_binding": "objc2-metal 0.3.2",
+    "runtime": "native Metal",
+    "stimulus_generator": "splitmix64-counter-v1"
+  },
+  "hardware": {
+    "chip": "Apple M3 Max",
+    "cpu_cores": 16,
+    "memory_bytes": 68719476736,
+    "operating_system": "macOS 26.5 (25F71)"
+  },
+  "tests": {
+    "cargo_clippy": "pass",
+    "cargo_fmt": "pass",
+    "rust": {
+      "failed": 0,
+      "passed": 14
+    },
+    "python_main": {
+      "failed": 0,
+      "passed": 34
+    },
+    "brian2_2_5_1": {
+      "failed": 0,
+      "passed": 5
+    }
+  },
+  "packs": {
+    "v630": {
+      "array_bytes": 89651872,
+      "array_hashes_verified": true,
+      "contact_sum": 52793639,
+      "edge_count": 14687178,
+      "neuron_count": 127400
+    },
+    "v783": {
+      "array_bytes": 92215570,
+      "array_hashes_verified": true,
+      "contact_sum": 54492922,
+      "edge_count": 15091983,
+      "neuron_count": 138639
+    }
+  },
+  "fixture": {
+    "steps": 15,
+    "rust_cpu_spikes_exact": true,
+    "rust_cpu_max_voltage_error_mv": 0.0,
+    "rust_cpu_max_conductance_error_mv": 1.7763568394002505e-15,
+    "rust_metal_spikes_exact": true,
+    "rust_metal_max_voltage_error_mv": 0.000003907754056342583,
+    "rust_metal_max_conductance_error_mv": 9.748347178373251e-7
+  },
+  "full_graph": {
+    "v630_100ms_rust_cpu_vs_metal": {
+      "per_neuron_spike_counts_exact": true,
+      "spikes": 1626,
+      "maximum_voltage_error_mv": 0.0006784795492649209,
+      "maximum_conductance_error_mv": 0.00021454548209476343
+    },
+    "v630_1000ms_native_vs_mlx": {
+      "per_neuron_spike_counts_exact": true,
+      "spikes": 16796,
+      "spike_counts_sha256": "b48fa7587fb93d146dac665f677c35c85d06cb6c18185a0f42a535fb0a2a18ce",
+      "maximum_voltage_error_mv": 0.00030517578125,
+      "maximum_conductance_error_mv": 0.000030517578125,
+      "native_elapsed_seconds": 0.486810083
+    },
+    "v783_100ms_native_vs_mlx": {
+      "per_neuron_spike_counts_exact": true,
+      "spikes": 1313,
+      "spike_counts_sha256": "4e6e5107f51b531eaa0021753c07f83435e2ef799a129c402af8ce17cfa58aea",
+      "maximum_voltage_error_mv": 0.000152587890625,
+      "maximum_conductance_error_mv": 0.000030517578125,
+      "native_elapsed_seconds": 0.064520459
+    }
+  },
+  "materialized_native_run": {
+    "path": "outputs/runs/v630_native_sugar_150hz_seed20260816_1s",
+    "steps": 10000,
+    "duration_ms": 1000.0,
+    "elapsed_seconds": 0.48149925,
+    "realtime_factor": 0.48149925,
+    "metal_allocated_bytes": 94238272,
+    "total_spikes": 16796,
+    "active_neurons": 383,
+    "chunk_steps": 1000
+  },
+  "upstream": {
+    "commit": "91bdd1e7dcf193f3e7ca5a8933497fcef63b7960",
+    "repository": "https://github.com/philshiu/Drosophila_brain_model"
+  }
+}

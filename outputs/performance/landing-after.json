@@ -1,0 +1,23 @@
+{
+  "runtime": "optimized browser runtime with debounced touchdown support transfer",
+  "simulated_seconds": 19.99999999996673,
+  "realtime_factor": 0.31645714829948834,
+  "state_sha256": "f57d56ec4f890431cff2e3ada6f1689897aa94ccdc9c7ae2f7139b3def95ddc7",
+  "trace_sampling_seconds": 0.1,
+  "events": [
+    {"time":5.0,"mode":"Landing","contacts":0,"height_mm":4.565073222021573,"wing_amplitude":0.9933140553051016},
+    {"time":5.4,"mode":"Grounded","contacts":6,"height_mm":1.8341331945205,"wing_amplitude":0,"wing_controls":[1.5,-1,0.7,1.5,-1,0.7],"maximum_wing_joint_speed_rad_s":0.02526626751060019},
+    {"time":6.6,"mode":"Grounded","behavior":"Feed","contacts":3,"wing_amplitude":0,"wing_controls":[1.5,-1,0.7,1.5,-1,0.7],"maximum_wing_joint_speed_rad_s":0.029627756837013387},
+    {"time":6.7,"mode":"Grounded","behavior":"Feed","wing_amplitude":0,"maximum_wing_joint_speed_rad_s":0.000018602173544219345},
+    {"time":9.6,"mode":"Grounded","behavior":"DepartFood","wing_amplitude":0},
+    {"time":11.0,"mode":"Takeoff","behavior":"Explore","wing_amplitude":0.8394365787730151},
+    {"time":11.1,"mode":"Cruise","behavior":"Explore","height_mm":10.851706119023063}
+  ],
+  "feeding_samples":30,
+  "all_feeding_samples_zero_wing_amplitude":true,
+  "maximum_feeding_wing_joint_speed_rad_s":0.029627756837013387,
+  "final_position_mm":[-140.2109736185966,181.82255920152224,186.0111599639729],
+  "total_spikes":21583473,
+  "physics_warnings":[0,0,0,0,0,0,0],
+  "timings_ms_mean":{"step":6.161362999629975,"brain":3.4902634962999763,"gpu":2.0574502911999812,"gpu_wait":3.279310497379303,"encode":0.05022750616073608,"vision_amortized":0.10578699836730956}
+}

@@ -1,0 +1,183 @@
+{
+  "rows": [
+    {
+      "seed": 1,
+      "control": "intact",
+      "input_spikes": 45,
+      "relay_spikes": 22,
+      "motor_spikes": 26,
+      "population_spikes": 10260
+    },
+    {
+      "seed": 1,
+      "control": "no-input",
+      "input_spikes": 0,
+      "relay_spikes": 0,
+      "motor_spikes": 0,
+      "population_spikes": 0
+    },
+    {
+      "seed": 1,
+      "control": "input-disconnected",
+      "input_spikes": 45,
+      "relay_spikes": 0,
+      "motor_spikes": 0,
+      "population_spikes": 45
+    },
+    {
+      "seed": 1,
+      "control": "relay-disconnected",
+      "input_spikes": 45,
+      "relay_spikes": 23,
+      "motor_spikes": 25,
+      "population_spikes": 13815
+    },
+    {
+      "seed": 1,
+      "control": "relay-driven",
+      "input_spikes": 0,
+      "relay_spikes": 45,
+      "motor_spikes": 14,
+      "population_spikes": 6659
+    },
+    {
+      "seed": 2,
+      "control": "intact",
+      "input_spikes": 50,
+      "relay_spikes": 18,
+      "motor_spikes": 25,
+      "population_spikes": 9514
+    },
+    {
+      "seed": 2,
+      "control": "no-input",
+      "input_spikes": 0,
+      "relay_spikes": 0,
+      "motor_spikes": 0,
+      "population_spikes": 0
+    },
+    {
+      "seed": 2,
+      "control": "input-disconnected",
+      "input_spikes": 50,
+      "relay_spikes": 0,
+      "motor_spikes": 0,
+      "population_spikes": 50
+    },
+    {
+      "seed": 2,
+      "control": "relay-disconnected",
+      "input_spikes": 50,
+      "relay_spikes": 32,
+      "motor_spikes": 25,
+      "population_spikes": 13177
+    },
+    {
+      "seed": 2,
+      "control": "relay-driven",
+      "input_spikes": 0,
+      "relay_spikes": 52,
+      "motor_spikes": 16,
+      "population_spikes": 9589
+    },
+    {
+      "seed": 3,
+      "control": "intact",
+      "input_spikes": 48,
+      "relay_spikes": 16,
+      "motor_spikes": 17,
+      "population_spikes": 9413
+    },
+    {
+      "seed": 3,
+      "control": "no-input",
+      "input_spikes": 0,
+      "relay_spikes": 0,
+      "motor_spikes": 0,
+      "population_spikes": 0
+    },
+    {
+      "seed": 3,
+      "control": "input-disconnected",
+      "input_spikes": 48,
+      "relay_spikes": 0,
+      "motor_spikes": 0,
+      "population_spikes": 48
+    },
+    {
+      "seed": 3,
+      "control": "relay-disconnected",
+      "input_spikes": 48,
+      "relay_spikes": 25,
+      "motor_spikes": 19,
+      "population_spikes": 10431
+    },
+    {
+      "seed": 3,
+      "control": "relay-driven",
+      "input_spikes": 0,
+      "relay_spikes": 50,
+      "motor_spikes": 15,
+      "population_spikes": 9721
+    }
+  ],
+  "checks": [
+    {
+      "seed": 1,
+      "no_input_is_quiet": true,
+      "input_disconnect_preserves_stimulus": true,
+      "input_disconnect_blocks_all_downstream_spikes": true,
+      "intact_reaches_relay_and_motors": true,
+      "both_relays_active": true,
+      "all_six_motor_pools_active": false,
+      "all_twelve_motor_neurons_active": false,
+      "relay_disconnect_reduces_motor_spikes": true,
+      "relay_disconnect_motor_reduction_fraction": 0.038461538461538436
+    },
+    {
+      "seed": 2,
+      "no_input_is_quiet": true,
+      "input_disconnect_preserves_stimulus": true,
+      "input_disconnect_blocks_all_downstream_spikes": true,
+      "intact_reaches_relay_and_motors": true,
+      "both_relays_active": true,
+      "all_six_motor_pools_active": false,
+      "all_twelve_motor_neurons_active": false,
+      "relay_disconnect_reduces_motor_spikes": false,
+      "relay_disconnect_motor_reduction_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "no_input_is_quiet": true,
+      "input_disconnect_preserves_stimulus": true,
+      "input_disconnect_blocks_all_downstream_spikes": true,
+      "intact_reaches_relay_and_motors": true,
+      "both_relays_active": true,
+      "all_six_motor_pools_active": false,
+      "all_twelve_motor_neurons_active": false,
+      "relay_disconnect_reduces_motor_spikes": false,
+      "relay_disconnect_motor_reduction_fraction": -0.11764705882352944
+    }
+  ],
+  "software_controls_pass": true,
+  "pathway_response_reproduced_all_seeds": false,
+  "interpretation": "These are computational intervention checks, not validated landing behavior. Relay output disconnection removes outgoing synapses, not alternate network paths. Stimulus intensity, cell dynamics and motor-to-muscle mapping are not calibrated.",
+  "live_default_changed": false,
+  "cpu_short_window_verification": {
+    "maximum_conductance_error_mv": 1.4935276304584022e-05,
+    "maximum_voltage_error_mv": 4.2911727213379436e-05,
+    "mismatched_count_neurons": 0,
+    "mismatched_count_total": 0,
+    "spike_counts_exact": true
+  },
+  "cpu_verification": {
+    "maximum_conductance_error_mv": 0.005969827837951414,
+    "maximum_voltage_error_mv": 0.028072424679891128,
+    "mismatched_count_neurons": 0,
+    "mismatched_count_total": 0,
+    "spike_counts_exact": true
+  },
+  "cpu_check_tolerance_mv": 0.001,
+  "cpu_numerical_check_pass": false,
+  "acceptance_pass": false
+}

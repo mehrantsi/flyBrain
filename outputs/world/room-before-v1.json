@@ -1,0 +1,139 @@
+{
+  "body": {
+    "actuators": 56,
+    "feeding_actuator": "fly/c_head-c_rostrum-pitch-feeding-position",
+    "feeding_actuators": [
+      "fly/c_head-c_rostrum-pitch-feeding-position",
+      "fly/c_rostrum-c_haustellum-pitch-feeding-position"
+    ],
+    "model": "NeuroMechFly",
+    "physics": "MuJoCo",
+    "sensors": 6,
+    "source_manifest": "assets/neuromechfly/manifest.json"
+  },
+  "brain": {
+    "allocated_bytes": null,
+    "cumulative_spiking_neuron_count": 0,
+    "device": null,
+    "elapsed_seconds": 0.0,
+    "embodiment_mode": "disabled",
+    "enabled": false,
+    "encoding_elapsed_seconds": 0.0,
+    "external_event_count": 0,
+    "feeding_active_windows": 0,
+    "final_cns_motor_readout": null,
+    "final_feeding_extension": 0.0,
+    "final_filtered_mn9_rate_hz": 0.0,
+    "final_filtered_population_rate_hz": 0.0,
+    "first_feeding_window_ms": null,
+    "first_mn9_spike_window_ms": null,
+    "mapping_status": "sugar-to-MN9 is the published model readout; meal duration, taste adaptation, coordinated rostrum/haustellum actuation, and gait arbitration are explicit embodiment mappings",
+    "materialization": null,
+    "metal_elapsed_seconds": 0.0,
+    "mn9_spike_count": 0,
+    "model": null,
+    "motor_mapping": "published contralateral MN9 spikes -> bounded leaky coordinated proboscis command; finite meal state freezes gait and post-meal release restores locomotion",
+    "motor_neuron_id": null,
+    "neural_io": {
+      "enabled": false,
+      "groups": 0,
+      "missing_root_ids": 0,
+      "present_root_ids": 0,
+      "selected_root_ids": 0
+    },
+    "peak_feeding_extension": 0.0,
+    "peak_filtered_mn9_rate_hz": 0.0,
+    "peak_filtered_population_rate_hz": 0.0,
+    "population_spike_count": 0,
+    "retinal_input_mode": "disabled with neural engine",
+    "sensory_mapping": "geometric food contact -> bounded engineered meal/taste adaptation -> 150 Hz deterministic rate encoder -> published right sugar GRNs",
+    "sensory_neuron_ids": [],
+    "simulated_neuron_count": 0
+  },
+  "controller": {
+    "cycle_frequency_hz": 7.4074074074074066,
+    "gait_samples": 360,
+    "runtime_interpolation": "cyclic-linear",
+    "settle_seconds": 0.5,
+    "source": "FlyGym PreprogrammedSteps single_steps_untethered.pkl"
+  },
+  "environment": {
+    "contact_windows": 14,
+    "final_food_distance": 0.7402051567457486,
+    "first_taste_window_ms": 29.999999999999876,
+    "food_center": [
+      1.1,
+      0.0,
+      0.25
+    ],
+    "taste_radius": 0.75,
+    "taste_source_body": "fly/c_haustellum",
+    "taste_windows": 6
+  },
+  "flight": {
+    "decoder_mapping_status": "Peak activity in the broader published flight-DN population selects a bounded altitude setpoint. DNg02 bilateral activity is a separate published power-increase candidate; DNg07 is a candidate negative arm whose isolated sign is not experimentally resolved. Their signed rate difference can adjust the retained target. Both mappings are engineered decoders, not a recovered altitude circuit.",
+    "final_brain_altitude_control": 0.0,
+    "final_dng02_rate_hz": 0.0,
+    "final_dng07_rate_hz": 0.0,
+    "final_mode": "GROUNDED",
+    "final_target_height_mm": 0.0,
+    "maximum_cruise_target_mm": null,
+    "maximum_root_altitude_mm": 2.1,
+    "minimum_cruise_target_mm": null,
+    "minimum_root_altitude_mm": 1.1329391498875103,
+    "peak_abs_brain_altitude_control": 0.0,
+    "peak_dng02_rate_hz": 0.0,
+    "peak_dng07_rate_hz": 0.0,
+    "target_altitude_bounds_mm": [
+      5.0,
+      208.0
+    ],
+    "target_clamped_windows": 0
+  },
+  "preview": {
+    "path": "outputs/world/room-before-v1.png",
+    "sha256": "886a147892130051d37c6bf66b8f6563debd1e9e37016739b0f5dbab2eaef2c7"
+  },
+  "schema": "flybrain-render-v2",
+  "simulation": {
+    "actual_duration_seconds": 0.04000000000000012,
+    "control_hz": 500.0,
+    "control_window_steps": 20,
+    "final_root_position": [
+      0.5768770453176838,
+      0.018143166062348698,
+      1.137521106346147
+    ],
+    "final_root_quaternion": [
+      0.9995491977608052,
+      -0.02233839230376458,
+      0.004755541355092772,
+      0.019488004295780192
+    ],
+    "initial_root_position": [
+      0.496,
+      0.0,
+      2.1
+    ],
+    "initial_root_quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "physics_steps": 400,
+    "physics_timestep_seconds": 0.0001,
+    "requested_duration_seconds": 0.04,
+    "wall_seconds": 1.27712075
+  },
+  "video": {
+    "bytes": 38793,
+    "camera": "room_camera",
+    "fps": 25,
+    "frames": 1,
+    "height": 720,
+    "path": "outputs/world/room-before-v1.mp4",
+    "sha256": "8a39c4ba272f35bcb48dd3046acfac1ec1f9ab487619824358891e92bd44bd1c",
+    "width": 960
+  }
+}

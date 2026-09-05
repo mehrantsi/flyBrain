@@ -1,0 +1,948 @@
+{
+  "dataset": {
+    "asset_sha256": "cbfd4e29ffdf1cf5741f50d8b28a9fa69324a1c9e34e6d2ed45c258d6df6e0e6",
+    "path": "assets/neuromechfly/flight_system_id_targets_v1.json",
+    "source_hdf5_sha256": "64f2cb39cf1a938435f1876267935710aa931a5d3887fedee37c98073ca50426",
+    "split_rule": "original/reflected pairs remain in one split",
+    "test_trajectories": 36,
+    "train_trajectories": 196,
+    "validation_trajectories": 40
+  },
+  "failed_candidate_evaluations": 0,
+  "fit_scope": {
+    "fitted": [
+      "target body pitch",
+      "horizontal speed",
+      "yaw response",
+      "attitude response",
+      "horizontal force response"
+    ],
+    "fixed": [
+      "FlyWire neuron IDs and CSR topology",
+      "FlyWire signed contact counts",
+      "wing geometry and waveform",
+      "neural sensory and descending-neuron mappings",
+      "behavior state machine"
+    ],
+    "interpretation": "effective low-level flight dynamics, not recovered VNC synapses"
+  },
+  "method": "deterministic-spsa; fixed measured-anatomy boundary",
+  "optimizer": {
+    "best": {
+      "fingerprint": "924384231d241df8e3ad1d3fb8a22dbc9a841325a61d18778a58b7312229d6e0",
+      "iteration": 24,
+      "parameters": {
+        "parameters": [
+          {
+            "lower": -1.1,
+            "name": "target_pitch_rad",
+            "upper": -0.55,
+            "value": -0.7928649406408169
+          },
+          {
+            "lower": 60.0,
+            "name": "target_horizontal_speed_mm_s",
+            "upper": 360.0,
+            "value": 313.13806051306307
+          },
+          {
+            "lower": 1.0,
+            "name": "maximum_yaw_rate_rad_s",
+            "upper": 20.0,
+            "value": 2.00233315508777
+          },
+          {
+            "lower": 10.0,
+            "name": "attitude_position_gain_g_mm2_s2",
+            "upper": 120.0,
+            "value": 43.45777590779931
+          },
+          {
+            "lower": 0.005,
+            "name": "attitude_rate_gain_g_mm2_s2",
+            "upper": 0.25,
+            "value": 0.03652051340144566
+          },
+          {
+            "lower": 0.5,
+            "name": "yaw_rate_gain_g_mm2_s2",
+            "upper": 25.0,
+            "value": 5.916598662445408
+          },
+          {
+            "lower": 15.0,
+            "name": "maximum_torque_g_mm2_s2",
+            "upper": 140.0,
+            "value": 51.030003921221045
+          },
+          {
+            "lower": 2.0,
+            "name": "velocity_gain_per_s",
+            "upper": 60.0,
+            "value": 18.06470934570764
+          },
+          {
+            "lower": 0.05,
+            "name": "maximum_horizontal_force_weight",
+            "upper": 1.0,
+            "value": 0.41058953477391474
+          }
+        ]
+      },
+      "train_score": 0.7353874421569219
+    },
+    "candidates": [
+      {
+        "fingerprint": "924384231d241df8e3ad1d3fb8a22dbc9a841325a61d18778a58b7312229d6e0",
+        "iteration": 24,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.7928649406408169
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 313.13806051306307
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.00233315508777
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 43.45777590779931
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.03652051340144566
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.916598662445408
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 51.030003921221045
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.06470934570764
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.41058953477391474
+            }
+          ]
+        },
+        "train_score": 0.7353874421569219
+      },
+      {
+        "fingerprint": "bd6da7095d1babc5856863415eb696a98df9cc07c7e483da4ee8cd3e58809fcf",
+        "iteration": 23,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.7942477933420943
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 312.38377722145725
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.0501044302228046
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 43.181205367543846
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.03713651142292374
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.978198464593216
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 51.3442886260568
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.21053744875143
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.41297809853066647
+            }
+          ]
+        },
+        "train_score": 0.7361558712872621
+      },
+      {
+        "fingerprint": "a62cd36da92924fb9c686c599394d9d1e9f0fe8a7d98936d3afa9ff86e041558",
+        "iteration": 21,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.795431157874538
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 311.43720643470795
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.0909842958890414
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 42.944532461055104
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.037663646532830476
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.925484953602543
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 51.73869312053568
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.393541134189633
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.415975572688706
+            }
+          ]
+        },
+        "train_score": 0.7395990598293136
+      },
+      {
+        "fingerprint": "d6d0304196fb62e6d6c719638213c5f04a6b6ecb2afbeef335f4d49b586957c2",
+        "iteration": 22,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.7939717857204626
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 312.2332276096582
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.040569621475528
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 43.23640689187018
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.037013562573287806
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.99049334955681
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 51.407017630973094
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.23964370703259
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.4134548389680303
+            }
+          ]
+        },
+        "train_score": 0.7414698275621214
+      },
+      {
+        "fingerprint": "888af2fc8711c213d004fa884d2cb7afc1cb9b7b50c20508c3d75ab86b013f73",
+        "iteration": 18,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.7951648572953894
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 310.9863183783918
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.0651839431863848
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 42.981837419250915
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.037580558216848886
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.917176122004383
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 51.799215979433065
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.421623740718022
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.41565339350428754
+            }
+          ]
+        },
+        "train_score": 0.7418415232361651
+      }
+    ],
+    "checkpoints": [
+      {
+        "fingerprint": "8799dff487605c72bcf8c48550ce02b5192b1fa8a7c32eece7c872f6f7ce6774",
+        "iteration": 0,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.8290313946973065
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 300.0
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.0
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 40.0
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.04
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.0
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 60.0
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 20.0
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.4
+            }
+          ]
+        },
+        "train_score": 0.8970807373897204
+      },
+      {
+        "fingerprint": "3b2eaecd3fb7d27c36dc462c551a3f8d73da5811e8d20cec92e53bfa82fd4ad0",
+        "iteration": 6,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.8085567067968464
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 309.45768725867754
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 1.8857371500053073
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 39.95461771434283
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.03373181000021676
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.665043635620768
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 56.711278956971306
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 19.30082029337
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.4002971154756617
+            }
+          ]
+        },
+        "train_score": 0.8238273119606158
+      },
+      {
+        "fingerprint": "5416b76091ae9b40fe5b89c2d2c9758ca541084007e914b125aa916f9fb0c3d4",
+        "iteration": 12,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.8043303173703485
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 307.15238393513323
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 1.9114287721601217
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 42.36433037934213
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.03467579978994948
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.871853058955893
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 53.97296911038121
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.261525028218518
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.41165609176970624
+            }
+          ]
+        },
+        "train_score": 0.7786650752138485
+      },
+      {
+        "fingerprint": "888af2fc8711c213d004fa884d2cb7afc1cb9b7b50c20508c3d75ab86b013f73",
+        "iteration": 18,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.7951648572953894
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 310.9863183783918
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.0651839431863848
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 42.981837419250915
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.037580558216848886
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.917176122004383
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 51.799215979433065
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.421623740718022
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.41565339350428754
+            }
+          ]
+        },
+        "train_score": 0.7418415232361651
+      },
+      {
+        "fingerprint": "924384231d241df8e3ad1d3fb8a22dbc9a841325a61d18778a58b7312229d6e0",
+        "iteration": 24,
+        "parameters": {
+          "parameters": [
+            {
+              "lower": -1.1,
+              "name": "target_pitch_rad",
+              "upper": -0.55,
+              "value": -0.7928649406408169
+            },
+            {
+              "lower": 60.0,
+              "name": "target_horizontal_speed_mm_s",
+              "upper": 360.0,
+              "value": 313.13806051306307
+            },
+            {
+              "lower": 1.0,
+              "name": "maximum_yaw_rate_rad_s",
+              "upper": 20.0,
+              "value": 2.00233315508777
+            },
+            {
+              "lower": 10.0,
+              "name": "attitude_position_gain_g_mm2_s2",
+              "upper": 120.0,
+              "value": 43.45777590779931
+            },
+            {
+              "lower": 0.005,
+              "name": "attitude_rate_gain_g_mm2_s2",
+              "upper": 0.25,
+              "value": 0.03652051340144566
+            },
+            {
+              "lower": 0.5,
+              "name": "yaw_rate_gain_g_mm2_s2",
+              "upper": 25.0,
+              "value": 5.916598662445408
+            },
+            {
+              "lower": 15.0,
+              "name": "maximum_torque_g_mm2_s2",
+              "upper": 140.0,
+              "value": 51.030003921221045
+            },
+            {
+              "lower": 2.0,
+              "name": "velocity_gain_per_s",
+              "upper": 60.0,
+              "value": 18.06470934570764
+            },
+            {
+              "lower": 0.05,
+              "name": "maximum_horizontal_force_weight",
+              "upper": 1.0,
+              "value": 0.41058953477391474
+            }
+          ]
+        },
+        "train_score": 0.7353874421569219
+      }
+    ],
+    "evaluations": 73,
+    "method": "spsa-v1",
+    "train_trial_ids": [
+      "trajectory-000",
+      "trajectory-001",
+      "trajectory-002",
+      "trajectory-003",
+      "trajectory-004",
+      "trajectory-005",
+      "trajectory-006",
+      "trajectory-007",
+      "trajectory-008",
+      "trajectory-009",
+      "trajectory-010",
+      "trajectory-011",
+      "trajectory-012",
+      "trajectory-013",
+      "trajectory-020",
+      "trajectory-021",
+      "trajectory-022",
+      "trajectory-023",
+      "trajectory-024",
+      "trajectory-025",
+      "trajectory-026",
+      "trajectory-027",
+      "trajectory-028",
+      "trajectory-029",
+      "trajectory-030",
+      "trajectory-031",
+      "trajectory-032",
+      "trajectory-033",
+      "trajectory-040",
+      "trajectory-041",
+      "trajectory-042",
+      "trajectory-043",
+      "trajectory-044",
+      "trajectory-045",
+      "trajectory-046",
+      "trajectory-047",
+      "trajectory-048",
+      "trajectory-049",
+      "trajectory-050",
+      "trajectory-051",
+      "trajectory-052",
+      "trajectory-053",
+      "trajectory-060",
+      "trajectory-061",
+      "trajectory-062",
+      "trajectory-063",
+      "trajectory-064",
+      "trajectory-065",
+      "trajectory-066",
+      "trajectory-067",
+      "trajectory-068",
+      "trajectory-069",
+      "trajectory-070",
+      "trajectory-071",
+      "trajectory-072",
+      "trajectory-073",
+      "trajectory-080",
+      "trajectory-081",
+      "trajectory-082",
+      "trajectory-083",
+      "trajectory-084",
+      "trajectory-085",
+      "trajectory-086",
+      "trajectory-087",
+      "trajectory-088",
+      "trajectory-089",
+      "trajectory-090",
+      "trajectory-091",
+      "trajectory-092",
+      "trajectory-093",
+      "trajectory-094",
+      "trajectory-095",
+      "trajectory-096",
+      "trajectory-097",
+      "trajectory-098",
+      "trajectory-099",
+      "trajectory-100",
+      "trajectory-101",
+      "trajectory-102",
+      "trajectory-103",
+      "trajectory-104",
+      "trajectory-105",
+      "trajectory-112",
+      "trajectory-113",
+      "trajectory-114",
+      "trajectory-115",
+      "trajectory-116",
+      "trajectory-117",
+      "trajectory-118",
+      "trajectory-119",
+      "trajectory-120",
+      "trajectory-121",
+      "trajectory-122",
+      "trajectory-123",
+      "trajectory-124",
+      "trajectory-125",
+      "trajectory-132",
+      "trajectory-133",
+      "trajectory-134",
+      "trajectory-135",
+      "trajectory-136",
+      "trajectory-137",
+      "trajectory-138",
+      "trajectory-139",
+      "trajectory-140",
+      "trajectory-141",
+      "trajectory-142",
+      "trajectory-143",
+      "trajectory-144",
+      "trajectory-145",
+      "trajectory-152",
+      "trajectory-153",
+      "trajectory-154",
+      "trajectory-155",
+      "trajectory-156",
+      "trajectory-157",
+      "trajectory-158",
+      "trajectory-159",
+      "trajectory-160",
+      "trajectory-161",
+      "trajectory-162",
+      "trajectory-163",
+      "trajectory-164",
+      "trajectory-165",
+      "trajectory-172",
+      "trajectory-173",
+      "trajectory-174",
+      "trajectory-175",
+      "trajectory-176",
+      "trajectory-177",
+      "trajectory-178",
+      "trajectory-179",
+      "trajectory-180",
+      "trajectory-181",
+      "trajectory-182",
+      "trajectory-183",
+      "trajectory-184",
+      "trajectory-185",
+      "trajectory-192",
+      "trajectory-193",
+      "trajectory-194",
+      "trajectory-195",
+      "trajectory-196",
+      "trajectory-197",
+      "trajectory-198",
+      "trajectory-199",
+      "trajectory-200",
+      "trajectory-201",
+      "trajectory-202",
+      "trajectory-203",
+      "trajectory-204",
+      "trajectory-205",
+      "trajectory-212",
+      "trajectory-213",
+      "trajectory-214",
+      "trajectory-215",
+      "trajectory-216",
+      "trajectory-217",
+      "trajectory-218",
+      "trajectory-219",
+      "trajectory-220",
+      "trajectory-221",
+      "trajectory-222",
+      "trajectory-223",
+      "trajectory-224",
+      "trajectory-225",
+      "trajectory-228",
+      "trajectory-229",
+      "trajectory-236",
+      "trajectory-237",
+      "trajectory-238",
+      "trajectory-239",
+      "trajectory-240",
+      "trajectory-241",
+      "trajectory-242",
+      "trajectory-243",
+      "trajectory-244",
+      "trajectory-245",
+      "trajectory-246",
+      "trajectory-247",
+      "trajectory-248",
+      "trajectory-249",
+      "trajectory-256",
+      "trajectory-257",
+      "trajectory-258",
+      "trajectory-259",
+      "trajectory-260",
+      "trajectory-261",
+      "trajectory-262",
+      "trajectory-263",
+      "trajectory-264",
+      "trajectory-265",
+      "trajectory-266",
+      "trajectory-267",
+      "trajectory-268",
+      "trajectory-269"
+    ]
+  },
+  "output": {
+    "path": "outputs/system_id/simulation_parameters_flight_v1.json",
+    "sha256": "a179c57812e1243d22992840b0ed133672ff0cffe9919ccb79dca891fb2b3932",
+    "status": "flight-dynamics-identified; neural-io-and-behavior-unfitted"
+  },
+  "schema": "flybrain.flight-system-identification-report",
+  "schema_version": 1,
+  "scores": {
+    "baseline": {
+      "test": 0.9007984896405123,
+      "train": 0.8970807373897204,
+      "validation": 0.9985119748712474
+    },
+    "identified": {
+      "test": 0.7545696364746582,
+      "train": 0.7353874421569219,
+      "validation": 0.8590427343195431
+    }
+  }
+}

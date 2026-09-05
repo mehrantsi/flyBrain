@@ -1,0 +1,185 @@
+{
+  "schema": "flybody.flight-policy",
+  "schema_version": 1,
+  "policy": "flight",
+  "input_size": 104,
+  "input_order": [
+    {
+      "name": "accelerometer",
+      "size": 3
+    },
+    {
+      "name": "actuator_activation",
+      "size": 0
+    },
+    {
+      "name": "gyro",
+      "size": 3
+    },
+    {
+      "name": "joints_pos",
+      "size": 25
+    },
+    {
+      "name": "joints_vel",
+      "size": 25
+    },
+    {
+      "name": "ref_displacement",
+      "size": 18
+    },
+    {
+      "name": "ref_root_quat",
+      "size": 24
+    },
+    {
+      "name": "velocimeter",
+      "size": 3
+    },
+    {
+      "name": "world_zaxis",
+      "size": 3
+    }
+  ],
+  "hidden_size": 256,
+  "output_size": 12,
+  "layer_norm_epsilon": 1e-05,
+  "activations": [
+    "tanh",
+    "elu",
+    "elu"
+  ],
+  "output_head": "mean",
+  "scale_head": "omitted",
+  "weights_file": "flybody_flight_policy_v1.f32le",
+  "weights_sha256": "be45518017681e1233f872f497abaeef5de23f1dea97e73f5a77a0f05fabd44d",
+  "weights_f32_count": 162060,
+  "tensors": [
+    {
+      "name": "torso_linear_weight",
+      "source_variable_index": 1,
+      "source_variable_name": "feedforward_mlp_torso/linear/w:0",
+      "dtype": "f32le",
+      "shape": [
+        104,
+        256
+      ],
+      "offset_f32": 0,
+      "count": 26624
+    },
+    {
+      "name": "torso_linear_bias",
+      "source_variable_index": 0,
+      "source_variable_name": "feedforward_mlp_torso/linear/b:0",
+      "dtype": "f32le",
+      "shape": [
+        256
+      ],
+      "offset_f32": 26624,
+      "count": 256
+    },
+    {
+      "name": "layer_norm_offset",
+      "source_variable_index": 2,
+      "source_variable_name": "feedforward_mlp_torso/layer_norm/offset:0",
+      "dtype": "f32le",
+      "shape": [
+        256
+      ],
+      "offset_f32": 26880,
+      "count": 256
+    },
+    {
+      "name": "layer_norm_scale",
+      "source_variable_index": 3,
+      "source_variable_name": "feedforward_mlp_torso/layer_norm/scale:0",
+      "dtype": "f32le",
+      "shape": [
+        256
+      ],
+      "offset_f32": 27136,
+      "count": 256
+    },
+    {
+      "name": "mlp_linear_0_weight",
+      "source_variable_index": 5,
+      "source_variable_name": "feedforward_mlp_torso/mlp/linear_0/w:0",
+      "dtype": "f32le",
+      "shape": [
+        256,
+        256
+      ],
+      "offset_f32": 27392,
+      "count": 65536
+    },
+    {
+      "name": "mlp_linear_0_bias",
+      "source_variable_index": 4,
+      "source_variable_name": "feedforward_mlp_torso/mlp/linear_0/b:0",
+      "dtype": "f32le",
+      "shape": [
+        256
+      ],
+      "offset_f32": 92928,
+      "count": 256
+    },
+    {
+      "name": "mlp_linear_1_weight",
+      "source_variable_index": 7,
+      "source_variable_name": "feedforward_mlp_torso/mlp/linear_1/w:0",
+      "dtype": "f32le",
+      "shape": [
+        256,
+        256
+      ],
+      "offset_f32": 93184,
+      "count": 65536
+    },
+    {
+      "name": "mlp_linear_1_bias",
+      "source_variable_index": 6,
+      "source_variable_name": "feedforward_mlp_torso/mlp/linear_1/b:0",
+      "dtype": "f32le",
+      "shape": [
+        256
+      ],
+      "offset_f32": 158720,
+      "count": 256
+    },
+    {
+      "name": "mean_head_weight",
+      "source_variable_index": 9,
+      "source_variable_name": "MultivariateNormalDiagHead/linear/w:0",
+      "dtype": "f32le",
+      "shape": [
+        256,
+        12
+      ],
+      "offset_f32": 158976,
+      "count": 3072
+    },
+    {
+      "name": "mean_head_bias",
+      "source_variable_index": 8,
+      "source_variable_name": "MultivariateNormalDiagHead/linear/b:0",
+      "dtype": "f32le",
+      "shape": [
+        12
+      ],
+      "offset_f32": 162048,
+      "count": 12
+    }
+  ],
+  "source": {
+    "figshare_doi": "10.25378/janelia.25309105.v4",
+    "data_license": "GPL-3.0+",
+    "archive_sha256": "2d9937c9af2baafad1690c1b318791bde417b4d26dd96d4385ab6723d5d58582",
+    "archive_relative_path": "work/upstream/flybody-data/trained-fly-policies.zip",
+    "saved_model_relative_path": "work/upstream/flybody-data/trained-fly-policies/flight",
+    "saved_model_pb_sha256": "3183f73654e8d0406caaf377e710c8073cafc7e9908d9927ab413e44edf859c8",
+    "tensorflow": "2.18.1",
+    "tensorflow_probability": "0.25.0",
+    "legacy_typespec_alias": "tensorflow_probability.python.distributions.independent.Independent_ACTTypeSpec"
+  },
+  "fixture_file": "flybody_flight_policy_fixture_v1.json"
+}

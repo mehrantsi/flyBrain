@@ -1,0 +1,18 @@
+{
+  "runtime":"optimized runtime with corrected touchdown and workgroup-shared source metadata",
+  "renderer":"WebGL, 640x420 CSS pixels, binocular sensory rendering enabled, retina HUD hidden",
+  "gpu_timestamps":false,
+  "control_windows":10000,
+  "simulated_seconds":19.99999999996673,
+  "realtime_factor":0.4004397629457796,
+  "step_ms":{"mean":4.884917498588562,"p50":4.439999580383301,"p95":7.489999771118164},
+  "brain_ms_mean":2.3561729934000004,
+  "gpu_wait_ms_mean":2.15348400182724,
+  "encoding_ms_mean":0.044444001960754397,
+  "vision_ms_amortized_mean":0.06620449943542481,
+  "state_sha256":"f57d56ec4f890431cff2e3ada6f1689897aa94ccdc9c7ae2f7139b3def95ddc7",
+  "total_spikes":21583473,
+  "root_position":[-140.2109736185966,181.82255920152224,186.01115996397286],
+  "physics_warnings":[0,0,0,0,0,0,0],
+  "landing":{"begins_seconds":5.0,"grounded_seconds":5.4,"feeding_seconds":6.6,"feeding_samples":30,"maximum_feeding_wing_amplitude":0,"maximum_feeding_wing_speed_rad_s":0.029627756837013387,"post_meal_takeoff_seconds":11.0}
+}

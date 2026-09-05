@@ -1,0 +1,98 @@
+{
+  "body": {
+    "actuators": 48,
+    "model": "NeuroMechFly",
+    "physics": "MuJoCo",
+    "sensors": 6,
+    "source_manifest": "assets/neuromechfly/manifest.json"
+  },
+  "brain": {
+    "allocated_bytes": null,
+    "device": null,
+    "elapsed_seconds": 0.0,
+    "enabled": false,
+    "external_event_count": 0,
+    "final_filtered_probe_rates_hz": [
+      0.0,
+      0.0
+    ],
+    "mapping_status": "explicit engineering bridge; not a validated biological VNC decoder",
+    "materialization": null,
+    "motor_mapping": "DNa02R minus DNa02L filtered spike rate -> differential gait amplitude",
+    "probe_neuron_ids": [
+      0,
+      0
+    ],
+    "probe_spike_counts": [
+      0,
+      0
+    ],
+    "sensory_mapping": "geometric food contact -> 150 Hz deterministic rate encoder -> published right sugar GRNs",
+    "sensory_neuron_ids": []
+  },
+  "controller": {
+    "cycle_frequency_hz": 7.4074074074074066,
+    "gait_samples": 360,
+    "runtime_interpolation": "cyclic-linear",
+    "settle_seconds": 0.2,
+    "source": "FlyGym PreprogrammedSteps single_steps_untethered.pkl"
+  },
+  "environment": {
+    "contact_windows": 243,
+    "final_food_distance": 2.1566199237848136,
+    "food_center": [
+      1.1,
+      0.0,
+      1.35
+    ],
+    "taste_radius": 0.75,
+    "taste_source_body": "fly/c_haustellum",
+    "taste_windows": 123
+  },
+  "preview": {
+    "path": "outputs/world/smoke.png",
+    "sha256": "edab78cbbd53ea1189ef0a96759c234f7cde6d3a8d947bbae970073b26bcc2cb"
+  },
+  "schema": "flybrain-render-v1",
+  "simulation": {
+    "actual_duration_seconds": 0.49999999999996125,
+    "control_hz": 500.0,
+    "control_window_steps": 20,
+    "final_root_position": [
+      3.089028074220954,
+      -0.14125848072986846,
+      1.0315041311251651
+    ],
+    "final_root_quaternion": [
+      0.9993908622429358,
+      0.00778315652957562,
+      0.00834487836229366,
+      -0.03298014470670636
+    ],
+    "initial_root_position": [
+      0.496,
+      0.0,
+      2.1
+    ],
+    "initial_root_quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "physics_steps": 5000,
+    "physics_timestep_seconds": 0.0001,
+    "requested_duration_seconds": 0.5,
+    "wall_seconds": 1.027464958
+  },
+  "video": {
+    "bytes": 21491,
+    "camera": "fly/trackingcam",
+    "fps": 10,
+    "frames": 5,
+    "height": 240,
+    "path": "outputs/world/smoke.mp4",
+    "sha256": "2b5e85bc06ff438c2d766b5ccb0da9ebe2bfddfa3d18a9a0a039f4f57949bc57",
+    "width": 320
+  }
+}

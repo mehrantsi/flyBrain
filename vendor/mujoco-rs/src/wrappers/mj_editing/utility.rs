@@ -1,0 +1,739 @@
+//! Utilities for model editing purposes.
+use crate::mujoco_c::*;
+use std::ffi::{CStr, CString};
+
+/***************************
+** Utility functions
+***************************/
+/// Reads MJS string (C++) as a `&str`.
+///
+/// The returned `&str` borrows from the `mjString` object pointed to by `string`.
+/// It remains valid as long as that object is alive and the string is not mutated
+/// (which would reallocate the internal C++ `std::string` buffer).
+///
+/// # Safety
+/// `string` must point to a valid `mjString` object for the duration `'a`.
+///
+/// # Panics
+/// Panics if the string contains invalid UTF-8.
+pub(crate) unsafe fn read_mjs_string<'a>(string: *const mjString) -> &'a str {
+    let ptr = unsafe { mjs_getString(string) };
+    if ptr.is_null() {
+        ""
+    } else {
+        // SAFETY: `ptr` points into the internal buffer of the C++ std::string
+        // referenced by `string`, which is valid for lifetime 'a. MuJoCo
+        // strings are always valid UTF-8 (ASCII), so to_str() cannot fail.
+        unsafe { CStr::from_ptr(ptr) }.to_str().unwrap()
+    }
+}
+
+/// Writes to a `destination` MJS string (C++) from a `source` `&str`.
+///
+/// # Safety
+/// `destination` must point to a valid `mjString` object.
+///
+/// # Panics
+/// When the `source` contains '\0' characters, a panic occurs.
+pub(crate) unsafe fn write_mjs_string(source: &str, destination: *mut mjString) {
+    let c_source = CString::new(source).unwrap();
+    unsafe { mjs_setString(destination, c_source.as_ptr()) };
+}
+
+/// Reads MJS double vector (C++) as a `&\[f64\]`.
+/// # Safety
+/// `array` must point to a valid `mjDoubleVec` object for the duration `'a`.
+pub(crate) unsafe fn read_mjs_vec_f64<'a>(array: *const mjDoubleVec) -> &'a [f64] {
+    let mut userdata_length = 0;
+    let ptr_arr = unsafe { mjs_getDouble(array, &mut userdata_length) };
+    if ptr_arr.is_null() {
+        return &[];
+    }
+    unsafe { std::slice::from_raw_parts(ptr_arr, userdata_length as usize) }
+}
+
+/// Writes MJS double vector (C++) from a `source` to `destination`.
+///
+/// # Safety
+/// `destination` must point to a valid `mjDoubleVec` object.
+pub(crate) unsafe fn write_mjs_vec_f64(source: &[f64], destination: *mut mjDoubleVec) {
+    unsafe {
+        mjs_setDouble(destination, source.as_ptr(), source.len() as i32);
+    }
+}
+
+/// Writes MJS float vector (C++) from a `source` to `destination`.
+///
+/// # Safety
+/// `destination` must point to a valid `mjFloatVec` object.
+pub(crate) unsafe fn write_mjs_vec_f32(source: &[f32], destination: *mut mjFloatVec) {
+    unsafe {
+        mjs_setFloat(destination, source.as_ptr(), source.len() as i32);
+    }
+}
+
+/// Appends MJS float vector (C++) from a `source` to `destination`.
+///
+/// # Safety
+/// `destination` must point to a valid `mjFloatVecVec` object.
+pub(crate) unsafe fn append_mjs_vec_vec_f32(source: &[f32], destination: *mut mjFloatVecVec) {
+    unsafe {
+        mjs_appendFloatVec(destination, source.as_ptr(), source.len() as i32);
+    }
+}
+
+/// Writes MJS int vector (C++) from a `source` to `destination`.
+///
+/// # Safety
+/// `destination` must point to a valid `mjIntVec` object.
+pub(crate) unsafe fn write_mjs_vec_i32(source: &[i32], destination: *mut mjIntVec) {
+    unsafe {
+        mjs_setInt(destination, source.as_ptr(), source.len() as i32);
+    }
+}
+
+/// Appends MJS int vector (C++) from a `source` to `destination`.
+///
+/// # Safety
+/// `destination` must point to a valid `mjIntVecVec` object.
+pub(crate) unsafe fn append_mjs_vec_vec_i32(source: &[i32], destination: *mut mjIntVecVec) {
+    unsafe {
+        mjs_appendIntVec(destination, source.as_ptr(), source.len() as i32);
+    }
+}
+
+/// Split `source` to entries and copy to `destination` (C++).
+///
+/// # Safety
+/// `destination` must point to a valid `mjStringVec` object.
+///
+/// # Panics
+/// When the `source` contains '\0' characters, a panic occurs.
+pub(crate) unsafe fn write_mjs_vec_string(source: &str, destination: *mut mjStringVec) {
+    let c_source = CString::new(source).unwrap();
+    unsafe {
+        mjs_setStringVec(destination, c_source.as_ptr());
+    }
+}
+
+/// Split `source` to entries and append to `destination` (C++).
+///
+/// # Safety
+/// `destination` must point to a valid `mjStringVec` object.
+///
+/// # Panics
+/// When the `source` contains '\0' characters, a panic occurs.
+pub(crate) unsafe fn append_mjs_vec_string(source: &str, destination: *mut mjStringVec) {
+    let c_source = CString::new(source).unwrap();
+    unsafe {
+        mjs_appendString(destination, c_source.as_ptr());
+    }
+}
+
+/// Writes MJS byte vector (C++) from a `source` to `destination`.
+///
+/// # Safety
+/// `destination` must point to a valid `mjByteVec` object.
+pub(crate) unsafe fn write_mjs_vec_byte<T: bytemuck::NoUninit>(
+    source: &[T],
+    destination: *mut mjByteVec,
+) {
+    let bytes: &[u8] = bytemuck::cast_slice(source);
+    unsafe {
+        mjs_setBuffer(destination, bytes.as_ptr().cast(), bytes.len() as i32);
+    }
+}
+
+/***************************
+** Helper macros
+***************************/
+/// Generates both an `add_$name` method (panics on OOM, delegates to `try_add_$name`) and a
+/// `try_add_$name` method (returns `Result`) for adding child elements that accept a default.
+macro_rules! add_x_method {
+    ($($name:ident),*) => {paste::paste! {
+        $(
+            #[doc = concat!(
+                "Add and return a child [`", stringify!([<Mjs $name:camel>]), "`].\n\n",
+                "Delegates to [`Self::try_add_", stringify!($name), "`] and panics if allocation fails.\n",
+                "# Panics\n",
+                "Panics if MuJoCo fails to allocate the element."
+            )]
+            pub fn [<add_ $name>](&mut self) -> &mut [<Mjs $name:camel>] {
+                self.[<try_add_ $name>]()
+                    .expect(concat!("mjs_add", stringify!([<$name:camel>]), " returned null; allocation failed"))
+            }
+
+            #[doc = concat!(
+                "Fallible version of [`Self::add_", stringify!($name), "`].\n\n",
+                "# Errors\n",
+                "Returns [`MjEditError::AllocationFailed`] when MuJoCo fails to allocate ",
+                "the element, instead of panicking."
+            )]
+            pub fn [<try_add_ $name>](&mut self) -> Result<&mut [<Mjs $name:camel>], MjEditError> {
+                let ptr = unsafe { [<mjs_add $name:camel>](self.ffi_mut(), ptr::null()) };
+                // SAFETY: ptr.as_mut() returns None for null, handled by ok_or; when non-null
+                // the pointee is properly aligned and initialized by C++ operator new.
+                unsafe { ptr.as_mut() }.ok_or(MjEditError::AllocationFailed)
+            }
+        )*
+    }};
+}
+
+/// Generates both `add_$name` (panics, delegates to `try_`) and `try_add_$name` (returns
+/// `Result`) for elements parented by a frame.
+macro_rules! add_x_method_by_frame {
+    ($($name:ident),*) => {paste::paste! {
+        $(
+            #[doc = concat!(
+                "Add and return a child [`", stringify!([<Mjs $name:camel>]), "`].\n\n",
+                "Delegates to [`Self::try_add_", stringify!($name), "`] and panics on failure.\n",
+                "# Panics\n",
+                "Panics if MuJoCo fails to allocate the element."
+            )]
+            pub fn [<add_ $name>](&mut self) -> &mut [<Mjs $name:camel>] {
+                self.[<try_add_ $name>]()
+                    .expect(concat!("mjs_add", stringify!([<$name:camel>]), " returned null; allocation failed"))
+            }
+
+            #[doc = concat!(
+                "Fallible version of [`Self::add_", stringify!($name), "`].\n\n",
+                "# Errors\n",
+                "Returns [`MjEditError::AllocationFailed`] when MuJoCo fails to allocate the element."
+            )]
+            pub fn [<try_add_ $name>](&mut self) -> Result<&mut [<Mjs $name:camel>], MjEditError> {
+                // SAFETY:
+                // - element_mut_pointer() reads `self.element`, a field always valid after construction.
+                // - body_ptr is non-null for any MjsFrame reachable through the Rust API because
+                //   mjs_addFrame always calls SetParent(body); the debug_assert catches violations.
+                // - The is_null() guard is defensive; mjs_addXxx functions do not perform
+                //   null-check error handling internally, so under current MuJoCo the
+                //   pointer is always non-null.
+                // - ptr.cast() is safe: mjs structs embed mjsElement as their first field, so
+                //   *mut mjsXxx and *mut mjsElement share the same address.
+                // - mjs_setFrame: both dest and frame are non-null and valid; failure for a
+                //   freshly-created element is treated as a bug via debug_assert.
+                // - `&mut *ptr`: ptr is confirmed non-null by the guard above, properly aligned
+                //   and initialized by C++ operator new, and freshly allocated so no Rust
+                //   reference can alias it for the returned lifetime.
+                unsafe {
+                    let ep = self.element_mut_pointer();
+                    let body_ptr = mjs_getParent(ep);
+                    debug_assert!(!body_ptr.is_null(), "mjs_getParent returned null; frame has no parent body");
+                    let ptr = [<mjs_add $name:camel>](body_ptr, ptr::null());
+                    if ptr.is_null() {
+                        return Err(MjEditError::AllocationFailed);
+                    }
+                    let set_result = mjs_setFrame((*ptr).element, self);
+                    debug_assert_eq!(set_result, 0, "mjs_setFrame failed; element or frame is invalid");
+                    Ok(&mut *ptr)
+                }
+            }
+        )*
+    }};
+}
+
+/// Generates both `add_$name` (panics, delegates to `try_`) and `try_add_$name` (returns
+/// `Result`) for elements whose `mjs_addXxx` function takes no default argument.
+macro_rules! add_x_method_no_default {
+    ($($name:ident),*) => {paste::paste! {
+        $(
+            #[doc = concat!(
+                "Add and return a child [`", stringify!([<Mjs $name:camel>]), "`].\n\n",
+                "Delegates to [`Self::try_add_", stringify!($name), "`] and panics if allocation fails.\n",
+                "# Panics\n",
+                "Panics if MuJoCo fails to allocate the element."
+            )]
+            pub fn [<add_ $name>](&mut self) -> &mut [<Mjs $name:camel>] {
+                self.[<try_add_ $name>]()
+                    .expect(concat!("mjs_add", stringify!([<$name:camel>]), " returned null; allocation failed"))
+            }
+
+            #[doc = concat!(
+                "Fallible version of [`Self::add_", stringify!($name), "`].\n\n",
+                "# Errors\n",
+                "Returns [`MjEditError::AllocationFailed`] when MuJoCo fails to allocate ",
+                "the element, instead of panicking."
+            )]
+            pub fn [<try_add_ $name>](&mut self) -> Result<&mut [<Mjs $name:camel>], MjEditError> {
+                let ptr = unsafe { [<mjs_add $name:camel>](self.0.as_ptr()) };
+                unsafe { ptr.as_mut() }.ok_or(MjEditError::AllocationFailed)
+            }
+        )*
+    }};
+}
+
+/// Creates a `get_$name` method for finding items in spec / body.
+/// Also sets the default to null();
+macro_rules! find_x_method {
+    ($($item:ident),*) => {paste::paste! {
+        $(
+            #[doc = concat!(
+                "Obtain an immutable reference to the ", stringify!($item), " with the given `name`.\n",
+                "# Panics\n",
+                "When the `name` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn $item(&self, name: &str) -> Option<&[<Mjs $item:camel>]> {
+                let c_name = CString::new(name).unwrap();
+                unsafe {
+                    let ptr = mjs_findElement(self.0.as_ptr(), MjtObj::[<mjOBJ_ $item:upper>], c_name.as_ptr());
+                    if ptr.is_null() {
+                        None
+                    }
+                    else {
+                        [<mjs_as $item:camel>](ptr).as_ref()
+                    }
+                }
+            }
+
+            #[doc = concat!(
+                "Obtain a mutable reference to the ", stringify!($item), " with the given `name`.\n",
+                "# Panics\n",
+                "When the `name` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn [<$item _mut>](&mut self, name: &str) -> Option<&mut [<Mjs $item:camel>]> {
+                let c_name = CString::new(name).unwrap();
+                unsafe {
+                    let ptr = mjs_findElement(self.0.as_ptr(), MjtObj::[<mjOBJ_ $item:upper>], c_name.as_ptr());
+                    if ptr.is_null() {
+                        None
+                    }
+                    else {
+                        [<mjs_as $item:camel>](ptr).as_mut()
+                    }
+                }
+            }
+        )*
+    }};
+}
+
+/// Same as [`find_x_method`], but for types that have corresponding methods (instead of `mjs_findElement`).
+macro_rules! find_x_method_direct {
+    ($($item:ident),*) => {paste::paste!{
+        $(
+            #[doc = concat!(
+                "Obtain an immutable reference to the ", stringify!($item), " with the given `name`.\n",
+                "# Panics\n",
+                "When the `name` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn $item(&self, name: &str) -> Option<&[<Mjs $item:camel>]> {
+                let c_name = CString::new(name).unwrap();
+                unsafe {
+                    let ptr = [<mjs_find $item:camel>](self.0.as_ptr(), c_name.as_ptr());
+                    if ptr.is_null() {
+                        None
+                    }
+                    else {
+                        ptr.as_ref()
+                    }
+                }
+            }
+
+            #[doc = concat!(
+                "Obtain a mutable reference to the ", stringify!($item), " with the given `name`.\n",
+                "# Panics\n",
+                "When the `name` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn [<$item _mut>](&mut self, name: &str) -> Option<&mut [<Mjs $item:camel>]> {
+                let c_name = CString::new(name).unwrap();
+                unsafe {
+                    let ptr = [<mjs_find $item:camel>](self.0.as_ptr(), c_name.as_ptr());
+                    if ptr.is_null() {
+                        None
+                    }
+                    else {
+                        ptr.as_mut()
+                    }
+                }
+            }
+        )*
+    }};
+}
+
+/// Creates a wrapper around a mjs$ffi_name item. It also implements the methods: `ffi()`, `ffi_mut()`
+/// and traits: [`SpecItem`](super::traits::SpecItem), [`Sync`], [`Send`].
+///
+/// When `[SpecObject]` is given to the right of `ffi_name`, the SpecObject trait also gets implemented.
+macro_rules! mjs_struct {
+    ($ffi_name:ident $([$SpecObject:ident])? $({ $($extra_trait_methods:tt)* })?) => {paste::paste!{
+        #[doc = concat!(stringify!($ffi_name), " specification. This is an alias to the FFI type [`", stringify!([<mjs $ffi_name>]), "`].")]
+        pub type [<Mjs $ffi_name>] = [<mjs $ffi_name>];
+
+        impl [<Mjs $ffi_name>] {
+            /// Return the message appended to compiler errors.
+            /// # Panics
+            /// Panics if it contains invalid UTF-8.
+            pub fn info(&self) -> &str {
+                // SAFETY: self.info is a valid mjString pointer for the lifetime of self.
+                unsafe { read_mjs_string(self.info) }
+            }
+
+            /// Set the message appended to compiler errors.
+            /// # Panics
+            /// When the `info` contains '\0' characters, a panic occurs.
+            pub fn set_info(&mut self, info: &str) {
+                // SAFETY: self.info is a valid mjString pointer for the lifetime of self.
+                unsafe { write_mjs_string(info, self.info) };
+            }
+        }
+
+        impl crate::wrappers::mj_editing::traits::sealed::Sealed for [<Mjs $ffi_name>] {}
+
+        impl SpecItem for [<Mjs $ffi_name>] {
+            fn element_pointer(&self) -> *const mjsElement {
+                self.element
+            }
+
+            $($(
+                $extra_trait_methods
+            )*)?
+        }
+
+
+        $(
+            impl $SpecObject for [<Mjs $ffi_name>] {
+                const OBJ_TYPE: MjtObj = MjtObj::[<mjOBJ_ $ffi_name:upper>];
+                unsafe fn from_element_as_ptr_mut(element: *mut mjsElement) -> *mut Self {
+                    // SAFETY: *const conversion to *mut is valid, because mjs_as returns mut originally,
+                    // thus the data itself is *mut.
+                    unsafe { [<mjs_as $ffi_name:camel>](element) }
+                }
+            }
+        )?
+
+        // Mjs* handles are intentionally NEITHER Send NOR Sync. Each is a thin alias over
+        // a raw pointer into a single shared mjSpec/mjCModel arena, and its `&mut self`
+        // mutators (e.g. `SpecItem::set_name` -> `mjs_setName`) reach through that pointer
+        // to read every sibling and write model-global state (`mjCModel::CheckRepeat` and
+        // the shared `errInfo`). Letting a handle --- or a reference to one --- cross a
+        // thread boundary would let two such accesses race on the one arena from safe code.
+        // The raw-pointer field already makes the type auto-`!Send + !Sync`, so we simply
+        // do not add the impls. Do NOT add `unsafe impl Send`/`Sync` here: the owning
+        // `MjSpec` is itself `Send` (but `!Sync`), so a whole spec can still move between
+        // threads --- handles derived from it just stay on the thread that created them.
+    }};
+}
+
+/// Implements the userdata method.
+macro_rules! userdata_method {
+    ($type:ty) => {
+        paste::paste! {
+            /// Return an immutable slice to userdata.
+            pub fn userdata(&self) -> &[$type] {
+                // SAFETY: self.userdata is a valid mjDoubleVec pointer for the lifetime of self.
+                unsafe { [<read_mjs_vec_ $type>](self.userdata) }
+            }
+
+            /// Set `userdata`.
+            pub fn set_userdata<T: AsRef<[$type]>>(&mut self, value: T) {
+                // SAFETY: self.userdata is a valid pointer for the lifetime of self.
+                unsafe { [<write_mjs_vec_ $type>](value.as_ref(), self.userdata) };
+            }
+
+            /// Builder method for setting `userdata`.
+            pub fn with_userdata<T: AsRef<[$type]>>(&mut self, value: T) -> &mut Self {
+                // SAFETY: self.userdata is a valid pointer for the lifetime of self.
+                unsafe { [<write_mjs_vec_ $type>](value.as_ref(), self.userdata) };
+                self
+            }
+        }
+    };
+}
+
+/// Implements vector of strings methods for given attribute $name.
+macro_rules! vec_string_set_append {
+    ($($name:ident; $comment:expr);* $(;)?) => {paste::paste!{
+        $(
+            #[doc = concat!(
+                "Splits the `", stringify!($name), "` and put the split text as ", $comment,
+                "\n",
+                "# Panics\n",
+                "When the `value` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn [<set_ $name>](&mut self, value: &str) {
+                // SAFETY: self.$name is a valid mjStringVec pointer for the lifetime of self.
+                unsafe { write_mjs_vec_string(value, self.$name) };
+            }
+
+            #[doc = concat!(
+                "Splits the `", stringify!($name), "` and append the split text to ", $comment,
+                "\n",
+                "# Panics\n",
+                "When the `value` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn [<append_ $name>](&mut self, value: &str) {
+                // SAFETY: self.$name is a valid mjStringVec pointer for the lifetime of self.
+                unsafe { append_mjs_vec_string(value, self.$name) };
+            }
+        )*
+    }};
+
+    // Indexed variant: the string vector is pre-sized (one entry per enum variant)
+    // and entries must be set by index. Generates `set_<singular>(role, name)` and
+    // `with_<singular>(role, name)` in addition to the bulk `set_<plural>` / `append_<plural>`.
+    ($name:ident[$role_ty:ty] => $singular:ident; $comment:expr $(;)?) => {paste::paste!{
+        #[doc = concat!(
+            "Sets the entry at index `role` in `", stringify!($name), "` to `name`. ",
+            $comment,
+            "\n\n",
+            "The `", stringify!($name), "` vector is pre-sized by MuJoCo (one slot per ",
+            "[`", stringify!($role_ty), "`] variant); this method writes directly into ",
+            "the correct slot.\n",
+            "\n",
+            "# Panics\n",
+            "When `name` contains '\\0' characters, a panic occurs."
+        )]
+        pub fn [<set_ $singular>](&mut self, role: $role_ty, name: &str) {
+            let c_name = CString::new(name).unwrap();
+            // SAFETY: self.$name is a valid mjStringVec pre-sized to one entry per role.
+            unsafe { mjs_setInStringVec(self.$name, role as std::ffi::c_int, c_name.as_ptr()) };
+        }
+
+        #[doc = concat!(
+            "Sets the entry at index `role` in `", stringify!($name), "` to `name`, ",
+            "returning `&mut Self` for chaining. ",
+            $comment,
+            "\n\n",
+            "Equivalent to [`set_", stringify!($singular), "`](Self::set_", stringify!($singular), ")."
+        )]
+        pub fn [<with_ $singular>](&mut self, role: $role_ty, name: &str) -> &mut Self {
+            self.[<set_ $singular>](role, name);
+            self
+        }
+
+        #[doc = concat!(
+            "Replaces the entire `", stringify!($name), "` vector with whitespace-split entries from `value`. ",
+            $comment,
+            "\n\n",
+            "<div class=\"warning\">\n\n",
+            "This replaces the pre-sized vector. Prefer [`set_",
+            stringify!($singular), "`](Self::set_", stringify!($singular),
+            "`) to set individual entries by role.\n\n",
+            "</div>\n\n",
+            "# Panics\n",
+            "When the `value` contains '\\0' characters, a panic occurs."
+        )]
+        pub fn [<set_ $name>](&mut self, value: &str) {
+            // SAFETY: self.$name is a valid mjStringVec pointer for the lifetime of self.
+            unsafe { write_mjs_vec_string(value, self.$name) };
+        }
+
+        #[doc = concat!(
+            "Appends `value` to the end of `", stringify!($name), "`. ",
+            $comment,
+            "\n\n",
+            "<div class=\"warning\">\n\n",
+            "Appending extends past the pre-sized vector. Prefer [`set_",
+            stringify!($singular), "`](Self::set_", stringify!($singular),
+            "`) to set individual entries by role.\n\n",
+            "</div>\n\n",
+            "# Panics\n",
+            "When the `value` contains '\\0' characters, a panic occurs."
+        )]
+        pub fn [<append_ $name>](&mut self, value: &str) {
+            // SAFETY: self.$name is a valid mjStringVec pointer for the lifetime of self.
+            unsafe { append_mjs_vec_string(value, self.$name) };
+        }
+    }};
+}
+
+/// Implements string methods for given attribute $name.
+macro_rules! string_set_get_with {
+    (@impl common $([$ffi:ident, $ffi_mut:ident])? $name:ident; $comment:expr;) => {paste::paste!{
+        #[doc = concat!(
+            "Return ", $comment,
+            "\n",
+            "# Panics\n",
+            "Panics if the stored string is not valid UTF-8, which can only happen on internal memory corruption \
+            -- MuJoCo only uses ASCII values."
+        )]
+        pub fn $name(&self) -> &str {
+                // SAFETY: the mjString field is valid for the lifetime of self.
+                unsafe { read_mjs_string(self$(.$ffi())?.$name) }
+        }
+
+        #[allow(unused_unsafe)]
+        #[doc = concat!(
+            "Set ", $comment,
+            "\n",
+            "# Panics\n",
+            "When the `value` contains '\\0' characters, a panic occurs."
+        )]
+        pub fn [<set_ $name>](&mut self, value: &str) {
+            // SAFETY: the mjString field is valid for the lifetime of self.
+            unsafe { write_mjs_string(value, unsafe { self$(.$ffi_mut())?.$name }) };
+        }
+    }};
+
+    ( $($([$ffi:ident, $ffi_mut:ident])? $name:ident; $comment:expr;)* ) => {paste::paste!{
+        $(
+            string_set_get_with!(@impl common $([$ffi, $ffi_mut])? $name; $comment;);
+            #[allow(unused_unsafe)]
+            #[doc = concat!(
+                "Builder method for setting ", $comment,
+                "\n",
+                "# Panics\n",
+                "When the `value` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn [<with_ $name>](mut self, value: &str) -> Self {
+                // SAFETY: the mjString field is valid for the lifetime of self.
+                unsafe { write_mjs_string(value, unsafe { self$(.$ffi_mut())?.$name }) };
+                self
+            }
+        )*
+    }};
+
+    ([&] $($([$ffi:ident, $ffi_mut:ident])? $name:ident; $comment:expr;)* ) => {paste::paste!{
+        $(
+            string_set_get_with!(@impl common $([$ffi, $ffi_mut])? $name; $comment;);
+            #[allow(unused_unsafe)]
+            #[doc = concat!(
+                "Builder method for setting ", $comment,
+                "\n",
+                "# Panics\n",
+                "When the `value` contains '\\0' characters, a panic occurs."
+            )]
+            pub fn [<with_ $name>](&mut self, value: &str) -> &mut Self {
+                // SAFETY: the mjString field is valid for the lifetime of self.
+                unsafe { write_mjs_string(value, unsafe { self$(.$ffi_mut())?.$name }) };
+                self
+            }
+        )*
+    }};
+}
+
+/// Implements getters and setters for floating point (f32 or f64) attributes.
+macro_rules! vec_set_get {
+    ($($name:ident: $type:ty; $comment:expr);* $(;)?) => {paste::paste!{
+        $(
+            #[doc = concat!("Return ", $comment)]
+            pub fn $name(&self) -> &[$type] {
+                // SAFETY: self.$name is a valid mjDoubleVec/mjFloatVec pointer for the lifetime of self.
+                unsafe { [<read_mjs_vec_ $type>](self.$name) }
+            }
+        )*
+
+        vec_set!($($name: $type; $comment);*);
+    }};
+}
+
+/// Implements setters for non-string attributes.
+///
+/// Three forms are supported:
+/// - `name: Type; "comment"` -- a **safe** setter that takes `&[Type]` and writes it unchanged.
+/// - `name: InputType => StoredType { check, "reason" } => ErrType; "comment"` -- a **safe** setter
+///   taking `&[InputType]` (typically a Rust enum) that stores each element as the raw C type
+///   `StoredType` via a zero-cost pointer reinterpretation (the same compile-time-checked cast the
+///   view layer uses, so no `bytemuck` trait is required on the enum). Every element is passed
+///   through `check` (a `Fn(InputType) -> Result<(), ErrType>`) before anything is written; if any
+///   element fails, nothing is written. Use this when the validation rules out the out-of-range
+///   values the C side would misuse, which is what makes the setter sound without `unsafe`.
+///   `"reason"` is a doc fragment in the crate's `# Errors` style (e.g.
+///   `"[`MjEditError::InvalidParameter`] when ..."`) reused verbatim in the generated `# Errors`
+///   section. The `{ check, "reason" } => ErrType` part may be omitted for a plain safe cast.
+/// - `name: InputType => StoredType; "comment"; "safety" unsafe` -- the same cast setter made
+///   **`unsafe`** (the per-element `check` omitted), for vectors the C side later uses without its
+///   own validation -- e.g. as an unchecked array index, count, or `memcpy` length -- and which
+///   cannot be cheaply validated here. The optional `; "safety" unsafe` tail flips the generated
+///   setter to `unsafe fn` and emits `"safety"` as its caller-facing `# Safety` obligation. It is a
+///   tail (not a leading marker) because a leading optional starting with the `unsafe` keyword is
+///   ambiguous with the field's own `name` ident; anchoring it after the comment with the `"safety"`
+///   literal keeps it unambiguous, and the trailing `unsafe` keyword is captured (`$unsafe_kw:tt`)
+///   and echoed verbatim onto the `fn`.
+macro_rules! vec_set {
+    ($($name:ident: $type:ty; $comment:expr);* $(;)?) => {paste::paste!{
+        $(
+            #[doc = concat!("Set ", $comment)]
+            pub fn [<set_ $name>](&mut self, value: &[$type]) {
+                // SAFETY: self.$name is a valid pointer for the lifetime of self.
+                unsafe { [<write_mjs_vec_ $type>](value, self.$name) };
+            }
+        )*
+    }};
+
+    ($($([$unsafe_kw:ident : $safety:literal])? $name:ident: $input_type:ty => $type:ty $({$check:expr , $reason:literal} => $err:ty)?; $comment:expr);* $(;)?) => {paste::paste!{
+        $(
+            // One cast setter whose shape is driven by the optional check / safety tail:
+            // - `{ check, "reason" } => ErrType` makes it a safe `-> Result<(), ErrType>` that
+            //   validates every element first; passing validation rules out the values the C side
+            //   would misuse, so the reinterpretation is sound without `unsafe`. `"reason"` is a doc
+            //   fragment naming the error and condition, reused verbatim in the `# Errors` section.
+            // - `; "safety" unsafe` makes it an `unsafe fn` (no per-element check) for vectors the C
+            //   side later trusts as an unchecked index/count/length; `"safety"` documents the
+            //   caller's `# Safety` obligation. The leading `"safety"` literal keeps this tail
+            //   unambiguous from the repetition separator, and the trailing `unsafe` keyword
+            //   (`$unsafe_kw`) is echoed onto the generated `fn`.
+            // - neither tail: a plain safe cast.
+            #[doc = concat!("Set ", $comment
+                $(, "\n\n# Errors\nReturns ", $reason, " (in that case nothing is written).")?
+                $(, "\n\n# Safety\n", $safety)?
+            )]
+            pub $($unsafe_kw)? fn [<set_ $name>](&mut self, value: &[$input_type]) $(-> Result<(), $err>)? {
+                $(for &v in value { ($check)(v)?; })?
+                // Compile-time size/alignment check for the layout-compatible reinterpretation below.
+                $crate::util::assert_ptr_cast_valid::<$input_type, $type>(value.as_ptr());
+                // SAFETY: $input_type and $type are layout-compatible (asserted above) and every enum
+                // value is a valid bit pattern for its underlying integer, so reinterpreting the slice
+                // is sound and zero-cost. The value-range precondition the C side relies on is enforced
+                // by the `$check` loop above when present, or by the caller's `# Safety` contract
+                // otherwise. self.$name is a valid pointer for the lifetime of self.
+                let raw = unsafe { std::slice::from_raw_parts(value.as_ptr().cast(), value.len()) };
+                unsafe { [<write_mjs_vec_ $type>](raw, self.$name) };
+                $(Ok::<(), $err>(()))?
+            }
+        )*
+    }};
+}
+
+/// Implements appenders for non-string attributes of a vector of vectors.
+macro_rules! vec_vec_append {
+    ($($name:ident: $type:ty; $comment:expr);* $(;)?) => {paste::paste!{
+        $(
+            #[doc = concat!("Append to ", $comment)]
+            pub fn [<append_ $name>](&mut self, value: &[$type]) {
+                // SAFETY: self.$name is a valid pointer for the lifetime of self.
+                unsafe { [<append_mjs_vec_vec_ $type>](value, self.$name) };
+            }
+
+            #[doc = concat!("Set ", $comment, " (deprecated; use ", stringify!([<append_ $name>]), " instead).")]
+            #[deprecated(note = "use append_ instead of set_ for vector-of-vectors attributes", since = "3.0.0")]
+            pub fn [<set_ $name>](&mut self, value: &[$type]) {
+                self.[<append_ $name>](value);
+            }
+        )*
+    }};
+}
+
+/// Generates methods for obtaining iterators to `$iter_over` spec items.
+macro_rules! spec_get_iter {
+    ($($iter_over: ident),*) => {paste::paste!{
+        $(
+            #[doc = concat!("Return an iterator over ", stringify!($iter_over)," items that allows modifying each value.")]
+            pub fn [<$iter_over _iter_mut>](&mut self) -> MjsSpecItemIterMut<'_, [<Mjs $iter_over:camel>]> {
+                MjsSpecItemIterMut::<[<Mjs $iter_over:camel>]>::new(self)
+            }
+
+            #[doc = concat!("Return an immutable iterator over ", stringify!($iter_over)," items.")]
+            pub fn [<$iter_over _iter>](&self) -> MjsSpecItemIter<'_, [<Mjs $iter_over:camel>]> {
+                MjsSpecItemIter::<[<Mjs $iter_over:camel>]>::new(self)
+            }
+        )*
+    }};
+}
+
+/// Generates methods for obtaining iterators to `$iter_over` body items.
+/// The $self_lf represents the iterated item's borrow and $parent_lf the lifetime of its parent.
+macro_rules! body_get_iter {
+    ([$($iter_over: ident),*]) => {paste::paste!{
+        $(
+            #[doc = concat!("Return an iterator over ", stringify!($iter_over)," items that allows modifying each value.")]
+            pub fn [<$iter_over _iter_mut>](&mut self, recurse: bool) -> MjsBodyItemIterMut<'_, [<Mjs $iter_over:camel>]> {
+                MjsBodyItemIterMut::<[<Mjs $iter_over:camel>]>::new(self, recurse)
+            }
+
+            #[doc = concat!("Return an immutable iterator over ", stringify!($iter_over)," items.")]
+            pub fn [<$iter_over _iter>](&self, recurse: bool) -> MjsBodyItemIter<'_, [<Mjs $iter_over:camel>]> {
+                MjsBodyItemIter::<[<Mjs $iter_over:camel>]>::new(self, recurse)
+            }
+        )*
+    }};
+}

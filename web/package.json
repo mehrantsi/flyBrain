@@ -1,0 +1,14 @@
+{
+  "name": "flybrain-browser",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node serve.mjs",
+    "build:wasm": "../tools/build_browser.sh",
+    "build:cloudflare": "node ../tools/package_cloudflare.mjs",
+    "deploy": "npm run build:cloudflare && node ../tools/cloudflare.mjs deploy"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  }
+}

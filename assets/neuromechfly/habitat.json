@@ -1,0 +1,208 @@
+{
+  "schema": "flybrain-habitat-v2",
+  "units": {
+    "length": "millimeter",
+    "time": "second",
+    "mass": "gram",
+    "odor_concentration": "isobutylene-equivalent ppm"
+  },
+  "room": {
+    "half_extents_mm": [
+      300.0,
+      220.0,
+      110.0
+    ],
+    "open_ceiling": false,
+    "front_doorway_width_mm": 0.0,
+    "flight_altitude_bounds_mm": [
+      5.0,
+      208.0
+    ]
+  },
+  "airflow_mm_s": [
+    35.0,
+    8.0,
+    0.0
+  ],
+  "resources": [
+    {
+      "id": "sugar_drop",
+      "kind": "sugar",
+      "geom": "food_patch",
+      "position": [
+        1.1,
+        0.0,
+        0.25
+      ],
+      "movable": true,
+      "taste_radius_mm": 0.75,
+      "odor_source_ppm": 0.0,
+      "odor_length_mm": 22.0,
+      "taste_valence": 1.0,
+      "nutrition": 1.0,
+      "hydration": 0.15
+    },
+    {
+      "id": "banana",
+      "kind": "ripe_fruit",
+      "geom": "resource_banana",
+      "position": [
+        32.0,
+        18.0,
+        1.6
+      ],
+      "movable": false,
+      "taste_radius_mm": 2.6,
+      "taste_margin_mm": 1.7,
+      "taste_capsules": [
+        {
+          "from_mm": [
+            25.0,
+            15.0,
+            1.4
+          ],
+          "to_mm": [
+            29.0,
+            17.0,
+            1.8
+          ],
+          "radius_mm": 0.9
+        },
+        {
+          "from_mm": [
+            29.0,
+            17.0,
+            1.8
+          ],
+          "to_mm": [
+            34.0,
+            18.5,
+            2.0
+          ],
+          "radius_mm": 0.9
+        },
+        {
+          "from_mm": [
+            34.0,
+            18.5,
+            2.0
+          ],
+          "to_mm": [
+            39.0,
+            18.0,
+            1.8
+          ],
+          "radius_mm": 0.9
+        },
+        {
+          "from_mm": [
+            39.0,
+            18.0,
+            1.8
+          ],
+          "to_mm": [
+            43.0,
+            15.5,
+            1.4
+          ],
+          "radius_mm": 0.9
+        }
+      ],
+      "odor_source_ppm": 12.0,
+      "odor_length_mm": 95.0,
+      "taste_valence": 0.9,
+      "nutrition": 0.8,
+      "hydration": 0.3
+    },
+    {
+      "id": "orange_half",
+      "kind": "citrus",
+      "geom": "resource_orange",
+      "position": [
+        -48.0,
+        38.0,
+        6.5
+      ],
+      "movable": false,
+      "taste_radius_mm": 7.5,
+      "odor_source_ppm": 3.0,
+      "odor_length_mm": 85.0,
+      "taste_valence": 0.65,
+      "nutrition": 0.55,
+      "hydration": 0.7
+    },
+    {
+      "id": "apple",
+      "kind": "fruit",
+      "geom": "resource_apple",
+      "position": [
+        105.0,
+        70.0,
+        58.0
+      ],
+      "movable": false,
+      "taste_radius_mm": 9.5,
+      "odor_source_ppm": 3.0,
+      "odor_length_mm": 105.0,
+      "taste_valence": 0.75,
+      "nutrition": 0.7,
+      "hydration": 0.5
+    },
+    {
+      "id": "fermenting_juice",
+      "kind": "ferment",
+      "geom": "resource_ferment",
+      "position": [
+        151.0,
+        62.0,
+        55.2
+      ],
+      "movable": false,
+      "taste_radius_mm": 8.0,
+      "odor_source_ppm": 32.0,
+      "odor_length_mm": 165.0,
+      "taste_valence": 0.72,
+      "nutrition": 0.45,
+      "hydration": 0.55
+    },
+    {
+      "id": "water_dish",
+      "kind": "water",
+      "geom": "resource_water",
+      "position": [
+        -58.0,
+        -34.0,
+        0.7
+      ],
+      "movable": false,
+      "taste_radius_mm": 7.0,
+      "odor_source_ppm": 0.0,
+      "odor_length_mm": 22.0,
+      "taste_valence": 0.25,
+      "nutrition": 0.0,
+      "hydration": 1.0
+    },
+    {
+      "id": "yeast_culture",
+      "kind": "yeast",
+      "geom": "resource_yeast",
+      "position": [
+        -178.0,
+        145.0,
+        73.2
+      ],
+      "movable": false,
+      "taste_radius_mm": 6.5,
+      "odor_source_ppm": 12.0,
+      "odor_length_mm": 145.0,
+      "taste_valence": 0.85,
+      "nutrition": 0.9,
+      "hydration": 0.35
+    }
+  ],
+  "sensory_model": {
+    "odor": "bilateral antenna food-volatile concentration from deterministic finite-core advection-diffusion fields",
+    "taste": "haustellum distance to resource taste geometry with configured margin",
+    "vision": "FlyGym v2.1.0 721-ommatidium retina"
+  }
+}

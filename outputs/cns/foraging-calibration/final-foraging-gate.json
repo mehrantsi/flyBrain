@@ -1,0 +1,33 @@
+{
+  "schema": "flybrain.cns-foraging-verification-v1",
+  "passed": false,
+  "checks": {
+    "matched_initial_state": true,
+    "intact_whole_cns_connected": true,
+    "high_power_approach": true,
+    "descent_then_physical_touchdown": true,
+    "food_contact_with_neural_feeding": false,
+    "flight_departure_after_feeding": false,
+    "no_extension_before_food_contact": true,
+    "control_covers_first_landing": true,
+    "landing_control_keeps_cns_and_flight": true,
+    "disconnected_landing_readout_removes_descent": true
+  },
+  "failed_checks": [
+    "food_contact_with_neural_feeding",
+    "flight_departure_after_feeding"
+  ],
+  "metrics": {
+    "first_descent_seconds": 6.661999999997812,
+    "first_touchdown_seconds": 7.393999999996106,
+    "feeding_sample_count": 0,
+    "first_feeding_seconds": null,
+    "last_feeding_seconds": null,
+    "departure_seconds": null
+  },
+  "interpretation": "Engineering integration evidence, not animal behavioral validation. A failed food-search check must not be replaced with a controlled sugar-contact assay.",
+  "reports": {
+    "intact": "outputs/cns/foraging-calibration/intact-rearmed.json",
+    "landing_disconnected": "outputs/cns/foraging-calibration/landing-disconnected-rearmed.json"
+  }
+}

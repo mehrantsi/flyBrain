@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0d0f" />
+    <title>FlyBrain</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="startup">
+    <main class="app-shell">
+      <canvas id="scene-canvas" aria-label="Live MuJoCo fly world"></canvas>
+
+      <header class="topbar">
+        <div class="brand">FlyBrain</div>
+        <div class="topbar-status">
+          <span class="engine-label">MaleCNS · engineered embodiment</span>
+          <span class="status-cluster">
+            <span class="status-dot" id="status-dot" aria-hidden="true"></span>
+            <span id="hud-status">Waiting for the simulation worker…</span>
+          </span>
+        </div>
+        <div class="topbar-actions">
+          <span class="runtime-badge" id="runtime-badge">Connecting</span>
+          <a class="topbar-button" href="https://github.com/mehrantsi/flyBrain" target="_blank" rel="noopener noreferrer" aria-label="FlyBrain on GitHub (opens in a new tab)">GitHub</a>
+          <button class="topbar-button" id="panels-toggle" type="button" aria-expanded="false">Inspector</button>
+          <button class="topbar-button" id="visibility-toggle" type="button" aria-pressed="false">Hide UI</button>
+        </div>
+      </header>
+
+      <section class="launch-sheet" id="launch-sheet" aria-labelledby="launch-title">
+        <span class="section-label">Live simulation</span>
+        <h1 id="launch-title">FlyBrain</h1>
+        <p>Run the embodied nervous system in a physical MuJoCo scene.</p>
+        <div class="launch-actions">
+          <button class="control-button primary" id="start-brain" type="button">Start full CNS</button>
+          <button class="control-button" id="start-world" type="button">World-only</button>
+        </div>
+        <span class="launch-note">World-only is a diagnostic; it does not claim neural control.</span>
+        <span class="launch-note">Full CNS downloads about 160 MB and requires WebGPU. <a href="/credits.html">Data &amp; licenses</a></span>
+      </section>
+
+      <aside class="inspector" id="hud" aria-live="polite" aria-label="Neural and sensory telemetry">
+        <div class="inspector-heading">
+          <div>
+            <span class="section-label">Inspector</span>
+            <h2>Neural and sensory state</h2>
+          </div>
+          <span class="inspector-progress" id="sim-progress">idle</span>
+        </div>
+
+        <div class="telemetry-grid">
+          <section class="telemetry-block">
+            <span class="telemetry-label">Population</span>
+            <strong id="stat-brain">—</strong>
+            <small id="stat-brain-sub">network idle</small>
+          </section>
+          <section class="telemetry-block">
+            <span class="telemetry-label">Food distance</span>
+            <strong id="stat-food">—</strong>
+            <small id="stat-food-sub">resource not sampled</small>
+          </section>
+          <section class="telemetry-block">
+            <span class="telemetry-label">Walking motor</span>
+            <strong id="stat-motor">—</strong>
+            <small id="stat-motor-sub">awaiting CNS telemetry</small>
+          </section>
+          <section class="telemetry-block">
+            <span class="telemetry-label">Flight</span>
+            <strong id="stat-flight">—</strong>
+            <small>mode and permission</small>
+          </section>
+        </div>
+
+        <div class="diagnostic-line" id="runtime-diagnostics" aria-label="Runtime diagnostics">
+          <span id="diag-sim-time">sim —</span>
+          <span id="diag-wall-elapsed">wall —</span>
+          <span id="diag-realtime">rt —</span>
+          <span id="diag-body-neurons">body/neuron —</span>
+          <span id="diag-total-spikes">spikes —</span>
+          <span id="diag-physics-warnings">physics —</span>
+          <span>View distance <span id="camera-distance">—</span> mm</span>
+        </div>
+        <p class="launch-note">Drag to orbit. Scroll or pinch to zoom. Chase follows the fly; Orbit leaves the camera free.</p>
+        <button class="control-button" data-command="groom" type="button" title="Manual engineered leg-motion diagnostic; not a neural grooming command">Grooming pose test</button>
+        <p class="launch-note">The pose test is procedural, not a neural stimulus.</p>
+      </aside>
+
+      <section class="metrics-strip" aria-label="Simulation metrics">
+        <div class="metric">
+          <span>Mode</span>
+          <strong id="stat-mode">—</strong>
+          <small id="stat-flight-metric">—</small>
+        </div>
+        <div class="metric">
+          <span>Time</span>
+          <strong id="sim-clock">t —</strong>
+        </div>
+        <div class="metric">
+          <span>Altitude</span>
+          <strong id="stat-altitude">—</strong>
+          <small>mm</small>
+        </div>
+        <div class="metric">
+          <span>Speed</span>
+          <strong id="stat-speed">—</strong>
+          <small>mm/s</small>
+        </div>
+        <div class="metric">
+          <span>Realtime</span>
+          <strong id="stat-realtime">—</strong>
+        </div>
+      </section>
+
+      <nav class="transport-bar" aria-label="Simulation transport and views">
+        <div class="transport-group">
+          <button class="control-button primary" id="pause-button" type="button" aria-pressed="false">Pause</button>
+          <button class="control-button" data-command="reset" type="button">Reset</button>
+          <button class="control-button" data-command="sugar" type="button">Sugar</button>
+        </div>
+        <div class="transport-group">
+          <button class="control-button active" data-camera="chase" type="button">Chase</button>
+          <button class="control-button" data-camera="room" type="button">Room</button>
+          <button class="control-button" data-camera="orbit" type="button">Orbit</button>
+        </div>
+        <div class="transport-group">
+          <button class="control-button" id="retina-toggle" type="button" aria-pressed="false">Retina</button>
+          <button class="control-button" id="brain-toggle" type="button" aria-pressed="false">Field</button>
+        </div>
+      </nav>
+
+      <section class="retina-panel" id="retina-panel" aria-label="Processed binocular retina" hidden>
+        <div class="panel-heading">
+          <h2>Retina</h2>
+          <span class="stream-state" id="retina-state">background</span>
+        </div>
+        <canvas id="retina-canvas" width="900" height="512"></canvas>
+        <div class="retina-labels"><span>Left</span><span>Right</span></div>
+      </section>
+
+      <section class="field-panel" id="field-panel" aria-label="Network field proxy" hidden>
+        <div class="panel-heading">
+          <h2>Network field</h2>
+          <span class="stream-state">proxy</span>
+        </div>
+        <canvas id="field-canvas" width="360" height="110"></canvas>
+        <div class="field-readout"><span id="field-value">—</span><span id="field-frequency">—</span></div>
+      </section>
+
+      <div class="error-toast" id="error-toast" role="alert" hidden></div>
+    </main>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "/node_modules/three/build/three.module.js",
+          "three/addons/": "/node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

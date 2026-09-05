@@ -1,0 +1,16 @@
+{
+  "runtime": "optimized WASM and WebGPU engine with corrected touchdown support transfer",
+  "renderer": "WebGL, 640x420 CSS pixels, binocular sensory rendering enabled, retina HUD hidden",
+  "control_windows":1000,
+  "simulated_seconds":1.9999999999997962,
+  "realtime_factor":0.3565647129345632,
+  "step_ms":{"mean":5.459914992332458,"p50":5.204999923706055,"p95":6.920000076293945},
+  "brain_ms_mean":3.604245000000002,
+  "gpu_ms_mean":2.092433407999997,
+  "gpu_wait_ms_mean":3.3610549840927124,
+  "encoding_ms_mean":0.054390003204345706,
+  "vision_ms_amortized_mean":0.09401499843597412,
+  "state_sha256":"cea2324cc5a5923854f279c41e07ea48487836f9531882132836d7133a6125da",
+  "total_spikes":2071162,
+  "physics_warnings":[0,0,0,0,0,0,0]
+}

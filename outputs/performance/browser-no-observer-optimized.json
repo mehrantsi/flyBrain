@@ -1,0 +1,10 @@
+{
+  "mode":"full CNS and physical world; no observer rendering or supplied retinal frames",
+  "control_windows":1000,
+  "realtime_factor":0.46023458150153634,
+  "step_ms_mean":4.302485013008118,
+  "gpu_ms_mean":1.1310858240000032,
+  "state_sha256":"cea2324cc5a5923854f279c41e07ea48487836f9531882132836d7133a6125da",
+  "total_spikes":2071162,
+  "physics_warnings":[0,0,0,0,0,0,0]
+}

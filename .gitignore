@@ -1,0 +1,12 @@
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+MUJOCO_LOG.TXT
+work/
+.wrangler/
+target/
+outputs/packs/
+outputs/benchmarks/
+.DS_Store

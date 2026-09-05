@@ -1,0 +1,114 @@
+{
+  "body": {
+    "actuators": 49,
+    "feeding_actuator": "fly/c_head-c_rostrum-pitch-feeding-position",
+    "model": "NeuroMechFly",
+    "physics": "MuJoCo",
+    "sensors": 6,
+    "source_manifest": "assets/neuromechfly/manifest.json"
+  },
+  "brain": {
+    "allocated_bytes": 97206574,
+    "device": "Apple M3 Max",
+    "elapsed_seconds": 0.912412124,
+    "enabled": true,
+    "external_event_count": 2820,
+    "feeding_active_windows": 476,
+    "final_filtered_mn9_rate_hz": 64.17612677791094,
+    "mapping_status": "sugar-to-MN9 is the published model readout; rostrum actuation and gait arbitration are explicit embodiment mappings",
+    "materialization": "783",
+    "mn9_spike_count": 90,
+    "motor_mapping": "published contralateral MN9 response -> rostrum pitch; feeding state slows and freezes baseline gait phase",
+    "motor_neuron_id": "720575940660219265",
+    "peak_feeding_extension": 1.0,
+    "peak_filtered_mn9_rate_hz": 168.3399749389031,
+    "sensory_mapping": "geometric food contact -> 150 Hz deterministic rate encoder -> published right sugar GRNs",
+    "sensory_neuron_ids": [
+      "720575940624963786",
+      "720575940630233916",
+      "720575940637568838",
+      "720575940638202345",
+      "720575940617000768",
+      "720575940630797113",
+      "720575940632889389",
+      "720575940621754367",
+      "720575940621502051",
+      "720575940640649691",
+      "720575940639332736",
+      "720575940616885538",
+      "720575940639198653",
+      "720575940617937543",
+      "720575940632425919",
+      "720575940633143833",
+      "720575940612670570",
+      "720575940628853239",
+      "720575940629176663",
+      "720575940611875570"
+    ]
+  },
+  "controller": {
+    "cycle_frequency_hz": 7.4074074074074066,
+    "gait_samples": 360,
+    "runtime_interpolation": "cyclic-linear",
+    "settle_seconds": 0.5,
+    "source": "FlyGym PreprogrammedSteps single_steps_untethered.pkl"
+  },
+  "environment": {
+    "contact_windows": 493,
+    "final_food_distance": 0.7799155804095005,
+    "food_center": [
+      1.1,
+      0.0,
+      0.25
+    ],
+    "taste_radius": 0.75,
+    "taste_source_body": "fly/c_haustellum",
+    "taste_windows": 472
+  },
+  "preview": {
+    "path": "outputs/world/mn9-smoke-settle-v2.png",
+    "sha256": "54a66c9ed0470193c7e46d8298495777db279370b2c3ea3b014d2003bbd1d32b"
+  },
+  "schema": "flybrain-render-v2",
+  "simulation": {
+    "actual_duration_seconds": 0.9999999999999062,
+    "control_hz": 500.0,
+    "control_window_steps": 20,
+    "final_root_position": [
+      1.5773244083974713,
+      0.21195650751070705,
+      1.1554279956600828
+    ],
+    "final_root_quaternion": [
+      0.999591135266804,
+      -0.024396601348928324,
+      -0.013118692347169256,
+      0.007089996455869432
+    ],
+    "initial_root_position": [
+      0.496,
+      0.0,
+      2.1
+    ],
+    "initial_root_quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "physics_steps": 10000,
+    "physics_timestep_seconds": 0.0001,
+    "requested_duration_seconds": 1.0,
+    "wall_seconds": 2.400792125
+  },
+  "video": {
+    "bytes": 199735,
+    "camera": "fly/trackingcam",
+    "fps": 30,
+    "frames": 30,
+    "height": 720,
+    "path": "outputs/world/mn9-smoke-settle-v2.mp4",
+    "sha256": "0cb3e3a03f94af7a14a36b215bf540e4fdd1ad4c5415eb1d040cb8be43cdc061",
+    "width": 960
+  }
+}

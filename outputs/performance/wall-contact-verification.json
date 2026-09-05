@@ -1,0 +1,104 @@
+{
+  "scope": "Correct wall penetration and physics-rate adhesion/load transfer; no connectome or behavioral routine changes",
+  "model_sha256": "dc4b13e3cad341c8c06276d164e940503e4ed9954a0a2bf15720ea44a2835ecb",
+  "reproduced_previous_grounded_mesh_penetration_mm": 1.6134109962841876,
+  "native_library_tests": {
+    "passed": 257,
+    "failed": 0
+  },
+  "habitat_asset_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "browser_wasm_build": "PASS",
+  "native_world_release_build": "PASS",
+  "renderer_tests": "PASS",
+  "wasm_smoke": {
+    "passed": true,
+    "frames": 11,
+    "ground_qpos_qvel_exactly_equal_to_previous": true
+  },
+  "wall_physics_cases": [
+    {
+      "start_mm": [
+        290,
+        0,
+        100
+      ],
+      "yaw_rad": 0,
+      "pitch_rad": -0.83,
+      "touchdown_seconds": 1.094,
+      "max_mesh_penetration_mm": 0.00820105450623032,
+      "supported_legs": 4
+    },
+    {
+      "start_mm": [
+        -290,
+        0,
+        100
+      ],
+      "yaw_rad": 3.141592653589793,
+      "pitch_rad": -0.83,
+      "touchdown_seconds": 1.094,
+      "max_mesh_penetration_mm": 0.008201054506287164,
+      "supported_legs": 4
+    },
+    {
+      "start_mm": [
+        0,
+        210,
+        100
+      ],
+      "yaw_rad": 1.5707963267948966,
+      "pitch_rad": -0.83,
+      "touchdown_seconds": 1.094,
+      "max_mesh_penetration_mm": 0.008201048815891454,
+      "supported_legs": 4
+    },
+    {
+      "start_mm": [
+        0,
+        -210,
+        100
+      ],
+      "yaw_rad": -1.5707963267948966,
+      "pitch_rad": -0.83,
+      "touchdown_seconds": 1.094,
+      "max_mesh_penetration_mm": 0.00820106797579001,
+      "supported_legs": 4
+    },
+    {
+      "start_mm": [
+        296,
+        0,
+        132
+      ],
+      "yaw_rad": 0,
+      "pitch_rad": 0,
+      "touchdown_seconds": 0.732,
+      "max_mesh_penetration_mm": 0.008331462644150633,
+      "supported_legs": 4
+    },
+    {
+      "start_mm": [
+        -296,
+        0,
+        132
+      ],
+      "yaw_rad": 1.5707963267948966,
+      "pitch_rad": 0,
+      "touchdown_seconds": 0.722,
+      "max_mesh_penetration_mm": 0.0075587389949873796,
+      "supported_legs": 4
+    }
+  ],
+  "all_cases": {
+    "contact_material_matches_ground": true,
+    "mesh_penetration_limit_mm": 0.01,
+    "mesh_sample_interval_seconds": 0.002,
+    "minimum_verified_parked_duration_seconds": 0.5,
+    "wing_amplitude_while_parked": 0,
+    "subsequent_head_first_departure": true,
+    "physics_warnings": 0
+  }
+}

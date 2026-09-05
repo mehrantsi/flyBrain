@@ -1,0 +1,13 @@
+{
+  "runtime": "preserved pre-optimization WASM and neural engine",
+  "renderer": "current WebGL renderer, 640x420 CSS pixels, binocular sensory rendering enabled, retina HUD hidden",
+  "control_windows": 1000,
+  "simulated_seconds": 1.9999999999997962,
+  "realtime_factor": 0.10016457038741688,
+  "step_ms": {"mean": 18.91777498626709, "p50": 18.640000343322754, "p95": 23.94499969482422},
+  "brain_ms_mean": 16.226894985999998,
+  "vision_ms_amortized_mean": 0.9040199975967407,
+  "state_sha256": "cea2324cc5a5923854f279c41e07ea48487836f9531882132836d7133a6125da",
+  "total_spikes": 2071162,
+  "physics_warnings": [0,0,0,0,0,0,0]
+}

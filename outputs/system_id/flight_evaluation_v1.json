@@ -1,0 +1,232 @@
+{
+  "controls": {
+    "connectome_modified": false,
+    "held_out_parameters_refit": false,
+    "mirrored_pairs_simulated_separately": true
+  },
+  "interpretation": "low-level body flight calibration; not a neural/VNC identification result",
+  "metric_targets_derived_from_train_only": [
+    {
+      "huber_delta": 1.0,
+      "name": "pitch_mean_rad",
+      "scale": 0.07098441934294568,
+      "target": -0.8306001990636929,
+      "weight": 1.5
+    },
+    {
+      "huber_delta": 1.0,
+      "name": "planar_speed_mean_mm_s",
+      "scale": 46.877308050012985,
+      "target": 154.42181264871488,
+      "weight": 1.5
+    },
+    {
+      "huber_delta": 1.0,
+      "name": "forward_speed_mean_mm_s",
+      "scale": 41.52054288328419,
+      "target": 85.00777148051323,
+      "weight": 0.5
+    },
+    {
+      "huber_delta": 1.0,
+      "name": "absolute_turn_rate_mean_rad_s",
+      "scale": 2.9148944672873887,
+      "target": 3.3946334361423864,
+      "weight": 1.0
+    },
+    {
+      "huber_delta": 1.0,
+      "name": "angular_speed_mean_rad_s",
+      "scale": 5.303320281372682,
+      "target": 15.614320331265176,
+      "weight": 0.75
+    },
+    {
+      "huber_delta": 1.0,
+      "name": "vertical_speed_mean_mm_s",
+      "scale": 39.45110493005934,
+      "target": 2.649136474728715,
+      "weight": 0.25
+    },
+    {
+      "huber_delta": 1.0,
+      "name": "heading_rate_abs_rad_s",
+      "scale": 5.315362630587983,
+      "target": 6.429258754466787,
+      "weight": 1.5
+    },
+    {
+      "huber_delta": 1.0,
+      "name": "duration_seconds",
+      "scale": 0.10060803419275871,
+      "target": 0.23097896558023567,
+      "weight": 0.0
+    }
+  ],
+  "parameter_path": "outputs/system_id/simulation_parameters_flight_v1.json",
+  "parameter_sha256": "a179c57812e1243d22992840b0ed133672ff0cffe9919ccb79dca891fb2b3932",
+  "representative_predictions": [
+    {
+      "family": "evasion",
+      "observations": [
+        {
+          "name": "pitch_mean_rad",
+          "value": -0.8960201414934232
+        },
+        {
+          "name": "planar_speed_mean_mm_s",
+          "value": 167.78642379388054
+        },
+        {
+          "name": "forward_speed_mean_mm_s",
+          "value": 104.79606951197421
+        },
+        {
+          "name": "absolute_turn_rate_mean_rad_s",
+          "value": 6.650883550915112
+        },
+        {
+          "name": "angular_speed_mean_rad_s",
+          "value": 24.703511886576322
+        },
+        {
+          "name": "vertical_speed_mean_mm_s",
+          "value": 24.588220608455057
+        },
+        {
+          "name": "heading_rate_abs_rad_s",
+          "value": 1.7927209025856523
+        },
+        {
+          "name": "duration_seconds",
+          "value": 0.21539411764705876
+        }
+      ],
+      "reflection": "original"
+    },
+    {
+      "family": "evasion",
+      "observations": [
+        {
+          "name": "pitch_mean_rad",
+          "value": -0.8956088860823097
+        },
+        {
+          "name": "planar_speed_mean_mm_s",
+          "value": 167.86963771968007
+        },
+        {
+          "name": "forward_speed_mean_mm_s",
+          "value": 104.8995662841644
+        },
+        {
+          "name": "absolute_turn_rate_mean_rad_s",
+          "value": 6.665214474599884
+        },
+        {
+          "name": "angular_speed_mean_rad_s",
+          "value": 24.71486153757019
+        },
+        {
+          "name": "vertical_speed_mean_mm_s",
+          "value": 24.586239304534008
+        },
+        {
+          "name": "heading_rate_abs_rad_s",
+          "value": 1.5383493041688734
+        },
+        {
+          "name": "duration_seconds",
+          "value": 0.21539411764705876
+        }
+      ],
+      "reflection": "reflected"
+    },
+    {
+      "family": "saccade",
+      "observations": [
+        {
+          "name": "pitch_mean_rad",
+          "value": -0.898011805519557
+        },
+        {
+          "name": "planar_speed_mean_mm_s",
+          "value": 161.53225909501032
+        },
+        {
+          "name": "forward_speed_mean_mm_s",
+          "value": 100.65861279348424
+        },
+        {
+          "name": "absolute_turn_rate_mean_rad_s",
+          "value": 6.7378428090289875
+        },
+        {
+          "name": "angular_speed_mean_rad_s",
+          "value": 26.148099496079197
+        },
+        {
+          "name": "vertical_speed_mean_mm_s",
+          "value": -3.971212612231573
+        },
+        {
+          "name": "heading_rate_abs_rad_s",
+          "value": 2.453169111925469
+        },
+        {
+          "name": "duration_seconds",
+          "value": 0.1315
+        }
+      ],
+      "reflection": "original"
+    },
+    {
+      "family": "saccade",
+      "observations": [
+        {
+          "name": "pitch_mean_rad",
+          "value": -0.8973359246852096
+        },
+        {
+          "name": "planar_speed_mean_mm_s",
+          "value": 161.72975016698456
+        },
+        {
+          "name": "forward_speed_mean_mm_s",
+          "value": 100.87403326555376
+        },
+        {
+          "name": "absolute_turn_rate_mean_rad_s",
+          "value": 6.74247181136365
+        },
+        {
+          "name": "angular_speed_mean_rad_s",
+          "value": 26.089987731076057
+        },
+        {
+          "name": "vertical_speed_mean_mm_s",
+          "value": -3.955248316118999
+        },
+        {
+          "name": "heading_rate_abs_rad_s",
+          "value": 2.3169985355553937
+        },
+        {
+          "name": "duration_seconds",
+          "value": 0.1315
+        }
+      ],
+      "reflection": "reflected"
+    }
+  ],
+  "schema": "flybrain.flight-system-identification-evaluation",
+  "schema_version": 1,
+  "scores": {
+    "test": 0.7545696364746582,
+    "train": 0.7353874421569219,
+    "validation": 0.8590427343195431
+  },
+  "source_hdf5_sha256": "64f2cb39cf1a938435f1876267935710aa931a5d3887fedee37c98073ca50426",
+  "target_path": "assets/neuromechfly/flight_system_id_targets_v1.json",
+  "target_sha256": "cbfd4e29ffdf1cf5741f50d8b28a9fa69324a1c9e34e6d2ed45c258d6df6e0e6"
+}

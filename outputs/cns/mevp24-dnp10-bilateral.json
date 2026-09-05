@@ -1,0 +1,180 @@
+{
+  "anatomical_paths": [
+    [
+      10142,
+      10425,
+      800073,
+      800158
+    ],
+    [
+      10142,
+      10425,
+      800621
+    ],
+    [
+      10142,
+      10425,
+      800636
+    ],
+    [
+      10142,
+      10425,
+      800911
+    ],
+    [
+      10142,
+      10425,
+      801234
+    ],
+    [
+      10142,
+      10425,
+      804257
+    ],
+    [
+      10142,
+      10425,
+      809935
+    ],
+    [
+      10142,
+      10425,
+      800383,
+      812953
+    ],
+    [
+      10142,
+      10425,
+      815344
+    ],
+    [
+      10142,
+      10425,
+      815678
+    ],
+    [
+      10142,
+      10425,
+      830514
+    ],
+    [
+      10142,
+      10425,
+      928579
+    ],
+    [
+      10723,
+      10433,
+      800020,
+      800158
+    ],
+    [
+      10723,
+      10433,
+      800621
+    ],
+    [
+      10723,
+      10433,
+      800636
+    ],
+    [
+      10723,
+      10433,
+      800911
+    ],
+    [
+      10723,
+      10433,
+      801234
+    ],
+    [
+      10723,
+      10433,
+      800073,
+      804257
+    ],
+    [
+      10723,
+      10433,
+      809935
+    ],
+    [
+      10723,
+      10433,
+      800383,
+      812953
+    ],
+    [
+      10723,
+      10433,
+      800062,
+      815344
+    ],
+    [
+      10723,
+      10433,
+      815678
+    ],
+    [
+      10723,
+      10433,
+      830514
+    ],
+    [
+      10723,
+      10433,
+      928579
+    ]
+  ],
+  "evidence": [
+    "https://male-cns.janelia.org/download/",
+    "https://www.nature.com/articles/s41593-019-0413-4",
+    "https://www.nature.com/articles/s41586-026-10735-w",
+    "https://www.virtualflybrain.org/blog/2022/01/01/mevp24-fbbt_20007653/"
+  ],
+  "interpretation": "Experimental visual-projection activation, not retinal looming transduction. MeVP24 is selected by annotation and measured connectivity, not validated looming tuning. DNp10 has published landing leg-extension evidence. Shortest anatomical paths are witnesses only; the entire imported CNS graph is simulated. Shiu LIF parameters and transmitter signs are unvalidated for this CNS. Motor spikes are not muscle activation or a validated landing maneuver. No prediction of flexor inhibition is tested against a silent baseline.",
+  "materialization": "male-cns-v1.0-superclass-non-null-known-nt",
+  "name": "MaleCNS MeVP24-DNp10 tibial-extensor pathway",
+  "pack_array_sha256": {
+    "destinations.npy": "3e61173a407dd01c23280782e13e9c619f2c33eac120585ab1ca4ad4a8286af9",
+    "neuron_ids.npy": "ddfa789213c8c5066400c026b65c112c267781c2e3ab380a39dd437866e704d6",
+    "row_ptr.npy": "b38878452b4871cdd8563f29463231dab67b61780a5ee540900811e3bbf41511",
+    "signed_counts.npy": "6b2b9918174273d67eaef951c2bfd72a25ae5a07d3c7861ab249c8ca7dd38421"
+  },
+  "readout_groups": {
+    "tibia_extensor_fl_L": [
+      800636,
+      815344
+    ],
+    "tibia_extensor_fl_R": [
+      804257,
+      815678
+    ],
+    "tibia_extensor_hl_L": [
+      800621,
+      812953
+    ],
+    "tibia_extensor_hl_R": [
+      800158,
+      809935
+    ],
+    "tibia_extensor_ml_L": [
+      800911,
+      801234
+    ],
+    "tibia_extensor_ml_R": [
+      830514,
+      928579
+    ]
+  },
+  "relay_ids": [
+    10425,
+    10433
+  ],
+  "schema_version": 1,
+  "stimulus_ids": [
+    10142,
+    10723
+  ]
+}

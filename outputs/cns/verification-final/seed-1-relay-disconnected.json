@@ -1,0 +1,334 @@
+{
+  "assay": "native_cns_pathway",
+  "body_behavior": "not_simulated",
+  "chunk_steps": 256,
+  "cns_physiology_validation": "unvalidated",
+  "control": "relay-disconnected",
+  "cpu_verification": null,
+  "driven_role": "input",
+  "dt_ms": 0.1,
+  "duration_ms": 200.0,
+  "engine": "rust-objc2-metal",
+  "full_hashes": {
+    "conductance_final_mv_sha256": "10e2b8041c960fd468eb113db13daab0468f708278af657b2df01a5efa230f6d",
+    "spike_counts_sha256": "c3b5ebc2ad2eeebd48479b197264425999dcead21de10eb67548de8c99b2c060",
+    "state_sha256": "f67f26fac1efbfd071dc0d066769554969b1eb4afdc019bfd301f3d855ab68c7",
+    "voltage_final_mv_sha256": "448f1fcd865f5245fe2b0eca29ac1904ce5ddc5210f2e95f8eeaefdde2dfc2d9"
+  },
+  "inputs": {
+    "active_neurons": 2,
+    "mean_rate_hz": 112.5,
+    "mean_rates_hz": [
+      110.0,
+      115.0
+    ],
+    "neuron_count": 2,
+    "neurons": [
+      {
+        "index": 128,
+        "mean_rate_hz": 110.0,
+        "neuron_id": 10142,
+        "spike_count": 22
+      },
+      {
+        "index": 672,
+        "mean_rate_hz": 115.0,
+        "neuron_id": 10723,
+        "spike_count": 23
+      }
+    ],
+    "spike_counts": [
+      22,
+      23
+    ],
+    "total_spikes": 45
+  },
+  "interpretation_note": "The default Shiu parameters are an explicit computational configuration; this assay does not validate CNS physiology.",
+  "model_parameters": {
+    "delay_ms": 1.8,
+    "dt_ms": 0.1,
+    "external_weight_mv": 68.75,
+    "membrane_tau_ms": 20.0,
+    "refractory_ms": 2.2,
+    "reset_mv": -52.0,
+    "resting_mv": -52.0,
+    "synapse_tau_ms": 5.0,
+    "synapse_weight_mv": 0.275,
+    "threshold_mv": -45.0
+  },
+  "pack": {
+    "array_sha256": {
+      "destinations.npy": "3e61173a407dd01c23280782e13e9c619f2c33eac120585ab1ca4ad4a8286af9",
+      "neuron_ids.npy": "ddfa789213c8c5066400c026b65c112c267781c2e3ab380a39dd437866e704d6",
+      "row_ptr.npy": "b38878452b4871cdd8563f29463231dab67b61780a5ee540900811e3bbf41511",
+      "signed_counts.npy": "6b2b9918174273d67eaef951c2bfd72a25ae5a07d3c7861ab249c8ca7dd38421"
+    },
+    "contact_sum": 120260398,
+    "edge_count": 24469412,
+    "manifest_sha256": "692cc3567695c0891c88b2019e98af3a31f46f18728d2a35060369b35b3a09bb",
+    "materialization": "male-cns-v1.0-superclass-non-null-known-nt",
+    "neuron_count": 166700,
+    "path": "outputs/packs/male_cns_v1",
+    "source_sha256": {
+      "annotations": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+      "connectivity": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1",
+      "neurotransmitters": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621"
+    }
+  },
+  "parameter_source": "ModelParameters::default (Shiu defaults)",
+  "pathway": {
+    "anatomical_edge_count": 31,
+    "artifact_sha256": "7983ca6dedcd1ecd7a613feb3e645b3314fbb732326abde1cafc1828ab5abc5a",
+    "evidence": [
+      "https://male-cns.janelia.org/download/",
+      "https://www.nature.com/articles/s41593-019-0413-4",
+      "https://www.nature.com/articles/s41586-026-10735-w",
+      "https://www.virtualflybrain.org/blog/2022/01/01/mevp24-fbbt_20007653/"
+    ],
+    "fingerprint_sha256": "5ce27429d21706a3f1a2c5074043083d76abfe2386ea53cb8aed7860e088caf6",
+    "interpretation": "Experimental visual-projection activation, not retinal looming transduction. MeVP24 is selected by annotation and measured connectivity, not validated looming tuning. DNp10 has published landing leg-extension evidence. Shortest anatomical paths are witnesses only; the entire imported CNS graph is simulated. Shiu LIF parameters and transmitter signs are unvalidated for this CNS. Motor spikes are not muscle activation or a validated landing maneuver. No prediction of flexor inhibition is tested against a silent baseline.",
+    "materialization": "male-cns-v1.0-superclass-non-null-known-nt",
+    "name": "MaleCNS MeVP24-DNp10 tibial-extensor pathway",
+    "path": "outputs/cns/mevp24-dnp10-bilateral.json"
+  },
+  "population": {
+    "active_neurons": 4003,
+    "mean_rate_hz": 0.41436712657468505,
+    "neuron_count": 166700,
+    "total_spikes": 13815
+  },
+  "readouts": {
+    "tibia_extensor_fl_L": {
+      "active_neurons": 1,
+      "mean_rate_hz": 7.5,
+      "mean_rates_hz": [
+        15.0,
+        0.0
+      ],
+      "neuron_count": 2,
+      "neurons": [
+        {
+          "index": 144791,
+          "mean_rate_hz": 15.0,
+          "neuron_id": 800636,
+          "spike_count": 3
+        },
+        {
+          "index": 156522,
+          "mean_rate_hz": 0.0,
+          "neuron_id": 815344,
+          "spike_count": 0
+        }
+      ],
+      "spike_counts": [
+        3,
+        0
+      ],
+      "total_spikes": 3
+    },
+    "tibia_extensor_fl_R": {
+      "active_neurons": 1,
+      "mean_rate_hz": 7.5,
+      "mean_rates_hz": [
+        0.0,
+        15.0
+      ],
+      "neuron_count": 2,
+      "neurons": [
+        {
+          "index": 147555,
+          "mean_rate_hz": 0.0,
+          "neuron_id": 804257,
+          "spike_count": 0
+        },
+        {
+          "index": 156756,
+          "mean_rate_hz": 15.0,
+          "neuron_id": 815678,
+          "spike_count": 3
+        }
+      ],
+      "spike_counts": [
+        0,
+        3
+      ],
+      "total_spikes": 3
+    },
+    "tibia_extensor_hl_L": {
+      "active_neurons": 1,
+      "mean_rate_hz": 5.0,
+      "mean_rates_hz": [
+        10.0,
+        0.0
+      ],
+      "neuron_count": 2,
+      "neurons": [
+        {
+          "index": 144784,
+          "mean_rate_hz": 10.0,
+          "neuron_id": 800621,
+          "spike_count": 2
+        },
+        {
+          "index": 154688,
+          "mean_rate_hz": 0.0,
+          "neuron_id": 812953,
+          "spike_count": 0
+        }
+      ],
+      "spike_counts": [
+        2,
+        0
+      ],
+      "total_spikes": 2
+    },
+    "tibia_extensor_hl_R": {
+      "active_neurons": 0,
+      "mean_rate_hz": 0.0,
+      "mean_rates_hz": [
+        0.0,
+        0.0
+      ],
+      "neuron_count": 2,
+      "neurons": [
+        {
+          "index": 144443,
+          "mean_rate_hz": 0.0,
+          "neuron_id": 800158,
+          "spike_count": 0
+        },
+        {
+          "index": 152271,
+          "mean_rate_hz": 0.0,
+          "neuron_id": 809935,
+          "spike_count": 0
+        }
+      ],
+      "spike_counts": [
+        0,
+        0
+      ],
+      "total_spikes": 0
+    },
+    "tibia_extensor_ml_L": {
+      "active_neurons": 2,
+      "mean_rate_hz": 30.0,
+      "mean_rates_hz": [
+        25.0,
+        35.0
+      ],
+      "neuron_count": 2,
+      "neurons": [
+        {
+          "index": 144996,
+          "mean_rate_hz": 25.0,
+          "neuron_id": 800911,
+          "spike_count": 5
+        },
+        {
+          "index": 145232,
+          "mean_rate_hz": 35.0,
+          "neuron_id": 801234,
+          "spike_count": 7
+        }
+      ],
+      "spike_counts": [
+        5,
+        7
+      ],
+      "total_spikes": 12
+    },
+    "tibia_extensor_ml_R": {
+      "active_neurons": 1,
+      "mean_rate_hz": 12.5,
+      "mean_rates_hz": [
+        25.0,
+        0.0
+      ],
+      "neuron_count": 2,
+      "neurons": [
+        {
+          "index": 160113,
+          "mean_rate_hz": 25.0,
+          "neuron_id": 830514,
+          "spike_count": 5
+        },
+        {
+          "index": 164268,
+          "mean_rate_hz": 0.0,
+          "neuron_id": 928579,
+          "spike_count": 0
+        }
+      ],
+      "spike_counts": [
+        5,
+        0
+      ],
+      "total_spikes": 5
+    }
+  },
+  "relays": {
+    "active_neurons": 2,
+    "mean_rate_hz": 57.5,
+    "mean_rates_hz": [
+      55.0,
+      60.0
+    ],
+    "neuron_count": 2,
+    "neurons": [
+      {
+        "index": 391,
+        "mean_rate_hz": 55.0,
+        "neuron_id": 10425,
+        "spike_count": 11
+      },
+      {
+        "index": 397,
+        "mean_rate_hz": 60.0,
+        "neuron_id": 10433,
+        "spike_count": 12
+      }
+    ],
+    "spike_counts": [
+      11,
+      12
+    ],
+    "total_spikes": 23
+  },
+  "schema": "flybrain.cns-pathway-assay",
+  "schema_version": 1,
+  "seed": 1,
+  "silencing": {
+    "source_count": 2,
+    "source_ids": [
+      10425,
+      10433
+    ]
+  },
+  "steps": 2000,
+  "stimulus": {
+    "driven_role": "input",
+    "event_count": 47,
+    "generator": "splitmix64-counter-v1",
+    "protocol": "Bernoulli external activation proxy",
+    "rate_hz": 150.0,
+    "scheduled_target_count": 2,
+    "target_count": 2,
+    "target_ids": [
+      10142,
+      10723
+    ],
+    "zero_refractory_neuron_count": 2,
+    "zero_refractory_neuron_ids": [
+      10142,
+      10723
+    ]
+  },
+  "timing": {
+    "allocated_bytes": 154818076,
+    "biological_seconds": 0.2,
+    "device_name": "Apple M3 Max",
+    "elapsed_seconds": 0.216697333,
+    "realtime_factor": 1.083486665
+  }
+}
